@@ -71,11 +71,11 @@
 					</items>
 				</Table>
 			</content>
-			<footer>
+			<!-- <footer>
 				<OverflowToolbar >
 					<ToolbarSpacer/>
 					<Button id="saveButton" text="Save" type="Accept" press="onSave" />
 					<Button id="cancelButton" text="Cancel" type="Reject" press="onCancel"/>
 				</OverflowToolbar>
-			</footer>
+			</footer> -->
 </mvc:View>
