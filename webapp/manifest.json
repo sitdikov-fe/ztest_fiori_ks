@@ -24,6 +24,10 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"tableData_alias": {
+				"uri": "model/sample.json",
+				"type": "JSON"
 			}
 		}
 	},
@@ -73,6 +77,10 @@
 				"settings": {
 					"bundleName": "ztest_fiori_ks.i18n.i18n"
 				}
+			},
+			"tableData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "tableData_alias"
 			}
 		},
 		"resources": {
