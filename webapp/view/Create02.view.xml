@@ -1,0 +1,65 @@
+<mvc:View controllerName="ztest_fiori_ks.controller.Create02" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:grid="sap.ui.layout.cssgrid" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:m="sap.m"
+	class="GridDataSample" id="view">
+	<Shell>
+		<App>
+			<pages>
+				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack">
+					<Panel class="sapUiResponsiveMargin" width="auto">
+						<content>
+							<l:VerticalLayout width="90%" class="gridWrapper">
+								<l:dependents>
+									<core:Fragment fragmentName="ztest_fiori_ks.view.BusyDialog" type="XML"/>
+								</l:dependents>
+								<grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="1fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
+									<VBox class="demoBox">
+										<layoutData>
+											<grid:GridItemLayoutData gridRow="1 / 8"/>
+										</layoutData>
+										<f:SimpleForm id="panel" title="{i18n>titleCreateOrder}">
+											<f:content>
+												<Label text="Дата :" class="sapUiSmallMargin"/>
+												<Input id="oDataUser" value="{/date}" enabled="false"/>
+												<Label text="Пользователь :" class="sapUiSmallMargin"/>
+												<Input id="oUserName" value="{/user}" enabled="false"/>
+												<Label text="Номер документа :" class="sapUiSmallMargin"/>
+												<Input id="oOrderId" value="{/number}" enabled="false"/>
+												<Label text="Описание документа :" class="sapUiSmallMargin"/>
+												<Input id="oDescDoc" valueLiveUpdate="true"/>
+												<Label text="{i18n>typeDoc}" class="sapUiSmallMargin"/>
+												<SearchField id="oSearchField" placeholder="Enter type doc" enableSuggestions="true" search=".onSearch" suggest=".onSuggestType"
+													suggestionItems="{path: '/ZtestShTypedocKosiSet', sorted: {path: 'Ztype'}}">
+													<SuggestionItem text="{Ztype}" description="{Zdesc}" key="{Ztype}"/>
+												</SearchField>
+												<Label id="idClient" text="Номер клиента :" class="sapUiSmallMargin"/>
+												<SearchField id="oSelectClient" placeholder="Enter client" enableSuggestions="true" search=".onSearch" suggest=".onSuggestClient"
+													suggestionItems="{path: '/ZtestShClientKosiSet', sorted: {path: 'Id'}}">
+													<SuggestionItem text="{Id}" description="{NameOrg}" key="{Id}"/>
+												</SearchField>
+												<Label text="Нзавание организации :" class="sapUiSmallMargin"/>
+												<Input id="oNameOrg" enabled="false" valueLiveUpdate="true"/>
+												<Label text="Адрес клиента :" class="sapUiSmallMargin"/>
+												<Input id="oAdrClient" enabled="false" valueLiveUpdate="true"/>
+											</f:content>
+										</f:SimpleForm>
+									</VBox>
+									<VBox>
+										<layoutData>
+											<grid:GridItemLayoutData gridRow="1 / 1"/>
+										</layoutData>
+										<Button text="{i18n>nameButtonExit}" press=".onExit" width="100%" icon="sap-icon://undo"/>
+										<Button text="{i18n>nameButtonCreateOrder}" press=".onCreate" width="100%" icon="sap-icon://accept"/>
+										<Button text="{i18n>nameButtonCheckOrder}" press=".onCheck" width="100%" icon="sap-icon://survey"/>
+										<Text text="{i18n>textStatusDocument}"/>
+										<Input enabled="false" id="stateOrder" change=".onUpdateState"/>
+									</VBox>
+								</grid:CSSGrid>
+							</l:VerticalLayout>
+						</content>
+					</Panel>
+				</m:Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

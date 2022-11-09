@@ -1,0 +1,41 @@
+<mvc:View 
+    controllerName="ztest_fiori_ks.controller.first" 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    displayBlock="true"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" 
+	>
+    <Shell>
+        <App id="control">
+            <pages>
+                <Page title = "{i18n>nameTitleFirstP}">
+
+                    <Panel
+                        class = "sapUiResponsiveMargin"
+                        width = "auto">
+                    <content>
+                        <Button 
+                        text = "{i18n>nameButtonCreate}"
+                        press = ".onButtonCreate"
+                        width= "30%"
+                        icon="sap-icon://create"/>
+                    </content>
+                    </Panel>
+
+                    <Panel
+                        class = "sapUiResponsiveMargin"
+                        width = "auto">
+                    <content>
+                        <Button 
+                        text = "{i18n>nameButtonView}"
+                        press = ".onButtonView"
+                        width="30%"
+                        icon="sap-icon://detail-view"/>
+                    </content>
+                    </Panel>
+                    
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
