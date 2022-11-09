@@ -70,6 +70,7 @@
 						</ColumnListItem>
 					</items>
 				</Table>
+			</content>
 			<footer>
 				<OverflowToolbar >
 					<ToolbarSpacer/>
@@ -77,5 +78,4 @@
 					<Button id="cancelButton" text="Cancel" type="Reject" press="onCancel"/>
 				</OverflowToolbar>
 			</footer>
-		</content>
 </mvc:View>
