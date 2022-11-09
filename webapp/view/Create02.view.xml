@@ -58,11 +58,11 @@
 							</l:VerticalLayout>
 						</content>
 					</Panel>
-					<Panel class="sapUiResponsiveMargin" width="auto">
+					<!-- <Panel class="sapUiResponsiveMargin" width="auto">
 						<m:content>
 						<mvc:XMLView viewName="ztest_fiori_ks.view.Table01"/>
 						</m:content>
-					</Panel>
+					</Panel> -->
 				</m:Page>
 			</pages>
 		</App>
