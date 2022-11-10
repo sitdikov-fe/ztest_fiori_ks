@@ -42,7 +42,7 @@ sap.ui.define([
 			this.mode = undefined;
 
 			var dataModel = this.getOwnerComponent().getModel("tableData");
-			this.getView().setModel(dataModel, "sOrder1");
+			this.getView().byId( "idSalesTable" ).setModel(dataModel, "sOrder1");
 
 			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
 			
@@ -58,7 +58,7 @@ sap.ui.define([
 				"status1":"Edited"
 
 			});
-			this.getView().setModel(newModel1, "newModel");
+			this.getView().byId( "idSalesTable" ).setModel(newModel1, "newModel");
 		},
 		_getUserData: function() {
 			var readurl = "/zUserDataSet";
