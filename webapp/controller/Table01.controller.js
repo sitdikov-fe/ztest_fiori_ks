@@ -32,8 +32,6 @@ sap.ui.define([
 
 		onEdit: function (oEvent) {
 
-			console.log(this.mode);
-
 			var that = this;
 
 			if (this.mode === "Null") {//if user click on save in edit functionality
@@ -47,6 +45,10 @@ sap.ui.define([
 			var oTable = this.byId("idSalesTable");
 			// selected row data containts selected records to edit
 			var selectedRowData = oTable.getSelectedContexts();
+
+			console.log(oTable);
+			
+			console.log(selectedRowData);
 
 			if (selectedRowData.length === 0) {//this condiction check wheather the records got selected or not
 				MessageToast.show("please select atleast one row");
