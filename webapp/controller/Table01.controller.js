@@ -91,8 +91,6 @@ sap.ui.define([
 
 				});
 
-				oTable.readOnly = "true";
-				
 				this.mode = "Null";
 
 				MessageToast.show("Record updated successfully");//throws a message
@@ -203,6 +201,13 @@ sap.ui.define([
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
 			}
-		}
+		},
+		setIcon: function () {
+			if (this.mode === "Edit") {
+			  return "sap-icon://edit";
+			} else {
+			  return "sap-icon://show";
+			} 
+		  }
 	});
 });
