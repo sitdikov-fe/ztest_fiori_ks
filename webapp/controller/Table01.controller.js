@@ -32,6 +32,8 @@ sap.ui.define([
 
 		onEdit: function (oEvent) {
 
+			console.log(this.mode);
+
 			var that = this;
 
 			if (this.mode === "Null") {//if user click on save in edit functionality
