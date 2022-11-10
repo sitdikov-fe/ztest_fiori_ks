@@ -1,6 +1,5 @@
 <mvc:View controllerName="ztest_fiori_ks.controller.Table01" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m" xmlns:m="sap.m" xmlns:core="sap.ui.core">
-	<Page>
 			<Table id="idSalesTable" growing="true" items="{ path: 'sOrder1>/Sales' }" mode="MultiSelect" selectionChange="onselectionChange">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
@@ -70,12 +69,11 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-		<footer>
+		<!-- <footer>
 			<OverflowToolbar>
 				<ToolbarSpacer />
 				<Button id="saveButton" text="Save" type="Accept" press="onSave" />
 				<Button id="cancelButton" text="Cancel" type="Reject" press="onCancel" />
 			</OverflowToolbar>
-		</footer>
-	</Page>
+		</footer> -->
 </mvc:View>
