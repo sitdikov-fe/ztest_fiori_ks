@@ -61,75 +61,8 @@
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<m:content>
 							<l:VerticalLayout>
-								<Table id="idSalesTable" growing="true" items="{ path: 'sOrder1>/Sales' }" mode="MultiSelect" selectionChange="onselectionChange">
-									<headerToolbar>
-										<OverflowToolbar id="otbSubheader">
-											<Title text="Products" level="H2" />
-											<ToolbarSpacer />
-											<Button id="editButton" icon="sap-icon://edit" text="Edit" type="Transparent" press="onEdit" visible="{newModel>/edit}" />
-											<Button id="addButton" icon="sap-icon://add" text="Add" type="Transparent" press="onAdd" visible="{newModel>/add}" />
-											<Button id="deleteButton" icon="sap-icon://delete" text="Delete" type="Transparent" press="onDelete" visible="{newModel>/delete}" />
-											<Button id="_IDGenButton1" icon="sap-icon://action-settings" press="onPersoButtonPressed" />
-										</OverflowToolbar>
-									</headerToolbar>
-									<columns>
-										<Column minScreenWidth="Tablet">
-											<Text text="Id" />
-										</Column>
-										<Column minScreenWidth="Tablet" demandPopin="true">
-											<Text text="Name" />
-										</Column>
-										<Column minScreenWidth="Tablet" demandPopin="true">
-											<Text text="NameType" />
-										</Column>
-										<Column>
-											<Text text="Quantity" />
-										</Column>
-										<Column minScreenWidth="Tablet" demandPopin="true">
-											<Text text="FullPrice" />
-										</Column>
-										<Column minScreenWidth="Tablet" demandPopin="true">
-											<Text text="Storage" />
-										</Column>
-										<Column minScreenWidth="Tablet" demandPopin="true">
-											<Text text="Quanstorage" />
-										</Column>
-									</columns>
-									<items>
-										<ColumnListItem vAlign="Middle" press="tableSelected">
-											<cells>
-												<HBox visible="true">
-													<Text text="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ? ${sOrder1>neweditable} === true ? false:true :true}" />
-													<Input change="onChange" value="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ?  ${sOrder1>neweditable} === true ? true:false:false}" valueState="{newModel>/valueState}" liveChange="onLiveChange"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-												<HBox visible="true">
-													<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-													<Input value="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
-												</HBox>
-											</cells>
-										</ColumnListItem>
-									</items>
-								</Table>
+								<!-- <mvc:XMLView
+									viewName="ztest_fiori_ks.view.Table01" /> -->
 							</l:VerticalLayout>
 						</m:content>
 					</Panel>
