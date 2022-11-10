@@ -5,7 +5,7 @@
 	<Shell>
 		<App>
 			<pages>
-				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack">
+				<m:Page title="{i18n>titlePageCreate01}"  showFooter="true" showNavButton="true" navButtonPress="onBack">
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<content>
 							<l:VerticalLayout width="90%" class="gridWrapper">
