@@ -36,46 +36,43 @@ sap.ui.define([
 
 			if (this.mode === "Null") {//if user click on save in edit functionality
 
-			// this.mode is a global varible 
-			this.mode = "Edit";
-			var that = this;
-			// declare a arry for holding old records.
-			this.oldDataArry = [];
-			// var sData = oEvent.getSource().getModel("sOrder1").getData();
-			var oTable = this.byId("idSalesTable");
-			// selected row data containts selected records to edit
-			var selectedRowData = oTable.getSelectedContexts();
+				// this.mode is a global varible 
+				this.mode = "Edit";
+				var that = this;
+				// declare a arry for holding old records.
+				this.oldDataArry = [];
+				// var sData = oEvent.getSource().getModel("sOrder1").getData();
+				var oTable = this.byId("idSalesTable");
+				// selected row data containts selected records to edit
+				var selectedRowData = oTable.getSelectedContexts();
 
-			console.log(oTable);
+				console.log(oTable);
 
-			console.log(selectedRowData);
+				console.log(selectedRowData);
 
-			if (selectedRowData.length === 0) {//this condiction check wheather the records got selected or not
-				MessageToast.show("please select atleast one row");
+				if (selectedRowData.length === 0) {//this condiction check wheather the records got selected or not
+					MessageToast.show("please select atleast one row");
 
-				return;
-			} else {
-			
-				// oEvent.getSource().getParent().getParent().getParent().setShowFooter(true);
-				// that.getView().getModel("newModel").setProperty("/add", false);//we set property add to false so that it disappear when click on edit button
-				// that.getView().getModel("newModel").setProperty("/delete", false);//we set property delete to false so that it disappear when click on edit button
-				that.getView().getModel("newModel").setProperty("/editable", false);//we set property editable to false so that first property is non-editable
-				selectedRowData.forEach(function(item) {
-					var sContext = item;
-					var sPath = sContext.getPath();
-					var sObj = sContext.getObject();
-					var oldObj = {//here old Obj collects selected data 
-						sPath: sPath,
-						sObj: JSON.stringify(sObj)//Json.Stringfy method used to convert in String format
-					};
-					that.oldDataArry.push(oldObj);//append the record to arry which we declare before
-					sObj.editable = true;//by using this property we enable inputfeilds visible
+					return;
+				} else {
 
-					that.getView().getModel("sOrder1").setProperty(sPath, sObj, sContext, true);//finally we set record in model in that path
+					that.getView().getModel("newModel").setProperty("/editable", false);//we set property editable to false so that first property is non-editable
+					selectedRowData.forEach(function (item) {
+						var sContext = item;
+						var sPath = sContext.getPath();
+						var sObj = sContext.getObject();
+						var oldObj = {//here old Obj collects selected data 
+							sPath: sPath,
+							sObj: JSON.stringify(sObj)//Json.Stringfy method used to convert in String format
+						};
+						that.oldDataArry.push(oldObj);//append the record to arry which we declare before
+						sObj.editable = true;//by using this property we enable inputfeilds visible
 
-				});
+						that.getView().getModel("sOrder1").setProperty(sPath, sObj, sContext, true);//finally we set record in model in that path
 
-			}
+					});
+
+				}
 
 
 
