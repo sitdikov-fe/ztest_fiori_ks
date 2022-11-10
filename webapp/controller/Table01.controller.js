@@ -201,15 +201,6 @@ sap.ui.define([
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
 			}
-		},
-		setIcon: function (value) {
-			if (this.mode === "Edit") {
-			  that.getView().getModel("sOrder1").Refresh();
-			  return "sap-icon://edit";
-			} else {
-			  that.getView().getModel("sOrder1").Refresh();
-			  return "sap-icon://show";
-			} 
-		  }
+		}
 	});
 });
