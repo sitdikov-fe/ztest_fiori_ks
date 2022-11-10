@@ -130,16 +130,16 @@
 										</ColumnListItem>
 									</items>
 								</Table>
-							<footer>
-								<OverflowToolbar>
-									<ToolbarSpacer />
-									<Button id="saveButton" text="Save" type="Accept" press="onSave" />
-									<Button id="cancelButton" text="Cancel" type="Reject" press="onCancel" />
-								</OverflowToolbar>
-							</footer>
 							</l:VerticalLayout>
 						</m:content>
 					</Panel>
+					<footer>
+						<OverflowToolbar>
+							<ToolbarSpacer />
+							<Button id="saveButton" text="Save" type="Accept" press="onSave" />
+							<Button id="cancelButton" text="Cancel" type="Reject" press="onCancel" />
+						</OverflowToolbar>
+					</footer>
 				</m:Page>
 			</pages>
 		</App>
