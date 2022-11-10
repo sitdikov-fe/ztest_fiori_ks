@@ -116,6 +116,7 @@ sap.ui.define([
 								that.getView().getModel("newModel").setProperty("/editable", false);//we set property editable to false so that first property is non-editable
 								// oEvent.getSource().getParent().getParent().setShowFooter(false);
 								MessageToast.show("Record saved Successfully");
+								this.mode = "Null";
 							}
 						}
 					}
