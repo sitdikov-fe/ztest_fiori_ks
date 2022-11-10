@@ -3,6 +3,7 @@
 	xmlns:grid="sap.ui.layout.cssgrid" xmlns:c="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:m="sap.m"
 	class="GridDataSample" id="view">
 	<Shell>
+		<App>
 			<pages>
 				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack">
 					<Panel class="sapUiResponsiveMargin" width="auto">
@@ -67,5 +68,6 @@
 					</Panel>
 				</m:Page>
 			</pages>
+		</App>
 	</Shell>
 </mvc:View>
