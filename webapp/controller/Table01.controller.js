@@ -202,7 +202,7 @@ sap.ui.define([
 				oTable.removeSelections(true);
 			}
 		},
-		setIcon: function () {
+		setIcon: function (value) {
 			if (this.mode === "Edit") {
 			  return "sap-icon://edit";
 			} else {
