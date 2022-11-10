@@ -10,7 +10,7 @@ sap.ui.define([
 	"sap/ui/core/syncStyleClass",
 	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast) {
+], function(Controller, JSONModel, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast) {
 	"use strict";
 	var state;
 	var oIdOrder;
@@ -28,7 +28,7 @@ sap.ui.define([
 	var iTimeoutId;
 
 	return Controller.extend("ztest_fiori_ks.controller.Create02", {
-		onInit: function () {
+		onInit: function() {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			isActive = 0;
 			this.getView().byId("oSelectClient").setModel(oModel);
@@ -38,36 +38,11 @@ sap.ui.define([
 			this.getResourceBundle();
 			this._getDateResorces();
 			console.log("Start: isErrorResponse : ", isErrorResponse);
-
-			this.mode = undefined;
-			console.log(this);
-			var dataModel = this.getOwnerComponent().getModel("tableData");
-			console.log(dataModel);
-			this.getView().setModel(dataModel, "sOrder1");
-			console.log(this.getView());
-			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
-			console.log(this.temp);
-
-			// create a new model for property binding .for visible property
-			var newModel1 = new JSONModel({
-				visibleHeader: true,
-				"editable": false,
-				"valueState": "None",
-				"add": true,
-				"edit": true,
-				"delete": true,
-				"status": "completed",
-				"status1": "Edited"
-
-			});
-			this.getView().setModel(newModel1, "newModel");
-
-			console.log(this.getView());
 		},
-		_getUserData: function () {
+		_getUserData: function() {
 			var readurl = "/zUserDataSet";
 			oModel.read(readurl, {
-				success: function (oData, oResponse) {
+				success: function(oData, oResponse) {
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zUserName, "oUserData");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zData, "oUserName");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zIdOrder, "oOrderId");
@@ -76,7 +51,7 @@ sap.ui.define([
 			});
 		},
 
-		_getDateResorces: function () {
+		_getDateResorces: function() {
 			oUserName = sap.ui.getCore().getModel("oUserData");
 			oUserData = sap.ui.getCore().getModel("oUserName");
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
@@ -91,10 +66,10 @@ sap.ui.define([
 
 			//this.onUpdateState();
 		},
-		getResourceBundle: function () {
+		getResourceBundle: function() {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
-		onSuggestType: function (event) {
+		onSuggestType: function(event) {
 			var sValue = event.getParameter("suggestValue"),
 				aFilters = [];
 			if (sValue) {
@@ -111,12 +86,12 @@ sap.ui.define([
 			var oBinding = oSource.getBinding('suggestionItems');
 			oBinding.filter(aFilters);
 
-			oBinding.attachEventOnce('dataReceived', function () {
+			oBinding.attachEventOnce('dataReceived', function() {
 				oSource.suggest();
 			});
 
 		},
-		onSuggestClient: function (event) {
+		onSuggestClient: function(event) {
 			var sValue = event.getParameter("suggestValue"),
 				aFilters = [];
 			if (sValue) {
@@ -133,36 +108,36 @@ sap.ui.define([
 			var oBinding = oSource.getBinding('suggestionItems');
 			oBinding.filter(aFilters);
 
-			oBinding.attachEventOnce('dataReceived', function () {
+			oBinding.attachEventOnce('dataReceived', function() {
 				oSource.suggest();
 			});
 			this.onChangeId();
 
 		},
 
-		onChangeId: function () {
+		onChangeId: function() {
 			oIdClient = this.getView().byId("oSelectClient").getValue();
 			var readurl = "/zstclientSet('" + oIdClient + "')";
 			oModel.read(readurl, {
-				success: function (oData, oResponse) {
+				success: function(oData, oResponse) {
 
 					this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
 					oAdr = oData.valueOf().Address;
 					isErrorResponse = 0;
 				}.bind(this),
-				error: function (err) {
+				error: function(err) {
 					isErrorResponse = 1;
 				}
 			});
 
 		},
-		_setNotFoundClient: function () {
+		_setNotFoundClient: function() {
 			console.log("set adress");
 			this.getView().byId("oNameOrg").setValue('value not found');
 			this.getView().byId("oAdrClient").setValue('value not found');
 		},
-		onBack: function () {
+		onBack: function() {
 			var sPreviousHash = History.getInstance().getPreviousHash();
 
 			//The history contains a previous entry
@@ -175,10 +150,10 @@ sap.ui.define([
 			}
 		},
 
-		onExit: function () {
+		onExit: function() {
 			this.getOwnerComponent().getRouter().navTo("page1");
 		},
-		_createOrderSt: function () {
+		_createOrderSt: function() {
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
 			type = this.getView().byId("oSearchField").getValue();
 			oUserName = this.getView().byId("oUserName").getValue();
@@ -198,24 +173,24 @@ sap.ui.define([
 
 			var oCreateUrl = "/zOrderDateSet";
 			oModel.create(oCreateUrl, data, null,
-				function (response) {
+				function(response) {
 					alert("Data successfully created");
 				},
-				function (error) {
+				function(error) {
 					alert("Error while creating the data");
 				}
 			);
 		},
-		onCreate: function () {
+		onCreate: function() {
 			this._createOrderSt();
 
 		},
-		onCheck: function () {
+		onCheck: function() {
 			this._getDateResorces();
 			this.onChangeId();
 			this.onUpdateState();
 		},
-		_checkField: function () {
+		_checkField: function() {
 			oDesc = this.getView().byId("oDescDoc").getValue();
 			type = this.getView().byId("oSearchField").getValue();
 			//oAdr = this.getView().byId("oNameOrg").getValue();
@@ -230,19 +205,19 @@ sap.ui.define([
 				console.log("adress is null");
 			}
 		},
-		onUpdateState: function () {
+		onUpdateState: function() {
 			// if (isErrorResponse === 1) {
 			// 	this._setNotFoundClient();
 			// }
-			//	this.onOpenDialog();
+					//	this.onOpenDialog();
 
 			if (isErrorResponse === 1) {
 				console.log("set adress : error");
 				oAdr = undefined;
 				this.getView().byId("oNameOrg").setValue('value not found');
 				this.getView().byId("oAdrClient").setValue('value not found');
-			}
-
+			} 
+			
 			console.log("Run: isErrorResponse : ", isErrorResponse);
 			this._checkField();
 			console.log("isActive : ", isActive);
@@ -254,7 +229,7 @@ sap.ui.define([
 
 		},
 
-		onOpenDialog: function () {
+		onOpenDialog: function() {
 			// load BusyDialog fragment asynchronously
 			var oDialog = this.byId("BusyDialog");
 			oDialog.open();
