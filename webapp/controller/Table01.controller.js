@@ -11,6 +11,8 @@ sap.ui.define([
 		onInit: function(oEvent) {
 			this.mode = undefined;
 
+			console.log(this);
+
 			var dataModel = this.getOwnerComponent().getModel("tableData");
 
 			console.log(dataModel);
