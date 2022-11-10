@@ -12,9 +12,16 @@ sap.ui.define([
 			this.mode = undefined;
 
 			var dataModel = this.getOwnerComponent().getModel("tableData");
+
+			console.log(dataModel);
+
 			this.getView().setModel(dataModel, "sOrder1");
 
+			console.log(this.getView());
+
 			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
+
+			console.log(this.temp);
 			
 		
 			
@@ -31,6 +38,8 @@ sap.ui.define([
 
 			});
 			this.getView().setModel(newModel1, "newModel");
+
+			console.log(this.getView());
 		},
 		
 		onDelete: function(oEvent) {
