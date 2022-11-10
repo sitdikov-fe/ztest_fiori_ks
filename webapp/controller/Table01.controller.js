@@ -48,7 +48,7 @@ sap.ui.define([
 
 				console.log(oTable);
 				console.log(selectedRowData);
-				
+				that.getView().getModel("newModel").setProperty("/editable", true);//we set property editable to false so that first property is non-editable
 				selectedRowData.forEach(function (item) {
 					var sContext = item;
 					var sPath = sContext.getPath();
