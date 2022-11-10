@@ -47,7 +47,7 @@ sap.ui.define([
 			var selectedRowData = oTable.getSelectedContexts();
 
 			console.log(oTable);
-			
+
 			console.log(selectedRowData);
 
 			if (selectedRowData.length === 0) {//this condiction check wheather the records got selected or not
@@ -91,6 +91,8 @@ sap.ui.define([
 
 				});
 
+				oTable.readOnly = "true";
+				
 				this.mode = "Null";
 
 				MessageToast.show("Record updated successfully");//throws a message
