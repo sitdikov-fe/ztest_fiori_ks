@@ -4,7 +4,6 @@
 	class="GridDataSample" id="view">
 	<Shell>
 		<App>
-			<pages>
 				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack">
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<content>
@@ -67,7 +66,6 @@
 						</m:content>
 					</Panel>
 				</m:Page>
-			</pages>
 		</App>
 	</Shell>
 </mvc:View>
