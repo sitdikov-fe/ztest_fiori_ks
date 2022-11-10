@@ -204,8 +204,10 @@ sap.ui.define([
 		},
 		setIcon: function (value) {
 			if (this.mode === "Edit") {
+			  that.getView().getModel("sOrder1").Refresh();
 			  return "sap-icon://edit";
 			} else {
+			  that.getView().getModel("sOrder1").Refresh();
 			  return "sap-icon://show";
 			} 
 		  }
