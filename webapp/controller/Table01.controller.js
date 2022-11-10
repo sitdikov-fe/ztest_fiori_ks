@@ -75,7 +75,7 @@ sap.ui.define([
 				return;
 			} else {
 			
-				oEvent.getSource().getParent().getParent().getParent().getParent().setShowFooter(true);
+				oEvent.getSource().getParent().getParent().getParent().setShowFooter(true);
 				that.getView().getModel("newModel").setProperty("/add", false);//we set property add to false so that it disappear when click on edit button
 				that.getView().getModel("newModel").setProperty("/delete", false);//we set property delete to false so that it disappear when click on edit button
 				that.getView().getModel("newModel").setProperty("/editable", false);//we set property editable to false so that first property is non-editable
@@ -104,7 +104,7 @@ sap.ui.define([
 		onAdd: function(oEvent) {
 			this.mode = "Add";
 			var that = this;
-			oEvent.getSource().getParent().getParent().getParent().getParent().setShowFooter(true);
+			oEvent.getSource().getParent().getParent().getParent().setShowFooter(true);
 			that.getView().getModel("newModel").setProperty("/edit", false);
 			that.getView().getModel("newModel").setProperty("/add", true);
 			that.getView().getModel("newModel").setProperty("/delete", false);
@@ -162,7 +162,7 @@ sap.ui.define([
 					that.getView().getModel("sOrder1").setProperty(sPath, sObj, sContext, true);
 
 				});
-				oEvent.getSource().getParent().getParent().getParent().setShowFooter(false);
+				oEvent.getSource().getParent().getParent().setShowFooter(false);
 				that.getView().getModel("newModel").setProperty("/edit", true);//we set property add to true so that it appers when click on save button
 				that.getView().getModel("newModel").setProperty("/add", true);//we set property add to true so that it appers when click on save button
 				that.getView().getModel("newModel").setProperty("/delete", true);//we set property delete to true so that it appers when click on save button
@@ -192,7 +192,7 @@ sap.ui.define([
 								that.getView().getModel("newModel").setProperty("/add", true);//add button visible
 								that.getView().getModel("newModel").setProperty("/delete", true);//delete button visible
 								that.getView().getModel("newModel").setProperty("/editable", false);//we set property editable to false so that first property is non-editable
-								oEvent.getSource().getParent().getParent().getParent().setShowFooter(false);
+								oEvent.getSource().getParent().getParent().setShowFooter(false);
 								MessageToast.show("Record saved Successfully");
 							}
 						}
@@ -215,7 +215,7 @@ sap.ui.define([
 					sObj.editable = false;
 					that.getView().getModel("sOrder1").setProperty(sPath, sObj, true);
 				});
-				oEvent.getSource().getParent().getParent().getParent().setShowFooter(false);
+				oEvent.getSource().getParent().getParent().setShowFooter(false);
 				that.getView().getModel("newModel").setProperty("/edit", true);
 				that.getView().getModel("newModel").setProperty("/add", true);
 				that.getView().getModel("newModel").setProperty("/delete", true);
@@ -234,7 +234,7 @@ sap.ui.define([
 					 oTable.removeSelections(true);
 				}
 				this.getView().getModel("sOrder1").setProperty("/Sales/", sData);
-				oEvent.getSource().getParent().getParent().getParent().setShowFooter(false);
+				oEvent.getSource().getParent().getParent().setShowFooter(false);
 				this.getView().getModel("newModel").setProperty("/edit", true);
 				this.getView().getModel("newModel").setProperty("/add", true);
 				this.getView().getModel("newModel").setProperty("/delete", true);
