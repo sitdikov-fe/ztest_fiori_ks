@@ -1,3 +1,4 @@
+import { onCreateTable } from '/controller/Table01.controller.js';
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
@@ -170,7 +171,8 @@ sap.ui.define([
 			data.ZzclientId = oIdClient;
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
-			
+
+			onCreateTable();
 
 			// var oCreateUrl = "/zOrderDateSet";
 			// oModel.create(oCreateUrl, data, null,
