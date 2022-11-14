@@ -1,4 +1,3 @@
-import { onCreateTable } from '/controller/Table01.controller.js';
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
@@ -174,15 +173,15 @@ sap.ui.define([
 
 			onCreateTable();
 
-			// var oCreateUrl = "/zOrderDateSet";
-			// oModel.create(oCreateUrl, data, null,
-			// 	function(response) {
-			// 		alert("Data successfully created");
-			// 	},
-			// 	function(error) {
-			// 		alert("Error while creating the data");
-			// 	}
-			// );
+			var oCreateUrl = "/zOrderDateSet";
+			oModel.create(oCreateUrl, data, null,
+				function(response) {
+					alert("Data successfully created");
+				},
+				function(error) {
+					alert("Error while creating the data");
+				}
+			);
 
 		},
 		onCreate: function() {

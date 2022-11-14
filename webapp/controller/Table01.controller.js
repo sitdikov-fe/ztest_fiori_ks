@@ -110,7 +110,8 @@ sap.ui.define([
 			}
 		},
 		onCreateTable: function() {
-			MessageToast.show("Сохраняю :)");
+
+			MessageToast.show("Сохраняю таблицу в бд :)");
 
 		},
 	});
