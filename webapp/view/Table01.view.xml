@@ -3,7 +3,7 @@
 			<Table id="idSalesTable" growing="true" items="{ path: 'sOrder1>/Sales' }" mode="MultiSelect" selectionChange="onselectionChange">
 				<headerToolbar>
 					<OverflowToolbar id="otbSubheader">
-						<Title text="Products" level="H2" />
+						<Title text="{i18n>nameTable}" level="H2" />
 						<ToolbarSpacer />
 						<Button id="addButton" icon="sap-icon://add" text="Add" type="Transparent" press="onAdd" visible="{newModel>/add}" />
 						<Button id="deleteButton" icon="sap-icon://delete" text="Delete" type="Transparent" press="onDelete" visible="{newModel>/delete}" />
