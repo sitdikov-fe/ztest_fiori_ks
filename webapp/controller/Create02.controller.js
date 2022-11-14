@@ -171,15 +171,18 @@ sap.ui.define([
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
 
-			var oCreateUrl = "/zOrderDateSet";
-			oModel.create(oCreateUrl, data, null,
-				function(response) {
-					alert("Data successfully created");
-				},
-				function(error) {
-					alert("Error while creating the data");
-				}
-			);
+			onCreateTable();
+
+			// var oCreateUrl = "/zOrderDateSet";
+			// oModel.create(oCreateUrl, data, null,
+			// 	function(response) {
+			// 		alert("Data successfully created");
+			// 	},
+			// 	function(error) {
+			// 		alert("Error while creating the data");
+			// 	}
+			// );
+
 		},
 		onCreate: function() {
 			this._createOrderSt();
