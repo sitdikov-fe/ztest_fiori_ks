@@ -91,7 +91,7 @@ sap.ui.define([
 			var oTable = this.byId("idSalesTable");
 			var selectedRowData = oTable.getSelectedContexts();//get the selected contexts 
 			if (selectedRowData.length === 0) {
-				MessageToast.show("please select atleast one row");
+				MessageToast.show("Выберите хотя бы одну строку");
 				return;
 			} else {
 
@@ -108,6 +108,10 @@ sap.ui.define([
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
 			}
-		}
+		},
+		onCreateTable: function() {
+			MessageToast.show("Сохраняю :)");
+
+		},
 	});
 });
