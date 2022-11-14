@@ -33,6 +33,11 @@ sap.ui.define([
 		onLiveChange: function (oEvent) {
 			this.enteredValue = oEvent.getParameter("value");
 
+			var _oInput = oEvent.getSource();
+			var val = _oInput.getValue();
+			val = val.replace(/[^\d]/g, '');
+			_oInput.setValue(val);
+
 		},
 		onAdd: function (oEvent) {
 			this.mode = "Add";
