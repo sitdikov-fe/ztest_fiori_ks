@@ -32,6 +32,9 @@
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="{i18n>id7}" />
 					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>id8}" />
+					</Column>
 				</columns>
 				<items>
 					<ColumnListItem vAlign="Middle" press="tableSelected">
@@ -51,6 +54,10 @@
 							<HBox visible="true">
 								<Text text="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 								<Input value="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>
+							</HBox>
+							<HBox visible="true">
+								<Text text="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? false:true}" />
+								<Input value="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />
