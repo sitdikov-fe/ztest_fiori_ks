@@ -170,8 +170,7 @@ sap.ui.define([
 			data.ZzclientId = oIdClient;
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
-
-			Table01.controller.onCreateTable();
+			
 
 			// var oCreateUrl = "/zOrderDateSet";
 			// oModel.create(oCreateUrl, data, null,
