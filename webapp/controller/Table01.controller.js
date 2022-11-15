@@ -28,8 +28,6 @@ sap.ui.define([
 
 			});
 			this.getView().setModel(newModel1, "newModel");
-
-			console.log(this);
 		},
 
 		onLiveChange: function (oEvent) {
@@ -61,6 +59,8 @@ sap.ui.define([
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData();//get table data
 			oTableData.Sales.push(newRecord);//push this new record in model
 			that.getView().getModel("sOrder1").setData(oTableData);//set data to the view
+
+			console.log(this);
 		},
 
 		onChange: function (oEvent) {
