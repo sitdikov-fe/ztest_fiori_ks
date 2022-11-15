@@ -117,21 +117,21 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/zTestStr001Set";
 
-			console.log(rawdata);
+			// console.log(rawdata);
 
-			// rawdata.array.forEach(row => {
-			// 	data.id = row.Id;
-			// 	data.doc_num = order;
-			// 	data.name = row.Name;
-			// 	data.nametype = row.NameType;
-			// 	data.quantity = row.Quantity;
-			// 	data.price = row.Price;
-			// 	data.fullprice = row.FullPrice;
-			// 	data.storege = row.Storage;
-			// 	data.quanstorage = row.Quanstorage;
+			rawdata.forEach(row => {
+				data.id = row.Id;
+				data.doc_num = order;
+				data.name = row.Name;
+				data.nametype = row.NameType;
+				data.quantity = row.Quantity;
+				data.price = row.Price;
+				data.fullprice = row.FullPrice;
+				data.storege = row.Storage;
+				data.quanstorage = row.Quanstorage;
 
-			// 	oModel.create(oCreateUrl, data, null);
-			// });
+				oModel.create(oCreateUrl, data, null);
+			});
 
 		},
 	});
