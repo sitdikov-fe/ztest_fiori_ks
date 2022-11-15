@@ -59,8 +59,6 @@ sap.ui.define([
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData();//get table data
 			oTableData.Sales.push(newRecord);//push this new record in model
 			that.getView().getModel("sOrder1").setData(oTableData);//set data to the view
-
-			console.log(this);
 		},
 
 		onChange: function (oEvent) {
@@ -110,6 +108,8 @@ sap.ui.define([
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
 			}
+
+			console.log(oTableData.Sales);
 		},
 		onCreateTable: function() {
 
