@@ -6,6 +6,7 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator"
 ], function (Controller, JSONModel, MessageToast, Filter, FilterOperator) {
 	"use strict";
+	var oModel;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
@@ -112,7 +113,7 @@ sap.ui.define([
 
 		},
 		onCreateTable: function(order) {
-			
+
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
