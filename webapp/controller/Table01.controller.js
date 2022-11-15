@@ -120,15 +120,15 @@ sap.ui.define([
 			var oCreateUrl = "/ztestStr001Set";
 
 			rawdata.forEach(row => {
-				data.id = row.Id;
-				data.doc_num = order;
-				data.name = row.Name;
-				data.nametype = row.NameType;
-				data.quantity = row.Quantity;
-				data.price = row.Price;
-				data.fullprice = row.FullPrice;
-				data.storege = row.Storage;
-				data.quanstorage = row.Quanstorage;
+				data.Id = row.Id;
+				data.Docnum = order;
+				data.Name = row.Name;
+				data.Nametype = row.NameType;
+				data.Quantity = row.Quantity;
+				data.Price = row.Price;
+				data.Fullprice = row.FullPrice;
+				data.Storege = row.Storage;
+				data.Quanstorage = row.Quanstorage;
 
 				oModel.create(oCreateUrl, data, null,
 					function(response) {
