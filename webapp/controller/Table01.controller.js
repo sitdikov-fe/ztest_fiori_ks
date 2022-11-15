@@ -115,7 +115,7 @@ sap.ui.define([
 
 			var rawdata = window.temp.getView().getModel("sOrder1").getData();
 
-			console.log(rawdata.Sales.id);
+			console.log(rawdata.Sales[0]);
 
 		},
 	});
