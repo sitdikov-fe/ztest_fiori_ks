@@ -91,7 +91,7 @@ sap.ui.define([
 			var oTable = this.byId("idSalesTable");
 			var selectedRowData = oTable.getSelectedContexts();//get the selected contexts 
 			if (selectedRowData.length === 0) {
-				MessageToast.show("Выберите хотя бы одну строку");
+				MessageToast.show("Выберете хотя бы одну строку");
 				return;
 			} else {
 
