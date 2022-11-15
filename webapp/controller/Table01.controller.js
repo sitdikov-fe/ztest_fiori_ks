@@ -109,11 +109,10 @@ sap.ui.define([
 				oTable.removeSelections(true);
 			}
 
-			console.log(oEvent.getSource().getModel("sOrder1").getData());
 		},
 		onCreateTable: function() {
 
-			MessageToast.show("Сохраняю таблицу в бд :)");
+			console.log(oEvent.getSource().getModel("sOrder1").getData());
 
 		},
 	});

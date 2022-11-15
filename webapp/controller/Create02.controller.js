@@ -171,7 +171,7 @@ sap.ui.define([
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
 
-			console.log(this);
+			console.log(data);
 
 			sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable();
 
