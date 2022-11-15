@@ -28,6 +28,7 @@ sap.ui.define([
 
 			});
 			this.getView().setModel(newModel1, "newModel");
+			window.temp = this;
 		},
 
 		onLiveChange: function (oEvent) {
@@ -112,7 +113,7 @@ sap.ui.define([
 		},
 		onCreateTable: function() {
 
-			console.log(window.getView().getModel("sOrder1").getData());
+			console.log(window.temp.getView().getModel("sOrder1").getData());
 
 		},
 	});
