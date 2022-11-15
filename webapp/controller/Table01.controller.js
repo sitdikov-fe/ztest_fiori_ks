@@ -112,7 +112,8 @@ sap.ui.define([
 		},
 		onCreateTable: function() {
 
-			console.log(this.getModel("sOrder1").getData());
+			console.log(this);
+			console.log(this.getView().getModel("sOrder1").getData());
 
 		},
 	});
