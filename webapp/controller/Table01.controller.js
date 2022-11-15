@@ -110,9 +110,10 @@ sap.ui.define([
 			}
 
 		},
-		onCreateTable: function(oEvent) {
+		onCreateTable: function() {
+			var that = this;
 
-			console.log(oEvent.getSource().getModel("sOrder1").getData());
+			console.log(that.getView().getModel("sOrder1").getData());
 
 		},
 	});
