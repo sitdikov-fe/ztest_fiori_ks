@@ -117,7 +117,7 @@ sap.ui.define([
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
-			var oCreateUrl = "/zTestStr001Set";
+			var oCreateUrl = "/ztestStr001Set";
 
 			// console.log(rawdata);
 
