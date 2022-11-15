@@ -111,9 +111,11 @@ sap.ui.define([
 			}
 
 		},
-		onCreateTable: function() {
+		onCreateTable: function(order) {
 
-			console.log(window.temp.getView().getModel("sOrder1").getData());
+			rawdata = window.temp.getView().getModel("sOrder1").getData();
+
+			console.log(rawdata.id);
 
 		},
 	});
