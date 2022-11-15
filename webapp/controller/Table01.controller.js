@@ -114,22 +114,22 @@ sap.ui.define([
 		onCreateTable: function(order) {
 
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
-
-			console.log(rawdata);
-
 			var data = {};
+			var oCreateUrl = "/zTestStr001Set";
 
-			// for (row in rawdata){
-			// 	data.id = rawdata.Id;
-			// 	data.doc_num = order;
-			// 	data.name = rawdata.Id;
-			// 	data.nametype = rawdata.Id;
-			// 	data.quantity = rawdata.Id;
-			// 	data.price = rawdata.Id;
-			// 	data.fullprice = rawdata.Id;
-			// 	data.storege = rawdata.Id;
-			// 	data.quanstorage = rawdata.Id;
-			// }
+			for (row in rawdata){
+				data.id = rawdata.Id;
+				data.doc_num = order;
+				data.name = rawdata.Name;
+				data.nametype = rawdata.NameType;
+				data.quantity = rawdata.Quantity;
+				data.price = rawdata.Price;
+				data.fullprice = rawdata.FullPrice;
+				data.storege = rawdata.Storage;
+				data.quanstorage = rawdata.Quanstorage;
+
+				oModel.create(oCreateUrl, data, null);
+			}
 
 		},
 	});
