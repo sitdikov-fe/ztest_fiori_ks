@@ -109,7 +109,7 @@ sap.ui.define([
 				oTable.removeSelections(true);
 			}
 
-			console.log(oTableData.Sales);
+			console.log(oEvent.getSource().getModel("sOrder1").getData());
 		},
 		onCreateTable: function() {
 
