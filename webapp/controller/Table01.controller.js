@@ -28,6 +28,8 @@ sap.ui.define([
 
 			});
 			this.getView().setModel(newModel1, "newModel");
+
+			console.log(this);
 		},
 
 		onLiveChange: function (oEvent) {
