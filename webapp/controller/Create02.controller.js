@@ -176,14 +176,14 @@ sap.ui.define([
 			sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(oIdOrder);
 
 			var oCreateUrl = "/zOrderDateSet";
-			oModel.create(oCreateUrl, data, null,
-				function(response) {
-					alert("Data successfully created");
-				},
-				function(error) {
-					alert("Error while creating the data");
-				}
-			);
+			// oModel.create(oCreateUrl, data, null,
+			// 	function(response) {
+			// 		alert("Data successfully created");
+			// 	},
+			// 	function(error) {
+			// 		alert("Error while creating the data");
+			// 	}
+			// );
 
 		},
 		onCreate: function() {

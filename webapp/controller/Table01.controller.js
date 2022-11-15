@@ -130,10 +130,14 @@ sap.ui.define([
 				data.storege = row.Storage;
 				data.quanstorage = row.Quanstorage;
 
-				console.log(data);
-				console.log(oModel);
-
-				oModel.create(oCreateUrl, data, null);
+				oModel.create(oCreateUrl, data, null,
+					function(response) {
+						alert("Data successfully created");
+					},
+					function(error) {
+						alert("Error while creating the data");
+					}
+				);
 			});
 
 		},
