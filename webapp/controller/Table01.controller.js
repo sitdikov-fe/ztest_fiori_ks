@@ -112,7 +112,7 @@ sap.ui.define([
 		},
 		onCreateTable: function(that) {
 
-			console.log(that.getView().getModel("sOrder1").setData(sData));
+			console.log(that.getView().byId("idSalesTable"));
 
 		},
 	});
