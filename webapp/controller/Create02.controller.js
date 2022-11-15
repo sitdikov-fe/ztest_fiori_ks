@@ -173,7 +173,7 @@ sap.ui.define([
 
 			console.log(data);
 
-			sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable();
+			sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(oIdOrder);
 
 			var oCreateUrl = "/zOrderDateSet";
 			oModel.create(oCreateUrl, data, null,

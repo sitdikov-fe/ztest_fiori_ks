@@ -113,9 +113,23 @@ sap.ui.define([
 		},
 		onCreateTable: function(order) {
 
-			var rawdata = window.temp.getView().getModel("sOrder1").getData();
+			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 
-			console.log(rawdata.Sales[0].Id);
+			console.log(rawdata);
+
+			var data = {};
+
+			// for (row in rawdata){
+			// 	data.id = rawdata.Id;
+			// 	data.doc_num = order;
+			// 	data.name = rawdata.Id;
+			// 	data.nametype = rawdata.Id;
+			// 	data.quantity = rawdata.Id;
+			// 	data.price = rawdata.Id;
+			// 	data.fullprice = rawdata.Id;
+			// 	data.storege = rawdata.Id;
+			// 	data.quanstorage = rawdata.Id;
+			// }
 
 		},
 	});
