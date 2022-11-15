@@ -119,8 +119,6 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
 
-			// console.log(rawdata);
-
 			rawdata.forEach(row => {
 				data.id = row.Id;
 				data.doc_num = order;
@@ -131,6 +129,9 @@ sap.ui.define([
 				data.fullprice = row.FullPrice;
 				data.storege = row.Storage;
 				data.quanstorage = row.Quanstorage;
+
+				console.log(data);
+				console.log(oModel);
 
 				oModel.create(oCreateUrl, data, null);
 			});
