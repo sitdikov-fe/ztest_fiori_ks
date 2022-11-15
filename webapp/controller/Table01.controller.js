@@ -112,7 +112,7 @@ sap.ui.define([
 		},
 		onCreateTable: function(that) {
 
-			console.log(that.getView().byId("idSalesTable"));
+			console.log(that);
 
 		},
 	});
