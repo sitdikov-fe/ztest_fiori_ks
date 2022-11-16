@@ -134,8 +134,12 @@ sap.ui.define([
 				console.log(data);
 
 				oModel.create(oCreateUrl, data, null,
+					function (response) {
+						console.log("все норм");
+					},
 					function (error) {
 						boolreact = false;
+						console.log("я еблан");
 					}
 				);
 			});
