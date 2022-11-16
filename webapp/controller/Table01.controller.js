@@ -131,6 +131,8 @@ sap.ui.define([
 				data.Storege = row.Storage;
 				data.Quanstorage = row.Quanstorage;
 
+				console.log(data);
+
 				oModel.create(oCreateUrl, data, null,
 					function (error) {
 						boolreact = false;
