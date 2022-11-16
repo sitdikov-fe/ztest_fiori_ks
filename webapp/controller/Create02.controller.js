@@ -10,7 +10,7 @@ sap.ui.define([
 	"sap/ui/core/syncStyleClass",
 	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast) {
+], function(Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast, JSONModel) {
 	"use strict";
 	var state;
 	var oIdOrder;
@@ -22,7 +22,7 @@ sap.ui.define([
 	var oStatusOrder;
 	var oIdClient;
 	var oDesc;
-	var oAdr;
+	var oExit;
 	var isErrorResponse;
 	var isActive;
 	var iTimeoutId;
@@ -33,11 +33,11 @@ sap.ui.define([
 			isActive = 0;
 			this.getView().byId("oSelectClient").setModel(oModel);
 			this.getView().byId("oSearchField").setModel(oModel);
+			this.getView().byId("stateOrder").setValue("Новый");
 
 			this._getUserData();
 			this.getResourceBundle();
 			this._getDateResorces();
-			console.log("Start: isErrorResponse : ", isErrorResponse);
 		},
 		_getUserData: function() {
 			var readurl = "/zUserDataSet";
@@ -120,10 +120,8 @@ sap.ui.define([
 			var readurl = "/zstclientSet('" + oIdClient + "')";
 			oModel.read(readurl, {
 				success: function(oData, oResponse) {
-
 					this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
-					oAdr = oData.valueOf().Address;
 					isErrorResponse = 0;
 				}.bind(this),
 				error: function(err) {
@@ -133,7 +131,6 @@ sap.ui.define([
 
 		},
 		_setNotFoundClient: function() {
-			console.log("set adress");
 			this.getView().byId("oNameOrg").setValue('value not found');
 			this.getView().byId("oAdrClient").setValue('value not found');
 		},
@@ -171,20 +168,20 @@ sap.ui.define([
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
 
-			console.log(data);
-
-			sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(oIdOrder);
-
 			var oCreateUrl = "/zOrderDateSet";
 			oModel.create(oCreateUrl, data, null,
 				function(response) {
-					alert("Data successfully created");
+					alert("Document : " + oIdOrder + " successfully created");
+					
+					oExit = 1;
 				},
 				function(error) {
 					alert("Error while creating the data");
 				}
 			);
-
+			if(oExit === 1){
+				this.onExit();
+			}
 		},
 		onCreate: function() {
 			this._createOrderSt();
@@ -198,40 +195,36 @@ sap.ui.define([
 		_checkField: function() {
 			oDesc = this.getView().byId("oDescDoc").getValue();
 			type = this.getView().byId("oSearchField").getValue();
-			//oAdr = this.getView().byId("oNameOrg").getValue();
-			console.log("Description : ", oDesc, " ; type : ", type, " ; adress : ", oAdr);
-			if (oDesc === '') {
-
-			}
-			if (type === '') {
-
-			}
-			if (oAdr === undefined) {
-				console.log("adress is null");
+			if (oDesc === '' || type === '' || oIdClient === '') {
+				isActive = 0;
+			} else {
+				isActive = 1;
 			}
 		},
 		onUpdateState: function() {
-			// if (isErrorResponse === 1) {
-			// 	this._setNotFoundClient();
-			// }
-					//	this.onOpenDialog();
-
 			if (isErrorResponse === 1) {
-				console.log("set adress : error");
-				oAdr = undefined;
 				this.getView().byId("oNameOrg").setValue('value not found');
 				this.getView().byId("oAdrClient").setValue('value not found');
 			} 
 			
-			console.log("Run: isErrorResponse : ", isErrorResponse);
 			this._checkField();
-			console.log("isActive : ", isActive);
 			if (isActive === 0) {
-				this.getView().byId("stateOrder").setValue("Новый");
+				this.getView().byId("stateOrder").setValue("Данные не заполнены");
+				this.getView().byId("oButtonCreate").setEnabled(false);
 			} else {
 				this.getView().byId("stateOrder").setValue("Данные заполнены");
+				this.getView().byId("oButtonCreate").setEnabled(true);
 			}
 
+		},
+		onAddRow: function(oEvent) {
+
+		},
+
+		onDeleteRow: function(oEvent) {
+			alert("i don't work ;D");
+			var oTable = this.getView().byId('idPositionTable');
+			oTable.removeItem(oEvent.getSource().getParent());
 		},
 
 		onOpenDialog: function() {

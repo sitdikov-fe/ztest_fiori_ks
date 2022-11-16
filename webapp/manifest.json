@@ -46,7 +46,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -84,9 +87,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -101,31 +106,44 @@
 					"target": []
 				}
 			},
-			"routes": [{
-				"name": "page1",
-				"pattern": "",
-				"titleTarget": "",
-				"greedy": true,
-				"target": ["page1"]
-			}, {
-				"name": "page2",
-				"pattern": "CreateOrder",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["page2"]
-			}, {
-				"name": "page4",
-				"pattern": "ViewOrder",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["page4"]
-			}, {
-				"name": "page5",
-				"pattern": "View",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["page5"]
-			}],
+			"routes": [
+				{
+					"name": "page1",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": true,
+					"target": [
+						"page1"
+					]
+				},
+				{
+					"name": "page2",
+					"pattern": "CreateOrder",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"page2"
+					]
+				},
+				{
+					"name": "page4",
+					"pattern": "ViewOrder",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"page4"
+					]
+				},
+				{
+					"name": "page5",
+					"pattern": "View",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"page5"
+					]
+				}
+			],
 			"targets": {
 				"page1": {
 					"viewType": "XML",

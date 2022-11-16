@@ -35,8 +35,10 @@
             <EntityType Name="ztestStr" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Docnum"/>
                 </Key>
                 <Property Name="Id" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Docnum" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
                 <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
                 <Property Name="Nametype" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
                 <Property Name="Quantity" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
