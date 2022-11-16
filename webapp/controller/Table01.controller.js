@@ -112,12 +112,13 @@ sap.ui.define([
 			}
 
 		},
-		onCreateTable: function(order) {
+		onCreateTable: function (order) {
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
+			var boolreact = true;
 
 			rawdata.forEach(row => {
 				data.Id = row.Id;
@@ -131,15 +132,13 @@ sap.ui.define([
 				data.Quanstorage = row.Quanstorage;
 
 				oModel.create(oCreateUrl, data, null,
-					function(response) {
-						alert("Data successfully created");
-					},
-					function(error) {
-						alert("Error while creating the data");
+					function (error) {
+						boolreact = false;
 					}
 				);
 			});
 
+			return boolreact;
 		},
 	});
 });

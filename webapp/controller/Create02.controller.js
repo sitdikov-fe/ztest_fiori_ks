@@ -10,7 +10,7 @@ sap.ui.define([
 	"sap/ui/core/syncStyleClass",
 	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast, JSONModel) {
+], function (Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast, JSONModel) {
 	"use strict";
 	var state;
 	var oIdOrder;
@@ -28,7 +28,7 @@ sap.ui.define([
 	var iTimeoutId;
 
 	return Controller.extend("ztest_fiori_ks.controller.Create02", {
-		onInit: function() {
+		onInit: function () {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			isActive = 0;
 			this.getView().byId("oSelectClient").setModel(oModel);
@@ -39,10 +39,10 @@ sap.ui.define([
 			this.getResourceBundle();
 			this._getDateResorces();
 		},
-		_getUserData: function() {
+		_getUserData: function () {
 			var readurl = "/zUserDataSet";
 			oModel.read(readurl, {
-				success: function(oData, oResponse) {
+				success: function (oData, oResponse) {
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zUserName, "oUserData");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zData, "oUserName");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zIdOrder, "oOrderId");
@@ -51,7 +51,7 @@ sap.ui.define([
 			});
 		},
 
-		_getDateResorces: function() {
+		_getDateResorces: function () {
 			oUserName = sap.ui.getCore().getModel("oUserData");
 			oUserData = sap.ui.getCore().getModel("oUserName");
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
@@ -66,10 +66,10 @@ sap.ui.define([
 
 			//this.onUpdateState();
 		},
-		getResourceBundle: function() {
+		getResourceBundle: function () {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
-		onSuggestType: function(event) {
+		onSuggestType: function (event) {
 			var sValue = event.getParameter("suggestValue"),
 				aFilters = [];
 			if (sValue) {
@@ -86,12 +86,12 @@ sap.ui.define([
 			var oBinding = oSource.getBinding('suggestionItems');
 			oBinding.filter(aFilters);
 
-			oBinding.attachEventOnce('dataReceived', function() {
+			oBinding.attachEventOnce('dataReceived', function () {
 				oSource.suggest();
 			});
 
 		},
-		onSuggestClient: function(event) {
+		onSuggestClient: function (event) {
 			var sValue = event.getParameter("suggestValue"),
 				aFilters = [];
 			if (sValue) {
@@ -108,33 +108,33 @@ sap.ui.define([
 			var oBinding = oSource.getBinding('suggestionItems');
 			oBinding.filter(aFilters);
 
-			oBinding.attachEventOnce('dataReceived', function() {
+			oBinding.attachEventOnce('dataReceived', function () {
 				oSource.suggest();
 			});
 			this.onChangeId();
 
 		},
 
-		onChangeId: function() {
+		onChangeId: function () {
 			oIdClient = this.getView().byId("oSelectClient").getValue();
 			var readurl = "/zstclientSet('" + oIdClient + "')";
 			oModel.read(readurl, {
-				success: function(oData, oResponse) {
+				success: function (oData, oResponse) {
 					this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
 					isErrorResponse = 0;
 				}.bind(this),
-				error: function(err) {
+				error: function (err) {
 					isErrorResponse = 1;
 				}
 			});
 
 		},
-		_setNotFoundClient: function() {
+		_setNotFoundClient: function () {
 			this.getView().byId("oNameOrg").setValue('value not found');
 			this.getView().byId("oAdrClient").setValue('value not found');
 		},
-		onBack: function() {
+		onBack: function () {
 			var sPreviousHash = History.getInstance().getPreviousHash();
 
 			//The history contains a previous entry
@@ -147,10 +147,10 @@ sap.ui.define([
 			}
 		},
 
-		onExit: function() {
+		onExit: function () {
 			this.getOwnerComponent().getRouter().navTo("page1");
 		},
-		_createOrderSt: function() {
+		_createOrderSt: function () {
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
 			type = this.getView().byId("oSearchField").getValue();
 			oUserName = this.getView().byId("oUserName").getValue();
@@ -168,31 +168,40 @@ sap.ui.define([
 			data.Zzstatus = oStatusOrder;
 			data.Zzdesc = oDesc;
 
+			var react = true;
+			react = sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(oIdOrder);
+			console.log(react);
+
 			var oCreateUrl = "/zOrderDateSet";
 			oModel.create(oCreateUrl, data, null,
-				function(response) {
-					alert("Document : " + oIdOrder + " successfully created");
-					
-					oExit = 1;
+				function (response) {
+					if (react) {
+						alert("Document : " + oIdOrder + " successfully created");
+
+						oExit = 1;
+					}
+					else {
+						alert("Error while creating the data");
+					}
 				},
-				function(error) {
+				function (error) {
 					alert("Error while creating the data");
 				}
 			);
-			if(oExit === 1){
+			if (oExit === 1) {
 				this.onExit();
 			}
 		},
-		onCreate: function() {
+		onCreate: function () {
 			this._createOrderSt();
 
 		},
-		onCheck: function() {
+		onCheck: function () {
 			this._getDateResorces();
 			this.onChangeId();
 			this.onUpdateState();
 		},
-		_checkField: function() {
+		_checkField: function () {
 			oDesc = this.getView().byId("oDescDoc").getValue();
 			type = this.getView().byId("oSearchField").getValue();
 			if (oDesc === '' || type === '' || oIdClient === '') {
@@ -201,12 +210,12 @@ sap.ui.define([
 				isActive = 1;
 			}
 		},
-		onUpdateState: function() {
+		onUpdateState: function () {
 			if (isErrorResponse === 1) {
 				this.getView().byId("oNameOrg").setValue('value not found');
 				this.getView().byId("oAdrClient").setValue('value not found');
-			} 
-			
+			}
+
 			this._checkField();
 			if (isActive === 0) {
 				this.getView().byId("stateOrder").setValue("Данные не заполнены");
@@ -217,17 +226,17 @@ sap.ui.define([
 			}
 
 		},
-		onAddRow: function(oEvent) {
+		onAddRow: function (oEvent) {
 
 		},
 
-		onDeleteRow: function(oEvent) {
+		onDeleteRow: function (oEvent) {
 			alert("i don't work ;D");
 			var oTable = this.getView().byId('idPositionTable');
 			oTable.removeItem(oEvent.getSource().getParent());
 		},
 
-		onOpenDialog: function() {
+		onOpenDialog: function () {
 			// load BusyDialog fragment asynchronously
 			var oDialog = this.byId("BusyDialog");
 			oDialog.open();
