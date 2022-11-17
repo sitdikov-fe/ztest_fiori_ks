@@ -119,11 +119,15 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
 			var boolreact = true;
-			var isEmpty = true;
+			var isEmpty = false;
 
 			rawdata.forEach(row => {
-				isEmpty = Object.values(row).some(x => x === '');
+				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
+
+			if (order = -1){
+				return isEmpty;
+			}
 
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");
