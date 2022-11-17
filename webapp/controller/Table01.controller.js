@@ -123,6 +123,7 @@ sap.ui.define([
 
 			rawdata.forEach(row => {
 				 isEmpty = Object.values(row).some(x => x === '');
+				 console.log(row);
 				 console.log(isEmpty);
 			});
 
