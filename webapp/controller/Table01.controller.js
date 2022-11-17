@@ -125,6 +125,8 @@ sap.ui.define([
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
 
+			console.log(order);
+
 			if (order = -1){
 				return isEmpty;
 			}
