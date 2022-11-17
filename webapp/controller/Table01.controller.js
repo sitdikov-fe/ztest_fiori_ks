@@ -122,7 +122,7 @@ sap.ui.define([
 			var isEmpty = true;
 
 			rawdata.forEach(row => {
-				 isEmpty = Object.values(row).every(x => x !== null && x !== '');
+				 isEmpty = Object.values(row).every(x => x != null && x != '');
 				 console.log(isEmpty);
 			});
 
