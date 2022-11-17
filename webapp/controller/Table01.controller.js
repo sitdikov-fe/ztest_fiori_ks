@@ -121,6 +121,8 @@ sap.ui.define([
 			var boolreact = true;
 			var isEmpty = false;
 
+			console.log(rawdata);
+
 			rawdata.forEach(row => {
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
@@ -128,8 +130,6 @@ sap.ui.define([
 			if (order = -1){
 				return isEmpty;
 			}
-
-			console.log(rawdata);
 
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");
