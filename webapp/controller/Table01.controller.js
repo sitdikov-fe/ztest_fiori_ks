@@ -125,8 +125,6 @@ sap.ui.define([
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
 
-			console.log(order);
-
 			if (order = -1){
 				return isEmpty;
 			}
@@ -145,6 +143,8 @@ sap.ui.define([
 					data.Fullprice = row.FullPrice;
 					data.Storege = row.Storage;
 					data.Quanstorage = row.Quanstorage;
+
+					console.log(data);
 
 					oModel.create(oCreateUrl, data, null,
 						function (response) {
