@@ -228,15 +228,6 @@ sap.ui.define([
 			}
 
 		},
-		onAddRow: function (oEvent) {
-
-		},
-
-		onDeleteRow: function (oEvent) {
-			alert("i don't work ;D");
-			var oTable = this.getView().byId('idPositionTable');
-			oTable.removeItem(oEvent.getSource().getParent());
-		},
 
 		onOpenDialog: function () {
 			// load BusyDialog fragment asynchronously
