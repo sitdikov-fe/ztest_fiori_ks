@@ -121,7 +121,7 @@ sap.ui.define([
 			var boolreact = true;
 			var isEmpty = false;
 
-			console.log(rawdata);
+			console.log(rawdata.length);
 
 			rawdata.forEach(row => {
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
