@@ -122,36 +122,37 @@ sap.ui.define([
 			var isEmpty = true;
 
 			rawdata.forEach(row => {
-				 isEmpty = Object.values(row).some(x => x === '');
-				 console.log(row);
-				 console.log(isEmpty);
+				isEmpty = Object.values(row).some(x => x === '');
 			});
 
+			if (isEmpty) {
+				MessageToast.show("Заполните все поля в таблице");
+			}
+			else {
+				rawdata.forEach(row => {
+					data.Id = row.Id;
+					data.Docnum = order;
+					data.Name = row.Name;
+					data.Nametype = row.NameType;
+					data.Quantity = row.Quantity;
+					data.Price = row.Price;
+					data.Fullprice = row.FullPrice;
+					data.Storege = row.Storage;
+					data.Quanstorage = row.Quanstorage;
 
-			// rawdata.forEach(row => {
-			// 	data.Id = row.Id;
-			// 	data.Docnum = order;
-			// 	data.Name = row.Name;
-			// 	data.Nametype = row.NameType;
-			// 	data.Quantity = row.Quantity;
-			// 	data.Price = row.Price;
-			// 	data.Fullprice = row.FullPrice;
-			// 	data.Storege = row.Storage;
-			// 	data.Quanstorage = row.Quanstorage;
+					console.log(data);
 
-			// 	console.log(data);
-
-			// 	oModel.create(oCreateUrl, data, null,
-			// 		function (response) {
-			// 			console.log("все норм");
-			// 		},
-			// 		function (error) {
-			// 			boolreact = false;
-			// 			console.log("я еблан");
-			// 		}
-			// 	);
-			// });
-
+					oModel.create(oCreateUrl, data, null,
+						function (response) {
+							console.log("все норм");
+						},
+						function (error) {
+							boolreact = false;
+							console.log("я еблан");
+						}
+					);
+				});
+			}
 			return boolreact;
 		},
 	});
