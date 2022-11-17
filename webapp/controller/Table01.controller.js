@@ -54,7 +54,7 @@ sap.ui.define([
 				"Price": "",
 				"FullPrice": "",
 				"Storage": "",
-				"Quanstorage ": "",
+				"Quanstorage": "",
 				"editable": true,
 				"neweditable": true
 			};
