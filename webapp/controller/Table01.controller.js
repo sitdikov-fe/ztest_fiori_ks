@@ -54,7 +54,6 @@ sap.ui.define([
 				"Price": "",
 				"FullPrice": "",
 				"Storage": "",
-				"FullStorage": "",
 				"editable": true,
 				"neweditable": true
 			};
@@ -119,7 +118,7 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
 			var boolreact = false;
-			var isEmpty = true;
+			var isEmpty = false;
 
 			rawdata.forEach(row => {
 				 isEmpty = Object.values(row).some(x => x === '');
