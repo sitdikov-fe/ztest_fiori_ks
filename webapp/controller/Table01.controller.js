@@ -126,6 +126,7 @@ sap.ui.define([
 			});
 
 			if (order == -1){
+				console.log('я еблан');
 				return isEmpty;
 			}
 
