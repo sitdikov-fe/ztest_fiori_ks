@@ -129,6 +129,7 @@ sap.ui.define([
 				return isEmpty;
 			}
 
+
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");
 			}
@@ -143,8 +144,6 @@ sap.ui.define([
 					data.Fullprice = row.FullPrice;
 					data.Storege = row.Storage;
 					data.Quanstorage = row.Quanstorage;
-
-					console.log(data);
 
 					oModel.create(oCreateUrl, data, null,
 						function (response) {
