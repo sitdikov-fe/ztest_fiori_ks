@@ -121,15 +121,21 @@ sap.ui.define([
 			var boolreact = true;
 			var isEmpty = false;
 
-			console.log(rawdata);
+			console.log('1');
 
 			rawdata.forEach(row => {
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
+				console.log('1.1');
 			});
 
-			if (order = -1){
+			console.log('2');
+
+			if (order === -1){
+				console.log('2.1');
 				return isEmpty;
 			}
+
+			console.log('3');
 
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");
