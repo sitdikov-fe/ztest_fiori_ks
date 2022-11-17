@@ -54,6 +54,7 @@ sap.ui.define([
 				"Price": "",
 				"FullPrice": "",
 				"Storage": "",
+				"Quanstorage ": "",
 				"editable": true,
 				"neweditable": true
 			};
@@ -118,7 +119,7 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
 			var boolreact = false;
-			var isEmpty = false;
+			var isEmpty = true;
 
 			rawdata.forEach(row => {
 				 isEmpty = Object.values(row).some(x => x === '');
