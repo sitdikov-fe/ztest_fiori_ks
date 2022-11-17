@@ -170,24 +170,21 @@ sap.ui.define([
 
 			var react = true;
 			react = sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(oIdOrder);
-			console.log(react);
 
 			var oCreateUrl = "/zOrderDateSet";
-			oModel.create(oCreateUrl, data, null,
-				function (response) {
-					if (react) {
+			if (react) {
+				oModel.create(oCreateUrl, data, null,
+					function (response) {
 						alert("Document : " + oIdOrder + " successfully created");
-
-						oExit = 1;
-					}
-					else {
+					},
+					function (error) {
 						alert("Error while creating the data");
 					}
-				},
-				function (error) {
-					alert("Error while creating the data");
-				}
-			);
+				);
+			}
+			else {
+				alert("Error while creating the data");
+			}
 			if (oExit === 1) {
 				this.onExit();
 			}

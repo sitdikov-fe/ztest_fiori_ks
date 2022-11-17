@@ -118,31 +118,38 @@ sap.ui.define([
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
-			var boolreact = true;
+			var boolreact = false;
+			var isEmpty = false;
 
 			rawdata.forEach(row => {
-				data.Id = row.Id;
-				data.Docnum = order;
-				data.Name = row.Name;
-				data.Nametype = row.NameType;
-				data.Quantity = row.Quantity;
-				data.Price = row.Price;
-				data.Fullprice = row.FullPrice;
-				data.Storege = row.Storage;
-				data.Quanstorage = row.Quanstorage;
-
-				console.log(data);
-
-				oModel.create(oCreateUrl, data, null,
-					function (response) {
-						console.log("все норм");
-					},
-					function (error) {
-						boolreact = false;
-						console.log("я еблан");
-					}
-				);
+				 isEmpty = Object.values(row).every(x => x !== null && x !== '');
+				 console.log(isEmpty);
 			});
+
+
+			// rawdata.forEach(row => {
+			// 	data.Id = row.Id;
+			// 	data.Docnum = order;
+			// 	data.Name = row.Name;
+			// 	data.Nametype = row.NameType;
+			// 	data.Quantity = row.Quantity;
+			// 	data.Price = row.Price;
+			// 	data.Fullprice = row.FullPrice;
+			// 	data.Storege = row.Storage;
+			// 	data.Quanstorage = row.Quanstorage;
+
+			// 	console.log(data);
+
+			// 	oModel.create(oCreateUrl, data, null,
+			// 		function (response) {
+			// 			console.log("все норм");
+			// 		},
+			// 		function (error) {
+			// 			boolreact = false;
+			// 			console.log("я еблан");
+			// 		}
+			// 	);
+			// });
 
 			return boolreact;
 		},
