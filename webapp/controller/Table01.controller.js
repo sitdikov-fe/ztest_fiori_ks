@@ -119,7 +119,7 @@ sap.ui.define([
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
 			var boolreact = false;
-			var isEmpty = false;
+			var isEmpty = true;
 
 			rawdata.forEach(row => {
 				 isEmpty = Object.values(row).every(x => x !== null && x !== '');
