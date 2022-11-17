@@ -129,6 +129,8 @@ sap.ui.define([
 				return isEmpty;
 			}
 
+			console.log(rawdata);
+
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");
 			}
