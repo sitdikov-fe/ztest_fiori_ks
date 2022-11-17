@@ -118,7 +118,7 @@ sap.ui.define([
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
 			var oCreateUrl = "/ztestStr001Set";
-			var boolreact = false;
+			var boolreact = true;
 			var isEmpty = true;
 
 			rawdata.forEach(row => {
@@ -140,15 +140,9 @@ sap.ui.define([
 					data.Storege = row.Storage;
 					data.Quanstorage = row.Quanstorage;
 
-					console.log(data);
-
 					oModel.create(oCreateUrl, data, null,
-						function (response) {
-							console.log("все норм");
-						},
 						function (error) {
 							boolreact = false;
-							console.log("я еблан");
 						}
 					);
 				});
