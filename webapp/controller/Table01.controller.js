@@ -121,16 +121,24 @@ sap.ui.define([
 			var boolreact = true;
 			var isEmpty = false;
 
-			console.log(rawdata.length);
+			console.log();
 
 			rawdata.forEach(row => {
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
 
-			if (order == -1){
-				return isEmpty;
+			if (order == -1 && rawdata.length == 0) {
+				MessageToast.show("Добавьте хотя бы одну строку в таблицу");
+				return false;
 			}
 
+			if (order == -1 && isEmpty == true) {
+				MessageToast.show("Заполните все поля в таблице");
+				return false;
+			}
+			else if(order == -1){
+				return true;
+			}
 
 			if (isEmpty) {
 				MessageToast.show("Заполните все поля в таблице");

@@ -194,13 +194,10 @@ sap.ui.define([
 
 		},
 		onCheck: function () {
-			if(sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(-1)){
-				MessageToast.show("Заполните все поля в таблице");
-			}
-			else{
-			this._getDateResorces();
-			this.onChangeId();
-			this.onUpdateState();
+			if (sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(-1)) {
+				this._getDateResorces();
+				this.onChangeId();
+				this.onUpdateState();
 			}
 		},
 		_checkField: function () {
