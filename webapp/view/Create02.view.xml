@@ -27,16 +27,55 @@
 												<Input id="oOrderId" value="{/number}" enabled="false"/>
 												<Label text="Описание документа :" class="sapUiSmallMargin"/>
 												<Input id="oDescDoc" valueLiveUpdate="true"/>
-												<Label text="{i18n>typeDoc}" class="sapUiSmallMargin"/>
-												<SearchField id="oSearchField" placeholder="Enter type doc" enableSuggestions="true" search=".onSearch" suggest=".onSuggestType"
-													suggestionItems="{path: '/ZtestShTypedocKosiSet', sorted: {path: 'Ztype'}}">
-													<SuggestionItem text="{Ztype}" description="{Zdesc}" key="{Ztype}"/>
-												</SearchField>
+												<Label text="{i18n>typeDoc}" labelFor="multiInput" class="sapUiSmallMargin"/>
+												<!--<form:SimpleForm editable="true" >-->
+												<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShTypedocKosiSet'}">
+													<suggestionColumns>
+														<Column>
+															<Label text="Type"/>
+														</Column>
+														<Column>
+															<Label text="Description"/>
+														</Column>
+													</suggestionColumns>
+													<suggestionRows>
+														<ColumnListItem>
+															<Label text="{Ztype}"/>
+															<Label text="{Zdesc}"/>
+														</ColumnListItem>
+													</suggestionRows>
+												</MultiInput>
+												<!--</form:SimpleForm>-->
+												<!--<Label text="{i18n>typeDoc}" class="sapUiSmallMargin"/>-->
+												<!--<SearchField id="oSearchField" placeholder="Enter type doc" enableSuggestions="true" search=".onSearch" suggest=".onSuggestType"-->
+												<!--	suggestionItems="{path: '/ZtestShTypedocKosiSet', sorted: {path: 'Ztype'}}">-->
+												<!--	<SuggestionItem text="{Ztype}" description="{Zdesc}" key="{Ztype}"/>-->
+												<!--</SearchField>-->
 												<Label id="idClient" text="Номер клиента :" class="sapUiSmallMargin"/>
-												<SearchField id="oSelectClient" placeholder="Enter client" enableSuggestions="true" search=".onSearch" suggest=".onSuggestClient"
-													suggestionItems="{path: '/ZtestShClientKosiSet', sorted: {path: 'Id'}}">
-													<SuggestionItem text="{Id}" description="{NameOrg}" key="{Id}"/>
-												</SearchField>
+												<MultiInput id="multiInput2" valueHelpRequest=".onValueHelpRequested2" suggestionRows="{ path: '/ZtestShClientKosiSet'}">
+													<suggestionColumns>
+														<Column>
+															<Label text="ID"/>
+														</Column>
+														<Column>
+															<Label text="Name"/>
+														</Column>
+														<Column>
+															<Label text="Address"/>
+														</Column>
+													</suggestionColumns>
+													<suggestionRows>
+														<ColumnListItem>
+															<Label text="{Id}"/>
+															<Label text="{NameOrg}"/>
+															<Label text="{Address}"/>
+														</ColumnListItem>
+													</suggestionRows>
+												</MultiInput>
+												<!--<SearchField id="oSelectClient" placeholder="Enter client" enableSuggestions="true" search=".onSearch" suggest=".onSuggestClient"-->
+												<!--	suggestionItems="{path: '/ZtestShClientKosiSet', sorted: {path: 'Id'}}">-->
+												<!--	<SuggestionItem text="{Id}" description="{NameOrg}" key="{Id}"/>-->
+												<!--</SearchField>-->
 												<Label text="Нзавание организации :" class="sapUiSmallMargin"/>
 												<Input id="oNameOrg" enabled="false" valueLiveUpdate="true"/>
 												<Label text="Адрес клиента :" class="sapUiSmallMargin"/>
@@ -61,8 +100,7 @@
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<m:content>
 							<l:VerticalLayout>
-								<mvc:XMLView
-									viewName="ztest_fiori_ks.view.Table01" />
+								<mvc:XMLView viewName="ztest_fiori_ks.view.Table01"/>
 							</l:VerticalLayout>
 						</m:content>
 					</Panel>

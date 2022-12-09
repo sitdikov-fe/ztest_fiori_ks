@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
+	"sap/ui/model/odata/v2/ODataModel",
 	"ztest_fiori_ks/model/models"
-], function(UIComponent, Device, models) {
+], function(UIComponent, Device, ODataModel, models) {
 	"use strict";
 
 	return UIComponent.extend("ztest_fiori_ks.Component", {

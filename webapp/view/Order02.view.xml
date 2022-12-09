@@ -1,76 +1,68 @@
-<mvc:View
-    controllerName="ztest_fiori_ks.controller.Order02"
-    xmlns:html="http://www.w3.org/1999/xhtml" 
-    displayBlock="true"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:layout="sap.ui.layout"
-    xmlns:core="sap.ui.core"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:grid="sap.ui.layout.cssgrid"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:l="sap.ui.layout"
-    xmlns:m="sap.m"
-    class="GridDataSample"
->
-    <Shell>
-        <App>
-            <pages>
-                <m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack">
-                    <Panel class="sapUiResponsiveMargin" width="auto">
-                        <content>
-                            <l:VerticalLayout width="90%" class="gridWrapper">
-                                <grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="1fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
-                                    <VBox class="demoBox">
-                                        <layoutData>
-                                            <grid:GridItemLayoutData gridRow="1 / 8" />
-                                        </layoutData>
-                                        <f:SimpleForm title="{i18n>titlePageTextHeader}">
-                                            <f:content>
-                                                <Label text="Дата :" class="sapUiSmallMargin" />
-                                                <Input value="{/date}" enabled="false" />
-                                                <Label text="Пользователь :" class="sapUiSmallMargin" />
-                                                <Input value="{/user}" enabled="false" />
-                                                <Label text="Номер документа :" class="sapUiSmallMargin" />
-                                                <Input value="{/number}" enabled="false" />
-                                                <Label text="Описание документа :" class="sapUiSmallMargin"/>
-												<Input value="{/desc}" enabled="false" />
-                                                <Label text="Тип документа :" class="sapUiSmallMargin" />
-                                                <Input value="{/type}" enabled="false" />
-                                                <Label text="Номер клиента :" class="sapUiSmallMargin" />
-                                                <Input value="{/idOrg}" enabled="false" />
-                                                <Label text="Нзавание организации :" class="sapUiSmallMargin" />
-                                                <Input value="{/nameOrg}" enabled="false" />
-                                                <Label text="Адрес клиента :" class="sapUiSmallMargin" />
-                                                <Input value="{/adr}" enabled="false" />
-                                            </f:content>
-                                        </f:SimpleForm>
-                                    </VBox>
-                                    <VBox>
-                                        <layoutData>
-                                            <grid:GridItemLayoutData gridRow="1 / 1" />
-                                        </layoutData>
-                                        <Button text="{i18n>nameButtonExit}" press=".onExit" width="100%" icon="sap-icon://undo" />
-                                        <Button text="{i18n>nameButtonCreateDoc}" press=".onCreate" width="100%" icon="sap-icon://add-document" />
-                                        <Button text="{i18n>nameButtonSender}" press=".onSendMail" width="100%" icon="sap-icon://email" />
-                                        <Button text="{i18n>nameButtonRefresh}" press=".onRefresh" width="100%" />
-                                        <Text text="{i18n>textStatusDocument}"/>
-                                        <Input enabled="false" id="stateOrder" value="{/state}"/>
-                                    </VBox>
-                                </grid:CSSGrid>
-                            </l:VerticalLayout>
-                        </content>
-                    </Panel>
-                    <Panel class="sapUiResponsiveMargin" width="auto">
-                        <m:content>
-                            <l:VerticalLayout>
-                                <Title titleStyle="H4" text="{i18n>titlePageDoc}" class="sapUiSmallMargin" />
-                                <Text text="документов нет"/>
-                            </l:VerticalLayout>
-                        </m:content>
-                    </Panel>
-                </m:Page>
-            </pages>
-        </App>
-    </Shell>
+<mvc:View controllerName="ztest_fiori_ks.controller.Order02" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+	xmlns:grid="sap.ui.layout.cssgrid" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:m="sap.m" class="GridDataSample">
+	<Shell>
+		<App>
+			<pages>
+				<m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack">
+					<Panel class="sapUiResponsiveMargin" width="auto">
+						<content>
+							<l:VerticalLayout width="90%" class="gridWrapper">
+								<grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="1fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
+									<VBox class="demoBox">
+										<layoutData>
+											<grid:GridItemLayoutData gridRow="1 / 8"/>
+										</layoutData>
+										<f:SimpleForm title="{i18n>titlePageTextHeader}">
+											<f:content>
+												<Label text="Дата :" class="sapUiSmallMargin"/>
+												<Input value="{/date}" enabled="false"/>
+												<Label text="Пользователь :" class="sapUiSmallMargin"/>
+												<Input value="{/user}" enabled="false"/>
+												<Label text="Номер документа :" class="sapUiSmallMargin"/>
+												<Input value="{/number}" enabled="false"/>
+												<Label text="Описание документа :" class="sapUiSmallMargin"/>
+												<Input value="{/desc}" enabled="false"/>
+												<Label text="Тип документа :" class="sapUiSmallMargin"/>
+												<Input value="{/type}" enabled="false"/>
+												<Label text="Номер клиента :" class="sapUiSmallMargin"/>
+												<Input value="{/idOrg}" enabled="false"/>
+												<Label text="Нзавание организации :" class="sapUiSmallMargin"/>
+												<Input value="{/nameOrg}" enabled="false"/>
+												<Label text="Адрес клиента :" class="sapUiSmallMargin"/>
+												<Input value="{/adr}" enabled="false"/>
+											</f:content>
+										</f:SimpleForm>
+									</VBox>
+									<VBox>
+										<layoutData>
+											<grid:GridItemLayoutData gridRow="1 / 1"/>
+										</layoutData>
+										<Button text="{i18n>nameButtonExit}" press=".onExit" width="100%" icon="sap-icon://undo"/>
+										<Button text="{i18n>nameButtonCreateDoc}" press=".onCreate" width="100%" icon="sap-icon://add-document"/>
+										<Button id="oSendMail" text="{i18n>nameButtonSender}" press=".onSendMail" width="100%" icon="sap-icon://email" enabled="false"/>
+										<Button id="oAgreeStart" text="{i18n>nameAgree}" press=".onAgree" width="100%" icon="sap-icon://decision" enabled="false"/>
+										<Button text="{i18n>nameButtonRefresh}" press=".onRefresh" width="100%"/>
+										<Text text="{i18n>textStatusDocument}"/>
+										<Input enabled="false" id="stateOrder" value="{/state}"/>
+									</VBox>
+								</grid:CSSGrid>
+							</l:VerticalLayout>
+						</content>
+					</Panel>
+					<Panel>
+						<content>
+							<Text text="Степень согласования"/>
+							<f:SimpleForm>
+							<Label text="Сторона 1 :" class="sapUiSmallMargin"/>
+							<Button id="agree1" text="{/user}" enabled="false" width="40%" type="Critical" press=".onAgree1Button" />
+							<Label text="Сторона 2 :" class="sapUiSmallMargin"/>
+							<Button id="agree2" text="{/agree}" enabled="false" width="40%" type="Critical" press=".onAgree2Button"/>
+							</f:SimpleForm>
+						</content>
+					</Panel>
+				</m:Page>
+			</pages>
+		</App>
+	</Shell>
 </mvc:View>

@@ -17,6 +17,15 @@
 			"inbounds": {}
 		},
 		"dataSources": {
+			"tableData_alias": {
+				"uri": "model/sample.json",
+				"type": "JSON",
+				"settings": {
+					"annotations": [
+						"ODataAnnotation1"
+					]
+				}
+			},
 			"ZTEST_FIORI_KOSI_SRV": {
 				"uri": "/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/",
 				"type": "OData",
@@ -24,10 +33,6 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
-			},
-			"tableData_alias": {
-				"uri": "model/sample.json",
-				"type": "JSON"
 			}
 		}
 	},
@@ -142,6 +147,15 @@
 					"target": [
 						"page5"
 					]
+				},
+				{
+					"name": "page666",
+					"pattern": "666",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"page666"
+					]
 				}
 			],
 			"targets": {
@@ -172,6 +186,13 @@
 					"clearAggregation": true,
 					"viewName": "Order02",
 					"viewLevel": 3
+				},
+				"page666": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "test",
+					"viewLevel": 2
 				}
 			}
 		}

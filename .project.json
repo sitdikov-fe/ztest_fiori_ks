@@ -17,7 +17,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Wed, 16 Nov 2022 08:49:17 GMT"
+      "dateTimeStamp": "Tue, 06 Dec 2022 15:13:26 GMT"
     }
   ],
   "translation": {
@@ -45,7 +45,7 @@
     "targetFolder": "dist",
     "excludedFolders": [],
     "excludedFiles": [],
-    "lastBuildDateTime": "Wed, 16 Nov 2022 08:55:36 GMT"
+    "lastBuildDateTime": "Fri, 09 Dec 2022 13:47:34 GMT"
   },
   "deploy": {
     "destination": "S4D",
@@ -58,5 +58,9 @@
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
   },
-  "dataBinding": {}
+  "dataBinding": {
+    "/webapp/view/VH.fragment.xml": {
+      "entitySet": ""
+    }
+  }
 }

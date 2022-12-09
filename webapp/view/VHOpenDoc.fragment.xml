@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog title="Number document" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" supportRanges="true" key="Zzorder"
+		descriptionKey="Zzdesc">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch">
+			<!--isRunningInValueHelpDialog="true">-->
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zzorder" label="Document" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Zzorder"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zzdesc" label="Description" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Zzdesc"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

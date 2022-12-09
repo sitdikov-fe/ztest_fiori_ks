@@ -1,44 +1,57 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout" controllerName="ztest_fiori_ks.controller.Order01" displayBlock="true">
-    <Shell>
-        <App>
-            <pages>
-                <Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack">
-
-                    <Panel class="sapUiResponsiveMargin" width="auto">
-                    <content>
-                    
-                    <layout:VerticalLayout>
-                        <Button text="{i18n>nameButtonExit}" press=".onExit" icon="sap-icon://undo"/>
-                    </layout:VerticalLayout>
-                        <f:SimpleForm title="{i18n>titlePageText}">
-                        
-				        <f:content>
-					        <Label text="{i18n>nameNumberDoc}" class="sapUiSmallMargin"/>
-							<Input id="oSelectOrder" placeholder="Enter order" showSuggestion="true" showTableSuggestionValueHelp="false" change="onSelect" suggestionRows="{/zOrderDateSet}">
-								<suggestionColumns>
-									<Column width="1rem">
-										<Label text="ID"/>
-									</Column>
-									<Column width="10rem">
-										<Label text="Description"/>
-									</Column>
-								</suggestionColumns>
-								<suggestionRows>
-									<ColumnListItem>
-										<Label text="{zzorder}"/>
-										<Label text="{Zzdesc}"/>
-									</ColumnListItem>
-								</suggestionRows>
-							</Input>
-				        </f:content>
-			            </f:SimpleForm>
-                        <Button text="{i18n>nameButtonOpenDoc}" press=".onOpenDoc" icon="sap-icon://open-command-field"/>
-                    
-                    </content>
-                    </Panel>
-
-                </Page>
-            </pages>
-        </App>
-    </Shell>
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" controllerName="ztest_fiori_ks.controller.Order01" displayBlock="true">
+	<Shell>
+		<App>
+			<pages>
+				<Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack">
+					<Panel class="sapUiResponsiveMargin" width="auto">
+						<content>
+							<layout:VerticalLayout>
+								<Button text="{i18n>nameButtonExit}" press=".onExit" icon="sap-icon://undo"/>
+							</layout:VerticalLayout>
+							<f:SimpleForm title="{i18n>titlePageText}">
+								<f:content>
+									<Label text="{i18n>nameNumberDoc}" class="sapUiSmallMargin"/>
+									<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShDocnumKosiSet'}" width="60%">
+										<suggestionColumns>
+											<Column>
+												<Label text="Document"/>
+											</Column>
+											<Column>
+												<Label text="Description"/>
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<Label text="{Zzorder}"/>
+												<Label text="{Zzdesc}"/>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
+									<!--<Input id="oSelectOrder" placeholder="Enter order" showSuggestion="true" showTableSuggestionValueHelp="false" change="onSelect"-->
+									<!--	suggestionRows="{/zOrderDateSet}">-->
+									<!--	<suggestionColumns>-->
+									<!--		<Column width="1rem">-->
+									<!--			<Label text="ID"/>-->
+									<!--		</Column>-->
+									<!--		<Column width="10rem">-->
+									<!--			<Label text="Description"/>-->
+									<!--		</Column>-->
+									<!--	</suggestionColumns>-->
+									<!--	<suggestionRows>-->
+									<!--		<ColumnListItem>-->
+									<!--			<Label text="{zzorder}"/>-->
+									<!--			<Label text="{Zzdesc}"/>-->
+									<!--		</ColumnListItem>-->
+									<!--	</suggestionRows>-->
+									<!--</Input>-->
+								</f:content>
+							</f:SimpleForm>
+							<Button text="{i18n>nameButtonOpenDoc}" press=".onOpenDoc" icon="sap-icon://open-command-field"/>
+						</content>
+					</Panel>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
 </mvc:View>

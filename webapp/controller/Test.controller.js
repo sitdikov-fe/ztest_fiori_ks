@@ -1,7 +1,7 @@
 sap.ui.define([
 	'sap/ui/comp/library',
 	'sap/ui/core/mvc/Controller',
-	'sap/ui/model/type/Integer',
+	'sap/ui/model/type/String',
 	'sap/m/ColumnListItem',
 	'sap/m/Label',
 	'sap/m/SearchField',
@@ -14,26 +14,25 @@ sap.ui.define([
 	'sap/m/Text',
 	"sap/ui/core/routing/History",
 	"sap/ui/core/Fragment"
-], function(compLibrary, Controller, TypeInteger, ColumnListItem, Label, SearchField, Token, Filter, FilterOperator, ODataModel, UIColumn,
-	MColumn, Text, History, Fragment) {
+], function(compLibrary, Controller, TypeString, ColumnListItem, Label, SearchField, Token, Filter, FilterOperator,
+	ODataModel, UIColumn, MColumn, Text, History, Fragment) {
 	"use strict";
 
 	var oMultiInput;
-	var oModel;
-	var oOrder;
-	var readurl;
 
-	return Controller.extend("ztest_fiori_ks.controller.Order01", {
+	return Controller.extend("ztest_fiori_ks.controller.Test", {
 		onInit: function() {
+
+			// Value Help Dialog standard use case with filter bar without filter suggestions
 			oMultiInput = this.byId("multiInput");
 			this._oMultiInput = oMultiInput;
 
 			this.oProductsModel = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.getView().setModel(this.oProductsModel);
-			oModel = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			// oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
-			// this.getView().byId("oSelectOrder").setModel(oModel);
+			// this.getView().byId("multiInputWithSuggestions").setModel(oModel);
 		},
+
 		onBack: function() {
 			var sPreviousHash = History.getInstance().getPreviousHash();
 			//The history contains a previous entry
@@ -47,50 +46,12 @@ sap.ui.define([
 		},
 
 		onExit: function() {
-			this.getOwnerComponent().getRouter().navTo("page1");
+			if (this.oProductsModel) {
+				this.oProductsModel.destroy();
+				this.oProductsModel = null;
+			}
 		},
 
-		onOpenDoc: function() {
-			this.getOwnerComponent().getRouter().navTo("page5");
-		},
-
-		onSelect: function(oNumber) {
-			oOrder = oNumber;
-			// oOrder = oEvent.getParameters().valueOf().value;
-			sap.ui.getCore().setModel(oOrder, "oOrder");
-
-			// oOrder = sap.ui.getCore().getModel("oOrder");
-			readurl = "/zParametrSaveSet('" + oOrder + "')";
-			oModel.read(readurl, {
-				success: function(oData, oResponse) {
-					sap.ui.getCore().setModel(oData.zzopendoc, "oOpenDoc");
-					sap.ui.getCore().setModel(oData.zzsendmessage, "oSendMessage");
-					sap.ui.getCore().setModel(oData.zzagree1, "oAgree1");
-					sap.ui.getCore().setModel(oData.zzagree2, "oAgree2");
-				}.bind(this)
-			});
-			readurl = "/zOrderDateSet('" + oOrder + "')";
-			oModel.read(readurl, {
-				success: function(oData, oResponse) {
-					sap.ui.getCore().setModel(oData.ZzclientId, "oClientId");
-					sap.ui.getCore().setModel(oData.Zzdate, "oDate");
-					sap.ui.getCore().setModel(oData.ZzorderType, "oOrderType");
-					sap.ui.getCore().setModel(oData.Zzstatus, "oStatus");
-					sap.ui.getCore().setModel(oData.Zzuser, "oUser");
-					sap.ui.getCore().setModel(oData.zzorder, "oOrder");
-					sap.ui.getCore().setModel(oData.Zzdesc, "oDescDoc");
-					// oIdClient = sap.ui.getCore().getModel("oClientId");
-					readurl = "/zstclientSet('" + oData.ZzclientId + "')";
-					oModel.read(readurl, {
-						success: function(oData, oResponse) {
-							sap.ui.getCore().setModel(oData.Address, "oAdrOrg");
-							sap.ui.getCore().setModel(oData.NameOrg, "oNameOrg");
-							sap.ui.getCore().setModel(oData.zzuser, "oUser2");
-						}.bind(this)
-					});
-				}.bind(this)
-			});
-		},
 		onValueHelpRequested: function() {
 			this._oBasicSearchField = new SearchField();
 			if (!this.pDialog) {
@@ -99,6 +60,9 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHOpenDoc",
 					controller: this
 				});
+				// this.pDialog = this.loadFragment({
+				// 	name: "ztest_fiori_ks.view.VH"
+				// });
 			}
 			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -117,13 +81,21 @@ sap.ui.define([
 
 				// Set key fields for filtering in the Define Conditions Tab
 				oDialog.setRangeKeyFields([{
-					label: "Document",
+					label: "Type",
 					key: "Zzorder",
-					type: "int32",
-					typeInstance: new TypeInteger({}, {
+					type: "String",
+					typeInstance: new TypeString({}, {
 						maxLength: 5
 					})
 				}]);
+				// oDialog.setRangeKeyFields([{
+				// 	label: "Type",
+				// 	key: "Zzorder",
+				// 	type: "integer",
+				// 	typeInstance: new TypeInteger({}, {
+				// 		maxLength: 5
+				// 	})
+				// }]);
 
 				// Set Basic Search for FilterBar
 				oFilterBar.setFilterBarExpanded(false);
@@ -150,7 +122,7 @@ sap.ui.define([
 							}
 						});
 						oTable.addColumn(new UIColumn({
-							label: "Document",
+							label: "Type",
 							template: "Zzorder"
 						}));
 						oTable.addColumn(new UIColumn({
@@ -179,7 +151,7 @@ sap.ui.define([
 						});
 						oTable.addColumn(new MColumn({
 							header: new Label({
-								text: "Document"
+								text: "Type"
 							})
 						}));
 						oTable.addColumn(new MColumn({
@@ -202,6 +174,7 @@ sap.ui.define([
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
+			console.log("sQ1 : ", sQuery1, "; sQ2 : ", sQuery2);
 			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0)) {
 				var filter = new Filter({
 					filters: [
@@ -218,6 +191,7 @@ sap.ui.define([
 					],
 					and: true
 				});
+				console.log(filter);
 				aFilters.push(filter);
 			}
 
@@ -229,9 +203,11 @@ sap.ui.define([
 
 		onValueHelpOkPress: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
+			console.log("event : ", oEvent.getParameter);
+			// console.log("Token : ",aTokens);
+			// console.log(aTokens[0].mProperties.key);
 			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
-			this.onSelect(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
