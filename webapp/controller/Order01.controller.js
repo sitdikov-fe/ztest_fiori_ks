@@ -229,7 +229,6 @@ sap.ui.define([
 
 		onValueHelpOkPress: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this.onSelect(aTokens[0].mProperties.key);
 			this._oVHD.close();

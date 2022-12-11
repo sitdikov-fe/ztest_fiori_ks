@@ -206,7 +206,6 @@ sap.ui.define([
 			console.log("event : ", oEvent.getParameter);
 			// console.log("Token : ",aTokens);
 			// console.log(aTokens[0].mProperties.key);
-			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
