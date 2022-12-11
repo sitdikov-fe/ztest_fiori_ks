@@ -1,9 +1,24 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/model/json/JSONModel",
-	"sap/m/MessageToast",
+	"sap/ui/core/routing/History",
+	"sap/ui/model/odata/v2/ODataModel",
+	"sap/ui/model/Sorter",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/odata/CountMode",
+	"sap/ui/model/FilterOperator",
+	"sap/ui/core/Fragment",
+	"sap/ui/core/syncStyleClass",
+	"sap/m/MessageToast",
+	"sap/m/MessageBox",
+	"sap/ui/model/json/JSONModel",
+	'sap/ui/comp/library',
+	'sap/ui/model/type/String',
+	'sap/m/ColumnListItem',
+	'sap/m/Label',
+	'sap/m/SearchField',
+	'sap/ui/table/Column',
+	'sap/m/Column',
+	'sap/m/Text'
 ], function (Controller, JSONModel, MessageToast, Filter, FilterOperator) {
 	"use strict";
 	var oModel;
