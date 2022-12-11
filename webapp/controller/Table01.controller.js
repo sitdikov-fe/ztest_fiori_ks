@@ -91,6 +91,7 @@ sap.ui.define([
 
 		onDelete: function (oEvent) {
 			this.mode = "delete";
+			var movedata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var that = this;
 			var sData = oEvent.getSource().getModel("sOrder1").getData();
 			var oTable = this.byId("idSalesTable");
@@ -108,8 +109,13 @@ sap.ui.define([
 							return index;
 						}
 					});
+					movedata.forEach(row => {
+						console.log('1');
+					});
 					sData.Sales.splice(index, 1);//delete  record by using Splice
 				}
+				
+
 				that.getView().getModel("sOrder1").setData(sData);//after deleting set the data
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
