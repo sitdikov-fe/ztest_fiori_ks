@@ -229,7 +229,7 @@ sap.ui.define([
 
 				// Set key fields for filtering in the Define Conditions Tab
 				oDialog.setRangeKeyFields([{
-					label: "Name",
+					label: "zName",
 					key: "Name",
 					type: "string",
 					typeInstance: new TypeString({}, {
@@ -262,7 +262,7 @@ sap.ui.define([
 							}
 						});
 						oTable.addColumn(new UIColumn({
-							label: "Name",
+							label: "zName",
 							template: "Name"
 						}));
 						oTable.addColumn(new UIColumn({
@@ -297,7 +297,7 @@ sap.ui.define([
 						});
 						oTable.addColumn(new MColumn({
 							header: new Label({
-								text: "Name"
+								text: "zName"
 							})
 						}));
 						oTable.addColumn(new MColumn({

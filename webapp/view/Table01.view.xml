@@ -49,7 +49,7 @@
 								<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestposSet'}">
 									<suggestionColumns>
 										<Column>
-											<Label text="Name"/>
+											<Label text="zName"/>
 										</Column>
 										<Column>
 											<Label text="NameType"/>
