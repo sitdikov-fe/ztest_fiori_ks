@@ -45,7 +45,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input>
+								<Input value="{sOrder1>Name}" editable="{= ${sent} === true ? false : true}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? false:true}" />
