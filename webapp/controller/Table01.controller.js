@@ -90,6 +90,7 @@ sap.ui.define([
 		},
 
 		onDelete: function (oEvent) {
+			var move = 0;
 			this.mode = "delete";
 			var that = this;
 			var sData = oEvent.getSource().getModel("sOrder1").getData();
@@ -116,8 +117,10 @@ sap.ui.define([
 				oTable.removeSelections(true);
 				var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 				rawdata.forEach(row => {
-					console.log(row);
+					move +=1;
+					row.Id = move;
 				});
+				that.getView().getModel("sOrder1").setData(rawdata);
 			}
 
 		},
