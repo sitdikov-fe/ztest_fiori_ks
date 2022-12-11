@@ -30,12 +30,14 @@ sap.ui.define([
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
 
+			oMultiInput = this.byId("MultiInput");
+			this._oMultiInput = oMultiInput;
+
 			this.mode = "Edit";
 			var dataModel = this.getOwnerComponent().getModel("tableData");
 			this.getView().setModel(dataModel, "sOrder1");
 			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
-			oMultiInput = this.byId("MultiInput3");
-			this._oMultiInput = oMultiInput;
+
 
 			// create a new model for property binding .for visible property
 			var newModel1 = new JSONModel({
