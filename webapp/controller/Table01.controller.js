@@ -26,6 +26,7 @@ sap.ui.define([
 	var oModel;
 	var counter = 1;
 	var oMultiInput;
+	var oMultiInput2;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
