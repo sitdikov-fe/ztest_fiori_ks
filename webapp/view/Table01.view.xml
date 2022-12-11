@@ -46,7 +46,7 @@
 							<HBox visible="true">
 								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 								<!-- <Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input> -->
-								<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestposSet', templateShareable: false}">
+								<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestposSet', templateShareable: true}">
 									<suggestionColumns>
 										<Column>
 											<Label text="Name"/>
@@ -85,7 +85,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-									<MultiInput id="multiInput2" valueHelpRequest=".onValueHelpRequested2" suggestionRows="{ path: '/ZteststorSet', templateShareable: false} ">
+									<MultiInput id="multiInput2" valueHelpRequest=".onValueHelpRequested2" suggestionRows="{ path: '/ZteststorSet', templateShareable: true} ">
 										<suggestionColumns>
 											<Column>
 												<Label text="Storege"/>
