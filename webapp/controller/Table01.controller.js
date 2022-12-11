@@ -32,7 +32,7 @@ sap.ui.define([
 			var dataModel = this.getOwnerComponent().getModel("tableData");
 			this.getView().setModel(dataModel, "sOrder1");
 			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
-			oMultiInput = this.byId("multiInput2");
+			oMultiInput = this.byId("multiInput");
 			this._oMultiInput = oMultiInput;
 
 			// create a new model for property binding .for visible property
