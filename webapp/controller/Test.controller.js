@@ -19,7 +19,7 @@ sap.ui.define([
 	"use strict";
 
 	var oMultiInput;
-
+ 
 	return Controller.extend("ztest_fiori_ks.controller.Test", {
 		onInit: function() {
 
