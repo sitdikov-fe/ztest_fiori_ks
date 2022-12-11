@@ -218,9 +218,8 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHName",
 					controller: this
 				});
-				// this.pDialog = this.loadFragment({
-				// 	name: "ztest_fiori_ks.view.VH"
-				// });
+				console.log('this.pDialog');
+				console.log(this.pDialog);
 			}
 			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -246,6 +245,9 @@ sap.ui.define([
 						maxLength: 30
 					})
 				}]);
+
+				console.log('this.oDialog');
+				console.log(this.oDialog);
 
 				// Set Basic Search for FilterBar
 				oFilterBar.setFilterBarExpanded(false);
@@ -284,6 +286,9 @@ sap.ui.define([
 							template: "Price"
 						}));
 					}
+
+					console.log('this.oTable');
+					console.log(this.oTable);
 
 					// For Mobile the default table is sap.m.Table
 					if (oTable.bindItems) {
@@ -324,6 +329,9 @@ sap.ui.define([
 					oDialog.update();
 				}.bind(this));
 
+				console.log('this.oDialog2');
+				console.log(this.oDialog);
+
 				oDialog.setTokens(this._oMultiInput.getTokens());
 
 				// set flag that the dialog is initialized
@@ -336,6 +344,8 @@ sap.ui.define([
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
 			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
+			console.log('oEvent.getParameter("selectionSet")');
+			console.log(oEvent.getParameter("selectionSet"));
 			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
 				var filter = new Filter({
 					filters: [
@@ -358,12 +368,16 @@ sap.ui.define([
 					and: true
 				});
 				aFilters.push(filter);
+				console.log('filter');
+				console.log(filter);
 			}
 
 			// update list binding
 			var oTable = this._oVHD.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
+			console.log('oBinding');
+			console.log(oBinding);
 		},
 
 		onValueHelpOkPress: function(oEvent) {
