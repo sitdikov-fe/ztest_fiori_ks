@@ -143,6 +143,7 @@ sap.ui.define([
 			}
 
 		},
+		
 		onCreateTable: function (order) {
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
