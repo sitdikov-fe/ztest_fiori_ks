@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog title="Company" ok=".onValueHelpOkPress2" cancel=".onValueHelpCancelPress2" supportRanges="true" key="Id"
+		descriptionKey="NameOrg">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch2">
+			<!--isRunningInValueHelpDialog="true">-->
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Name" label="Name" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Name"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="NameType"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Price" label="Price" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Price"/>
+						</fb:control>
+					</fb:FilterGroupItem>					
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>
