@@ -10,6 +10,11 @@
 							<m:Input name="Storege"/>
 						</fb:control>
 					</fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="NameType"/>
+						</fb:control>
+					</fb:FilterGroupItem>	
 					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Quanstorage" label="Quanstorage" visibleInFilterBar="true">
 						<fb:control>
 							<m:Input name="Quanstorage"/>

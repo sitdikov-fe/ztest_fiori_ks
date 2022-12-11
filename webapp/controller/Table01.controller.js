@@ -443,6 +443,10 @@ sap.ui.define([
 							template: "Storege"
 						}));
 						oTable2.addColumn(new UIColumn({
+							label: "NameType",
+							template: "NameType"
+						}));
+						oTable2.addColumn(new UIColumn({
 							label: "Quanstorage",
 							template: "Quanstorage"
 						}));
@@ -457,6 +461,8 @@ sap.ui.define([
 								cells: [new Label({
 									text: "{Storege}"
 								}), new Label({
+									text: "{NameType}"
+								}), new Label({
 									text: "{Quanstorage}"
 								})]
 							}),
@@ -469,6 +475,11 @@ sap.ui.define([
 						oTable2.addColumn(new MColumn({
 							header: new Label({
 								text: "Storege"
+							})
+						}));
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "NameType"
 							})
 						}));
 						oTable2.addColumn(new MColumn({
@@ -491,7 +502,8 @@ sap.ui.define([
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
-			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0)) {
+			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
+			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
 				var filter = new Filter({
 					filters: [
 						new Filter({
@@ -500,9 +512,14 @@ sap.ui.define([
 							value1: sQuery1
 						}),
 						new Filter({
-							path: "Quanstorage",
+							path: "NameType",
 							operator: FilterOperator.Contains,
 							value1: sQuery2
+						}),
+						new Filter({
+							path: "Quanstorage",
+							operator: FilterOperator.Contains,
+							value1: sQuery3
 						})
 					],
 					and: true
