@@ -8,6 +8,8 @@ sap.ui.define([
 	"use strict";
 	var oModel;
 
+	var counter = 1;
+
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
 
@@ -47,7 +49,7 @@ sap.ui.define([
 			that.getView().getModel("newModel").setProperty("/editable", true);
 
 			var newRecord = {//create a dummy record to push when user click on Add
-				"Id": "",
+				"Id": counter,
 				"Name": "",
 				"NameType": "",
 				"Quantity": "",
@@ -58,6 +60,7 @@ sap.ui.define([
 				"editable": true,
 				"neweditable": true
 			};
+			counter+= 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData();//get table data
 			oTableData.Sales.push(newRecord);//push this new record in model
 			that.getView().getModel("sOrder1").setData(oTableData);//set data to the view
