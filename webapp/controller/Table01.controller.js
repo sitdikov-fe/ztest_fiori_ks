@@ -30,7 +30,7 @@ sap.ui.define([
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
 
-			oMultiInput = this.byId("MultiInput");
+			oMultiInput = this.byId("multiInput");
 			this._oMultiInput = oMultiInput;
 
 			this.mode = "Edit";
