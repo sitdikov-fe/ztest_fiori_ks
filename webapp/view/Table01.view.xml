@@ -60,9 +60,9 @@
 									</suggestionColumns>
 									<suggestionRows>
 										<ColumnListItem>
-											<Label text="{Name}"/>
-											<Label text="{NameType}"/>
-											<Label text="{Price}"/>
+											<Label text="{Zzname}"/>
+											<Label text="{Zznametype}"/>
+											<Label text="{Zzprice}"/>
 										</ColumnListItem>
 									</suggestionRows>
 								</MultiInput>

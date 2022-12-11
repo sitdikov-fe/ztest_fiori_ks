@@ -203,7 +203,7 @@ sap.ui.define([
 
 		// SH для названия товара
 
-		onValueHelpRequested: function () {
+		onValueHelpRequested: function() {
 			this._oBasicSearchField = new SearchField();
 			if (!this.pDialog) {
 				this.pDialog = Fragment.load({
@@ -212,7 +212,7 @@ sap.ui.define([
 					controller: this
 				});
 			}
-			this.pDialog.then(function (oDialog) {
+			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
 				this._oVHD = oDialog;
 				// Initialise the dialog with model only the first time. Then only open it
@@ -230,10 +230,10 @@ sap.ui.define([
 				// Set key fields for filtering in the Define Conditions Tab
 				oDialog.setRangeKeyFields([{
 					label: "Name",
-					key: "Name",
-					type: "string",
+					key: "Zzorder",
+					type: "String",
 					typeInstance: new TypeString({}, {
-						maxLength: 3
+						maxLength: 5
 					})
 				}]);
 
@@ -242,11 +242,11 @@ sap.ui.define([
 				oFilterBar.setBasicSearch(this._oBasicSearchField);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField.attachSearch(function () {
+				this._oBasicSearchField.attachSearch(function() {
 					oFilterBar.search();
 				});
 
-				oDialog.getTableAsync().then(function (oTable) {
+				oDialog.getTableAsync().then(function(oTable) {
 
 					oTable.setModel(this.oProductsModel);
 
@@ -256,22 +256,22 @@ sap.ui.define([
 						oTable.bindAggregation("rows", {
 							path: "/ZtestposSet",
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog.update();
 								}
 							}
 						});
 						oTable.addColumn(new UIColumn({
 							label: "Name",
-							template: "Name"
+							template: "Zzname"
 						}));
 						oTable.addColumn(new UIColumn({
 							label: "NameType",
-							template: "NameType"
+							template: "Zznametype"
 						}));
 						oTable.addColumn(new UIColumn({
 							label: "Price",
-							template: "Price"
+							template: "Zzprice"
 						}));
 					}
 
@@ -282,15 +282,15 @@ sap.ui.define([
 							path: "/ZtestposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
-									text: "{Name}"
+									text: "{Zzname}"
 								}), new Label({
-									text: "{NameType}"
+									text: "{Zznametype}"
 								}), new Label({
-									text: "{Price}"
+									text: "{Zzprice}"
 								})]
 							}),
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog.update();
 								}
 							}
@@ -321,28 +321,29 @@ sap.ui.define([
 				oDialog.open();
 			}.bind(this));
 		},
-		onFilterBarSearch: function (oEvent) {
+		onFilterBarSearch: function(oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
 			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
+			console.log("sQ1 : ", sQuery1, "; sQ2 : ", sQuery2);
 			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
 				var filter = new Filter({
 					filters: [
 						new Filter({
-							path: "Name",
+							path: "Zzname",
 							operator: FilterOperator.Contains,
 							value1: sQuery1
 						}),
 						new Filter({
-							path: "NameType",
+							path: "Zznametype",
 							operator: FilterOperator.Contains,
 							value1: sQuery2
 						}),
 						new Filter({
-							path: "Price",
+							path: "Zzprice",
 							operator: FilterOperator.Contains,
-							value1: sQuery3
+							value1: sQuery2
 						})
 					],
 					and: true
@@ -356,25 +357,14 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onValueHelpOkPress: function (oEvent) {
+		onValueHelpOkPress: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
-		onValueHelpCancelPress: function () {
+		onValueHelpCancelPress: function() {
 			this._oVHD.close();
-		},
-
-		onOpenDialog: function () {
-			// load BusyDialog fragment asynchronously
-			var oDialog = this.byId("BusyDialog");
-			oDialog.open();
-
-			setTimeout(function () {
-				oDialog.close();
-			}, 1000);
 		}
 
 	});

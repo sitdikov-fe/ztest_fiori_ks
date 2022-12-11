@@ -5,19 +5,19 @@
 			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch">
 			<!--isRunningInValueHelpDialog="true">-->
 				<fb:filterGroupItems>
-					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Name" label="Name" visibleInFilterBar="true">
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zzname" label="Name" visibleInFilterBar="true">
 						<fb:control>
-							<m:Input name="Name"/>
+							<m:Input name="Zzname"/>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zznametype" label="NameType" visibleInFilterBar="true">
 						<fb:control>
-							<m:Input name="NameType"/>
+							<m:Input name="Zznametype"/>
 						</fb:control>
 					</fb:FilterGroupItem>
-                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="Price" label="Price" visibleInFilterBar="true">
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Zzprice" label="Price" visibleInFilterBar="true">
 						<fb:control>
-							<m:Input name="Price"/>
+							<m:Input name="Zzprice"/>
 						</fb:control>
 					</fb:FilterGroupItem>
 				</fb:filterGroupItems>
