@@ -10,7 +10,7 @@
 						<Button id="_IDGenButton1" icon="sap-icon://action-settings" press="onPersoButtonPressed" />
 					</OverflowToolbar>
 				</headerToolbar>
-				<columns>
+				<columns> 
 					<Column minScreenWidth="Tablet">
 						<Text text="{i18n>id1}" />
 					</Column>
@@ -39,7 +39,7 @@
 				<items>
 					<ColumnListItem vAlign="Middle" press="tableSelected">
 						<cells>
-							<HBox visible="true">
+							<HBox visible="true" valueHelpRequest=".onValueHelpRequested">
 								<Text text="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ? ${sOrder1>neweditable} === true ? false:true :true}" />
 								<Input value="{sOrder1>Id}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 							</HBox>
