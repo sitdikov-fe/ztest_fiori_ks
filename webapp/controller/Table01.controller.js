@@ -102,6 +102,7 @@ sap.ui.define([
 
 				for (var i = selectedRowData.length - 1; i >= 0; i--) {
 					var oThisObj = selectedRowData[i].getObject();
+					counter-= 1;
 					var index = $.map(sData.Sales, function (obj, index) {
 						if (obj === oThisObj) {
 							return index;
