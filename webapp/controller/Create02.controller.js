@@ -19,7 +19,7 @@ sap.ui.define([
 	'sap/ui/table/Column',
 	'sap/m/Column',
 	'sap/m/Text'
-], function (Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast,
+], function(Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast,
 	MessageBox, JSONModel, compLibrary, TypeString, ColumnListItem,
 	Label, SearchField, UIColumn, MColumn, Text) {
 	"use strict";
@@ -42,7 +42,7 @@ sap.ui.define([
 	var oMultiInput2;
 
 	return Controller.extend("ztest_fiori_ks.controller.Create02", {
-		onInit: function () {
+		onInit: function() {
 			// Value Help Dialog standard use case with filter bar without filter suggestions
 			oMultiInput = this.byId("multiInput");
 			this._oMultiInput = oMultiInput;
@@ -65,10 +65,10 @@ sap.ui.define([
 			this.getResourceBundle();
 			this._getDateResorces();
 		},
-		_getUserData: function () {
+		_getUserData: function() {
 			var readurl = "/zUserDataSet";
 			oModel.read(readurl, {
-				success: function (oData, oResponse) {
+				success: function(oData, oResponse) {
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zUserName, "oUserData");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zData, "oUserName");
 					sap.ui.getCore().setModel(oData.valueOf().results[0].zIdOrder, "oOrderId");
@@ -77,7 +77,7 @@ sap.ui.define([
 			});
 		},
 
-		_getDateResorces: function () {
+		_getDateResorces: function() {
 			oUserName = sap.ui.getCore().getModel("oUserData");
 			oUserData = sap.ui.getCore().getModel("oUserName");
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
@@ -92,27 +92,27 @@ sap.ui.define([
 
 			//this.onUpdateState();
 		},
-		getResourceBundle: function () {
+		getResourceBundle: function() {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
-		_onChangeId: function (number) {
+		_onChangeId: function(number) {
 			oIdClient = number;
 			var readurl = "/zstclientSet('" + oIdClient + "')";
 			oModel.read(readurl, {
-				success: function (oData, oResponse) {
+				success: function(oData, oResponse) {
 					this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
 					isErrorResponse = 0;
 				}.bind(this),
-				error: function (err) {
+				error: function(err) {
 					isErrorResponse = 1;
 				}
 			});
 
 		},
 
-		onBack: function () {
+		onBack: function() {
 			var sPreviousHash = History.getInstance().getPreviousHash();
 
 			//The history contains a previous entry
@@ -125,10 +125,10 @@ sap.ui.define([
 			}
 		},
 
-		onExit: function () {
+		onExit: function() {
 			this.getOwnerComponent().getRouter().navTo("page1");
 		},
-		_createOrderSt: function () {
+		_createOrderSt: function() {
 			oIdOrder = sap.ui.getCore().getModel("oOrderId");
 			type = this.getView().byId("multiInput").getValue();
 			oUserName = this.getView().byId("oUserName").getValue();
@@ -160,19 +160,19 @@ sap.ui.define([
 			var oCreateUrl = "/zOrderDateSet";
 			if (react) {
 				oModel.create(oCreateUrl, data, null,
-					function (response) {
+					function(response) {
 						MessageBox.success("Document : " + oIdOrder + " successfully created");
 					},
-					function (error) {
+					function(error) {
 						MessageToast.show("Error while creating the data");
 					}
 				);
 
 				oModelnew.create(oParametrUrl, parametr,
-					function (RESPONSE) {
+					function(RESPONSE) {
 						MessageToast.show("Document : " + oIdOrder + " successfully created");
 					},
-					function (error) { }
+					function(error) {}
 				);
 			} else {
 				MessageBox.error("Error while creating the data");
@@ -184,17 +184,18 @@ sap.ui.define([
 				this.onExit();
 			}
 		},
-		onCreate: function () {
+		onCreate: function() {
 			this._createOrderSt();
 
 		},
-		onCheck: function () {
-			this._getDateResorces();
-			// this.onChangeId();
-			this.onUpdateState();
-
+		onCheck: function() {
+			if (sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(-1)) {
+				this._getDateResorces();
+				// this.onChangeId();
+				this.onUpdateState();
+			}
 		},
-		_checkField: function () {
+		_checkField: function() {
 			oDesc = this.getView().byId("oDescDoc").getValue();
 			// type = this.getView().byId("oSearchField").getValue();
 			type = this.getView().byId("multiInput").getValue();
@@ -204,27 +205,26 @@ sap.ui.define([
 				isActive = 1;
 			}
 		},
-		onUpdateState: function () {
+		onUpdateState: function() {
 			if (isErrorResponse === 1) {
 				this.getView().byId("oNameOrg").setValue('value not found');
 				this.getView().byId("oAdrClient").setValue('value not found');
 			}
 
 			this._checkField();
-			if (sap.ui.controller("ztest_fiori_ks.controller.Table01").onCreateTable(-1)) {
-				if (isActive === 0) {
-					this.getView().byId("stateOrder").setValue("Данные не заполнены");
-					this.getView().byId("oButtonCreate").setEnabled(false);
-				} else {
-					this.getView().byId("stateOrder").setValue("Данные заполнены");
-					this.getView().byId("oButtonCreate").setEnabled(true);
-				}
+			if (isActive === 0) {
+				this.getView().byId("stateOrder").setValue("Данные не заполнены");
+				this.getView().byId("oButtonCreate").setEnabled(false);
+			} else {
+				this.getView().byId("stateOrder").setValue("Данные заполнены");
+				this.getView().byId("oButtonCreate").setEnabled(true);
 			}
+
 		},
 
 		// SH для типа документа
 
-		onValueHelpRequested: function () {
+		onValueHelpRequested: function() {
 			this._oBasicSearchField = new SearchField();
 			if (!this.pDialog) {
 				this.pDialog = Fragment.load({
@@ -236,7 +236,7 @@ sap.ui.define([
 				// 	name: "ztest_fiori_ks.view.VH"
 				// });
 			}
-			this.pDialog.then(function (oDialog) {
+			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
 				this._oVHD = oDialog;
 				// Initialise the dialog with model only the first time. Then only open it
@@ -266,11 +266,11 @@ sap.ui.define([
 				oFilterBar.setBasicSearch(this._oBasicSearchField);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField.attachSearch(function () {
+				this._oBasicSearchField.attachSearch(function() {
 					oFilterBar.search();
 				});
 
-				oDialog.getTableAsync().then(function (oTable) {
+				oDialog.getTableAsync().then(function(oTable) {
 
 					oTable.setModel(this.oProductsModel);
 
@@ -280,7 +280,7 @@ sap.ui.define([
 						oTable.bindAggregation("rows", {
 							path: "/ZtestShTypedocKosiSet",
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog.update();
 								}
 							}
@@ -308,7 +308,7 @@ sap.ui.define([
 								})]
 							}),
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog.update();
 								}
 							}
@@ -334,7 +334,7 @@ sap.ui.define([
 				oDialog.open();
 			}.bind(this));
 		},
-		onFilterBarSearch: function (oEvent) {
+		onFilterBarSearch: function(oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -363,30 +363,30 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onValueHelpOkPress: function (oEvent) {
+		onValueHelpOkPress: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
-		onValueHelpCancelPress: function () {
+		onValueHelpCancelPress: function() {
 			this._oVHD.close();
 		},
 
-		onOpenDialog: function () {
+		onOpenDialog: function() {
 			// load BusyDialog fragment asynchronously
 			var oDialog = this.byId("BusyDialog");
 			oDialog.open();
 
-			setTimeout(function () {
+			setTimeout(function() {
 				oDialog.close();
 			}, 1000);
 		},
 
 		// SH для типа компании
 
-		onValueHelpRequested2: function () {
+		onValueHelpRequested2: function() {
 			this._oBasicSearchField2 = new SearchField();
 			if (!this.pDialog2) {
 				this.pDialog2 = Fragment.load({
@@ -398,7 +398,7 @@ sap.ui.define([
 				// 	name: "ztest_fiori_ks.view.VH"
 				// });
 			}
-			this.pDialog2.then(function (oDialog2) {
+			this.pDialog2.then(function(oDialog2) {
 				var oFilterBar2 = oDialog2.getFilterBar();
 				this._oVHD2 = oDialog2;
 				// Initialise the dialog with model only the first time. Then only open it
@@ -428,11 +428,11 @@ sap.ui.define([
 				oFilterBar2.setBasicSearch(this._oBasicSearchField2);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField2.attachSearch(function () {
+				this._oBasicSearchField2.attachSearch(function() {
 					oFilterBar2.search();
 				});
 
-				oDialog2.getTableAsync().then(function (oTable2) {
+				oDialog2.getTableAsync().then(function(oTable2) {
 
 					oTable2.setModel(this.oProductsModel2);
 
@@ -442,7 +442,7 @@ sap.ui.define([
 						oTable2.bindAggregation("rows", {
 							path: "/ZtestShClientKosiSet",
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog2.update();
 								}
 							}
@@ -476,7 +476,7 @@ sap.ui.define([
 								})]
 							}),
 							events: {
-								dataReceived: function () {
+								dataReceived: function() {
 									oDialog2.update();
 								}
 							}
@@ -507,7 +507,7 @@ sap.ui.define([
 				oDialog2.open();
 			}.bind(this));
 		},
-		onFilterBarSearch2: function (oEvent) {
+		onFilterBarSearch2: function(oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -542,7 +542,7 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onValueHelpOkPress2: function (oEvent) {
+		onValueHelpOkPress2: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput2.setValue(aTokens[0].mProperties.key);
@@ -550,7 +550,7 @@ sap.ui.define([
 			this._oVHD2.close();
 		},
 
-		onValueHelpCancelPress2: function () {
+		onValueHelpCancelPress2: function() {
 			this._oVHD2.close();
 		}
 
