@@ -24,8 +24,8 @@ sap.ui.define([
 	Label, SearchField, UIColumn, MColumn, Text) {
 	"use strict";
 	var oModel;
-	var oMultiInput3;
 	var counter = 1;
+	var oMultiInput3;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
