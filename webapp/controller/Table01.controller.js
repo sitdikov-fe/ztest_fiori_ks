@@ -201,179 +201,179 @@ sap.ui.define([
 
 		// SH для названия товара
 
-		onValueHelpRequested: function () {
-			this._oBasicSearchField = new SearchField();
-			if (!this.pDialog) {
-				this.pDialog = Fragment.load({
-					id: this.getView().getId(),
-					name: "ztest_fiori_ks.view.VHName",
-					controller: this
-				});
-			}
-			this.pDialog.then(function (oDialog) {
-				var oFilterBar = oDialog.getFilterBar();
-				this._oVHD = oDialog;
-				// Initialise the dialog with model only the first time. Then only open it
-				if (this._bDialogInitialized) {
-					// Re-set the tokens from the input and update the table
-					oDialog.setTokens([]);
-					oDialog.setTokens(this._oMultiInput.getTokens());
-					oDialog.update();
+		// onValueHelpRequested: function () {
+		// 	this._oBasicSearchField = new SearchField();
+		// 	if (!this.pDialog) {
+		// 		this.pDialog = Fragment.load({
+		// 			id: this.getView().getId(),
+		// 			name: "ztest_fiori_ks.view.VHName",
+		// 			controller: this
+		// 		});
+		// 	}
+		// 	this.pDialog.then(function (oDialog) {
+		// 		var oFilterBar = oDialog.getFilterBar();
+		// 		this._oVHD = oDialog;
+		// 		// Initialise the dialog with model only the first time. Then only open it
+		// 		if (this._bDialogInitialized) {
+		// 			// Re-set the tokens from the input and update the table
+		// 			oDialog.setTokens([]);
+		// 			oDialog.setTokens(this._oMultiInput.getTokens());
+		// 			oDialog.update();
 
-					oDialog.open();
-					return;
-				}
-				this.getView().addDependent(oDialog);
+		// 			oDialog.open();
+		// 			return;
+		// 		}
+		// 		this.getView().addDependent(oDialog);
 
-				// Set key fields for filtering in the Define Conditions Tab
-				oDialog.setRangeKeyFields([{
-					label: "Name",
-					key: "Name",
-					type: "string",
-					typeInstance: new TypeString({}, {
-						maxLength: 3
-					})
-				}]);
+		// 		// Set key fields for filtering in the Define Conditions Tab
+		// 		oDialog.setRangeKeyFields([{
+		// 			label: "Name",
+		// 			key: "Name",
+		// 			type: "string",
+		// 			typeInstance: new TypeString({}, {
+		// 				maxLength: 3
+		// 			})
+		// 		}]);
 
-				// Set Basic Search for FilterBar
-				oFilterBar.setFilterBarExpanded(false);
-				oFilterBar.setBasicSearch(this._oBasicSearchField);
+		// 		// Set Basic Search for FilterBar
+		// 		oFilterBar.setFilterBarExpanded(false);
+		// 		oFilterBar.setBasicSearch(this._oBasicSearchField);
 
-				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField.attachSearch(function () {
-					oFilterBar.search();
-				});
+		// 		// Trigger filter bar search when the basic search is fired
+		// 		this._oBasicSearchField.attachSearch(function () {
+		// 			oFilterBar.search();
+		// 		});
 
-				oDialog.getTableAsync().then(function (oTable) {
+		// 		oDialog.getTableAsync().then(function (oTable) {
 
-					oTable.setModel(this.oProductsModel);
+		// 			oTable.setModel(this.oProductsModel);
 
-					// For Desktop and tabled the default table is sap.ui.table.Table
-					if (oTable.bindRows) {
-						// Bind rows to the ODataModel and add columns
-						oTable.bindAggregation("rows", {
-							path: "/ZtestposSet",
-							events: {
-								dataReceived: function () {
-									oDialog.update();
-								}
-							}
-						});
-						oTable.addColumn(new UIColumn({
-							label: "Name",
-							template: "Name"
-						}));
-						oTable.addColumn(new UIColumn({
-							label: "NameType",
-							template: "NameType"
-						}));
-						oTable.addColumn(new UIColumn({
-							label: "Price",
-							template: "Price"
-						}));
-					}
+		// 			// For Desktop and tabled the default table is sap.ui.table.Table
+		// 			if (oTable.bindRows) {
+		// 				// Bind rows to the ODataModel and add columns
+		// 				oTable.bindAggregation("rows", {
+		// 					path: "/ZtestposSet",
+		// 					events: {
+		// 						dataReceived: function () {
+		// 							oDialog.update();
+		// 						}
+		// 					}
+		// 				});
+		// 				oTable.addColumn(new UIColumn({
+		// 					label: "Name",
+		// 					template: "Name"
+		// 				}));
+		// 				oTable.addColumn(new UIColumn({
+		// 					label: "NameType",
+		// 					template: "NameType"
+		// 				}));
+		// 				oTable.addColumn(new UIColumn({
+		// 					label: "Price",
+		// 					template: "Price"
+		// 				}));
+		// 			}
 
-					// For Mobile the default table is sap.m.Table
-					if (oTable.bindItems) {
-						// Bind items to the ODataModel and add columns
-						oTable.bindAggregation("items", {
-							path: "/ZtestposSet",
-							template: new ColumnListItem({
-								cells: [new Label({
-									text: "{Name}"
-								}), new Label({
-									text: "{NameType}"
-								}), new Label({
-									text: "{Price}"
-								})]
-							}),
-							events: {
-								dataReceived: function () {
-									oDialog.update();
-								}
-							}
-						});
-						oTable.addColumn(new MColumn({
-							header: new Label({
-								text: "Name"
-							})
-						}));
-						oTable.addColumn(new MColumn({
-							header: new Label({
-								text: "NameType"
-							})
-						}));
-						oTable.addColumn(new MColumn({
-							header: new Label({
-								text: "Price"
-							})
-						}));
-					}
-					oDialog.update();
-				}.bind(this));
+		// 			// For Mobile the default table is sap.m.Table
+		// 			if (oTable.bindItems) {
+		// 				// Bind items to the ODataModel and add columns
+		// 				oTable.bindAggregation("items", {
+		// 					path: "/ZtestposSet",
+		// 					template: new ColumnListItem({
+		// 						cells: [new Label({
+		// 							text: "{Name}"
+		// 						}), new Label({
+		// 							text: "{NameType}"
+		// 						}), new Label({
+		// 							text: "{Price}"
+		// 						})]
+		// 					}),
+		// 					events: {
+		// 						dataReceived: function () {
+		// 							oDialog.update();
+		// 						}
+		// 					}
+		// 				});
+		// 				oTable.addColumn(new MColumn({
+		// 					header: new Label({
+		// 						text: "Name"
+		// 					})
+		// 				}));
+		// 				oTable.addColumn(new MColumn({
+		// 					header: new Label({
+		// 						text: "NameType"
+		// 					})
+		// 				}));
+		// 				oTable.addColumn(new MColumn({
+		// 					header: new Label({
+		// 						text: "Price"
+		// 					})
+		// 				}));
+		// 			}
+		// 			oDialog.update();
+		// 		}.bind(this));
 
-				oDialog.setTokens(this._oMultiInput.getTokens());
+		// 		oDialog.setTokens(this._oMultiInput.getTokens());
 
-				// set flag that the dialog is initialized
-				this._bDialogInitialized = true;
-				oDialog.open();
-			}.bind(this));
-		},
-		onFilterBarSearch: function (oEvent) {
-			var aFilters = [];
-			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
-			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
-			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
-			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
-				var filter = new Filter({
-					filters: [
-						new Filter({
-							path: "Name",
-							operator: FilterOperator.Contains,
-							value1: sQuery1
-						}),
-						new Filter({
-							path: "NameType",
-							operator: FilterOperator.Contains,
-							value1: sQuery2
-						}),
-						new Filter({
-							path: "Price",
-							operator: FilterOperator.Contains,
-							value1: sQuery3
-						})
-					],
-					and: true
-				});
-				aFilters.push(filter);
-			}
+		// 		// set flag that the dialog is initialized
+		// 		this._bDialogInitialized = true;
+		// 		oDialog.open();
+		// 	}.bind(this));
+		// },
+		// onFilterBarSearch: function (oEvent) {
+		// 	var aFilters = [];
+		// 	var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
+		// 	var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
+		// 	var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
+		// 	if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
+		// 		var filter = new Filter({
+		// 			filters: [
+		// 				new Filter({
+		// 					path: "Name",
+		// 					operator: FilterOperator.Contains,
+		// 					value1: sQuery1
+		// 				}),
+		// 				new Filter({
+		// 					path: "NameType",
+		// 					operator: FilterOperator.Contains,
+		// 					value1: sQuery2
+		// 				}),
+		// 				new Filter({
+		// 					path: "Price",
+		// 					operator: FilterOperator.Contains,
+		// 					value1: sQuery3
+		// 				})
+		// 			],
+		// 			and: true
+		// 		});
+		// 		aFilters.push(filter);
+		// 	}
 
-			// update list binding
-			var oTable = this._oVHD.getTable();
-			var oBinding = oTable.getBinding("rows");
-			oBinding.filter(aFilters, "Application");
-		},
+		// 	// update list binding
+		// 	var oTable = this._oVHD.getTable();
+		// 	var oBinding = oTable.getBinding("rows");
+		// 	oBinding.filter(aFilters, "Application");
+		// },
 
-		onValueHelpOkPress: function (oEvent) {
-			var aTokens = oEvent.getParameter("tokens");
-			// this._oMultiInput.setTokens(aTokens);
-			this._oMultiInput.setValue(aTokens[0].mProperties.key);
-			this._oVHD.close();
-		},
+		// onValueHelpOkPress: function (oEvent) {
+		// 	var aTokens = oEvent.getParameter("tokens");
+		// 	// this._oMultiInput.setTokens(aTokens);
+		// 	this._oMultiInput.setValue(aTokens[0].mProperties.key);
+		// 	this._oVHD.close();
+		// },
 
-		onValueHelpCancelPress: function () {
-			this._oVHD.close();
-		},
+		// onValueHelpCancelPress: function () {
+		// 	this._oVHD.close();
+		// },
 
-		onOpenDialog: function () {
-			// load BusyDialog fragment asynchronously
-			var oDialog = this.byId("BusyDialog");
-			oDialog.open();
+		// onOpenDialog: function () {
+		// 	// load BusyDialog fragment asynchronously
+		// 	var oDialog = this.byId("BusyDialog");
+		// 	oDialog.open();
 
-			setTimeout(function () {
-				oDialog.close();
-			}, 1000);
-		}
+		// 	setTimeout(function () {
+		// 		oDialog.close();
+		// 	}, 1000);
+		// }
 
 	});
 });
