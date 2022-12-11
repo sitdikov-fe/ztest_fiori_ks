@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
-	<ValueHelpDialog title="Company" ok=".onValueHelpOkPress2" cancel=".onValueHelpCancelPress2" supportRanges="true" key="Id"
+	<ValueHelpDialog title="Company" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" supportRanges="true" key="Id"
 		descriptionKey="NameOrg">
 		<filterBar>
 			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch">
