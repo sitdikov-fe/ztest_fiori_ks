@@ -114,7 +114,8 @@ sap.ui.define([
 				that.getView().getModel("sOrder1").setData(sData);//after deleting set the data
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
-				sData.forEach(row => {
+				var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
+				rawdata.forEach(row => {
 					console.log('1');
 				});
 			}
