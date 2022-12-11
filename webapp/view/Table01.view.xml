@@ -39,9 +39,9 @@
 				<items>
 					<ColumnListItem vAlign="Middle" press="tableSelected">
 						<cells>
-							<HBox visible="true">
+							<HBox visible="false">
 								<Text text="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ? ${sOrder1>neweditable} === true ? false:true :true}" />
-								<Input change="onChange" value="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ?  ${sOrder1>neweditable} === true ? true:false:false}" valueState="{newModel>/valueState}" liveChange="onLiveChange"></Input>
+								<!-- <Input change="onChange" value="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ?  ${sOrder1>neweditable} === true ? true:false:false}" valueState="{newModel>/valueState}" liveChange="onLiveChange"></Input> -->
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
