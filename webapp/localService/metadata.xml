@@ -148,6 +148,28 @@
                 <Property Name="Zzorder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="Zzdesc" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
             </EntityType>
+            <EntityType Name="Ztestpos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzname"/>
+                </Key>
+                <Property Name="Zzname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Zznametype" Type="Edm.Int32" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Zzprice" Type="Edm.Int32" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="Zteststor" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Storege"/>
+                </Key>
+                <Property Name="Storege" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Quanstorage" Type="Edm.Int32" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="ZtestShDocnumKosi" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Zzorder"/>
+                </Key>
+                <Property Name="Zzorder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Zzdesc" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
             <EntityContainer Name="ZTEST_FIORI_KOSI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="SubscriptionCollection" EntityType="ZTEST_FIORI_KOSI_SRV.Subscription" sap:content-version="1"/>
                 <EntitySet Name="NotificationCollection" EntityType="ZTEST_FIORI_KOSI_SRV.Notification" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
@@ -161,6 +183,8 @@
                 <EntitySet Name="zUserDataSet" EntityType="ZTEST_FIORI_KOSI_SRV.zUserData" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="ZtestShTypedocKosiSet" EntityType="ZTEST_FIORI_KOSI_SRV.ZtestShTypedocKosi" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="ZtestShClientKosiSet" EntityType="ZTEST_FIORI_KOSI_SRV.ZtestShClientKosi" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ztestposSet" EntityType="ZTEST_FIORI_KOSI_SRV.ztestpos" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:pageable="true" sap:addressable="true" sap:content-version="1"/>
+                <EntitySet Name="zteststorSet" EntityType="ZTEST_FIORI_KOSI_SRV.zteststor" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:pageable="true" sap:addressable="true" sap:content-version="1"/>
                 <EntitySet Name="zSenderMailSet" EntityType="ZTEST_FIORI_KOSI_SRV.zSenderMail" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="zUserIncomingSet" EntityType="ZTEST_FIORI_KOSI_SRV.zUserIncoming" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="ZtestShDocnumKosiSet" EntityType="ZTEST_FIORI_KOSI_SRV.ZtestShDocnumKosi" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
