@@ -30,8 +30,6 @@ sap.ui.define([
 			});
 			this.getView().setModel(newModel1, "newModel");
 			window.temp = this;
-
-			that.getView().getModel("newModel").setProperty("/editable", false);
 		},
 
 		onLiveChange: function (oEvent) {
