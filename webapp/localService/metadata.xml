@@ -161,6 +161,7 @@
                     <PropertyRef Name="Storege"/>
                 </Key>
                 <Property Name="Storege" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="NameType" Type="Edm.Int32" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="Quanstorage" Type="Edm.Int32" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
             </EntityType>
             <EntityType Name="ZtestShDocnumKosi" sap:content-version="1">
