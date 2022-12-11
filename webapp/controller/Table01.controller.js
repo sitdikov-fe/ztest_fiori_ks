@@ -143,7 +143,7 @@ sap.ui.define([
 			}
 
 		},
-		
+
 		onCreateTable: function (order) {
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
@@ -209,7 +209,6 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHName",
 					controller: this
 				});
-
 			}
 			this.pDialog.then(function (oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -232,7 +231,7 @@ sap.ui.define([
 					key: "Name",
 					type: "string",
 					typeInstance: new TypeString({}, {
-						maxLength: 30
+						maxLength: 3
 					})
 				}]);
 
@@ -359,12 +358,21 @@ sap.ui.define([
 			var aTokens = oEvent.getParameter("tokens");
 			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
-			this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
 		onValueHelpCancelPress: function () {
 			this._oVHD.close();
+		},
+
+		onOpenDialog: function () {
+			// load BusyDialog fragment asynchronously
+			var oDialog = this.byId("BusyDialog");
+			oDialog.open();
+
+			setTimeout(function () {
+				oDialog.close();
+			}, 1000);
 		}
 
 	});

@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
-	<ValueHelpDialog title="Company" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" supportRanges="true" key="Id"
-		descriptionKey="NameOrg">
+	<ValueHelpDialog title="Product" ok=".onValueHelpOkPress" cancel=".onValueHelpCancelPress" supportRanges="true" key="Name"
+		descriptionKey="NameType">
 		<filterBar>
 			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch">
 			<!--isRunningInValueHelpDialog="true">-->
@@ -15,11 +15,11 @@
 							<m:Input name="NameType"/>
 						</fb:control>
 					</fb:FilterGroupItem>
-					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Price" label="Price" visibleInFilterBar="true">
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="Price" label="Price" visibleInFilterBar="true">
 						<fb:control>
 							<m:Input name="Price"/>
 						</fb:control>
-					</fb:FilterGroupItem>					
+					</fb:FilterGroupItem>
 				</fb:filterGroupItems>
 			</fb:FilterBar>
 		</filterBar>
