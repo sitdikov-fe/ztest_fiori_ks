@@ -124,7 +124,7 @@ sap.ui.define([
 					console.log(row);
 				});
 
-				console.log(rowdata);
+				console.log(rowdata.getParent());
 			}
 
 		},
