@@ -116,7 +116,7 @@ sap.ui.define([
 				oTable.removeSelections(true);
 				var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 				rawdata.forEach(row => {
-					console.log('1');
+					console.log(row);
 				});
 			}
 
