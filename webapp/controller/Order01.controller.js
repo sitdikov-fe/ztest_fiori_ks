@@ -99,6 +99,8 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHOpenDoc",
 					controller: this
 				});
+				console.log('this.pDialog');
+				console.log(this.pDialog);
 			}
 			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -124,6 +126,9 @@ sap.ui.define([
 						maxLength: 5
 					})
 				}]);
+
+				console.log('this.oDialog');
+				console.log(this.oDialog);
 
 				// Set Basic Search for FilterBar
 				oFilterBar.setFilterBarExpanded(false);
