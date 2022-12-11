@@ -115,16 +115,14 @@ sap.ui.define([
 				that.getView().getModel("sOrder1").setData(sData);//after deleting set the data
 				// this._oTable.getModel().setData(sData);
 				oTable.removeSelections(true);
-				console.log(sData);
 
-				var rowdata = window.temp.getView().getModel("sOrder1").getData().Sales;
-				rowdata.forEach(row => {
+				sData.Sales.forEach(row => {
 					move +=1;
 					row.Id = move;
-					console.log(row);
 				});
 
-				console.log(rowdata.getParent());
+				that.getView().getModel("sOrder1").setData(sData);
+
 			}
 
 		},
