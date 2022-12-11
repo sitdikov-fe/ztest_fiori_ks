@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:m="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core">
+	<ValueHelpDialog title="Storege" ok=".onValueHelpOkPress2" cancel=".onValueHelpCancelPress2" supportRanges="true" key="Storege"
+		descriptionKey="Quanstorage">
+		<filterBar>
+			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch2">
+			<!--isRunningInValueHelpDialog="true">-->
+				<fb:filterGroupItems>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Storege" label="Storege" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Storege"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Quanstorage" label="Quanstorage" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="Quanstorage"/>
+						</fb:control>
+					</fb:FilterGroupItem>				
+				</fb:filterGroupItems>
+			</fb:FilterBar>
+		</filterBar>
+	</ValueHelpDialog>
+</core:FragmentDefinition>

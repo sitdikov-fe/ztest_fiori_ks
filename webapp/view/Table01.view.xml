@@ -85,7 +85,22 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
+									<MultiInput id="multiInput2" valueHelpRequest=".onValueHelpRequested2" suggestionRows="{ path: '/ZtestposSet'}">
+										<suggestionColumns>
+											<Column>
+												<Label text="Storege"/>
+											</Column>
+											<Column>
+												<Label text="Quanstorage"/>
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<Label text="{Storege}"/>
+												<Label text="{Quanstorage}"/>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />

@@ -32,6 +32,9 @@ sap.ui.define([
 
 			oMultiInput = this.byId("multiInput");
 			this._oMultiInput = oMultiInput;
+			oMultiInput2 = this.byId("multiInput2");
+			this._oMultiInput2 = oMultiInput2;
+
 
 			this.mode = "Edit";
 			var dataModel = this.getOwnerComponent().getModel("tableData");
@@ -369,7 +372,160 @@ sap.ui.define([
 
 		onValueHelpCancelPress: function() {
 			this._oVHD.close();
+		},
+		
+		// SH для скалда
+
+		onValueHelpRequested2: function() {
+			this._oBasicSearchField2 = new SearchField();
+			if (!this.pDialog2) {
+				this.pDialog2 = Fragment.load({
+					id: this.getView().getId(),
+					name: "ztest_fiori_ks.view.VHStorage",
+					controller: this
+				});
+				// this.pDialog = this.loadFragment({
+				// 	name: "ztest_fiori_ks.view.VH"
+				// });
+			}
+			this.pDialog2.then(function(oDialog2) {
+				var oFilterBar2 = oDialog2.getFilterBar();
+				this._oVHD2 = oDialog2;
+				// Initialise the dialog with model only the first time. Then only open it
+				if (this._bDialogInitialized2) {
+					// Re-set the tokens from the input and update the table
+					oDialog2.setTokens([]);
+					oDialog2.setTokens(this._oMultiInput2.getTokens());
+					oDialog2.update();
+
+					oDialog2.open();
+					return;
+				}
+				this.getView().addDependent(oDialog2);
+
+				// Set key fields for filtering in the Define Conditions Tab
+				oDialog2.setRangeKeyFields([{
+					label: "Storege",
+					key: "Storege",
+					type: "string",
+					typeInstance: new TypeString({}, {
+						maxLength: 4
+					})
+				}]);
+
+				// Set Basic Search for FilterBar
+				oFilterBar2.setFilterBarExpanded(false);
+				oFilterBar2.setBasicSearch(this._oBasicSearchField2);
+
+				// Trigger filter bar search when the basic search is fired
+				this._oBasicSearchField2.attachSearch(function() {
+					oFilterBar2.search();
+				});
+
+				oDialog2.getTableAsync().then(function(oTable2) {
+
+					oTable2.setModel(this.oProductsModel2);
+
+					// For Desktop and tabled the default table is sap.ui.table.Table
+					if (oTable2.bindRows) {
+						// Bind rows to the ODataModel and add columns
+						oTable2.bindAggregation("rows", {
+							path: "/ZteststorSet",
+							events: {
+								dataReceived: function() {
+									oDialog2.update();
+								}
+							}
+						});
+						oTable2.addColumn(new UIColumn({
+							label: "Storege",
+							template: "Storege"
+						}));
+						oTable2.addColumn(new UIColumn({
+							label: "Quanstorage",
+							template: "Quanstorage"
+						}));
+					}
+
+					// For Mobile the default table is sap.m.Table
+					if (oTable2.bindItems) {
+						// Bind items to the ODataModel and add columns
+						oTable2.bindAggregation("items", {
+							path: "/ZteststorSet",
+							template: new ColumnListItem({
+								cells: [new Label({
+									text: "{Storege}"
+								}), new Label({
+									text: "{Quanstorage}"
+								})]
+							}),
+							events: {
+								dataReceived: function() {
+									oDialog2.update();
+								}
+							}
+						});
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "Storege"
+							})
+						}));
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "Quanstorage"
+							})
+						}));
+					}
+					oDialog2.update();
+				}.bind(this));
+
+				oDialog2.setTokens(this._oMultiInput2.getTokens());
+
+				// set flag that the dialog is initialized
+				this._bDialogInitialized2 = true;
+				oDialog2.open();
+			}.bind(this));
+		},
+		onFilterBarSearch2: function(oEvent) {
+			var aFilters = [];
+			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
+			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
+			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0)) {
+				var filter = new Filter({
+					filters: [
+						new Filter({
+							path: "Storege",
+							operator: FilterOperator.Contains,
+							value1: sQuery1
+						}),
+						new Filter({
+							path: "Quanstorage",
+							operator: FilterOperator.Contains,
+							value1: sQuery2
+						})
+					],
+					and: true
+				});
+				aFilters.push(filter);
+			}
+
+			// update list binding
+			var oTable = this._oVHD2.getTable();
+			var oBinding = oTable.getBinding("rows");
+			oBinding.filter(aFilters, "Application");
+		},
+
+		onValueHelpOkPress2: function(oEvent) {
+			var aTokens = oEvent.getParameter("tokens");
+			this._oMultiInput2.setValue(aTokens[0].mProperties.key);
+			this._onChangeId(aTokens[0].mProperties.key);
+			this._oVHD2.close();
+		},
+
+		onValueHelpCancelPress2: function() {
+			this._oVHD2.close();
 		}
+
 
 	});
 });
