@@ -24,7 +24,7 @@ sap.ui.define([
 	Label, SearchField, UIColumn, MColumn, Text) {
 	"use strict";
 	var oModel;
-	var oMultiInput;
+	var oMultiInput3;
 	var counter = 1;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
@@ -34,8 +34,8 @@ sap.ui.define([
 			var dataModel = this.getOwnerComponent().getModel("tableData");
 			this.getView().setModel(dataModel, "sOrder1");
 			this.temp = JSON.stringify(this.getView().getModel("sOrder1").getData());
-			oMultiInput = this.byId("multiInput");
-			this._oMultiInput = oMultiInput;
+			oMultiInput3 = this.byId("MultiInput3");
+			this._oMultiInput3 = oMultiInput3;
 
 			// create a new model for property binding .for visible property
 			var newModel1 = new JSONModel({
@@ -219,7 +219,7 @@ sap.ui.define([
 				if (this._bDialogInitialized) {
 					// Re-set the tokens from the input and update the table
 					oDialog.setTokens([]);
-					oDialog.setTokens(this._oMultiInput.getTokens());
+					oDialog.setTokens(this._oMultiInput3.getTokens());
 					oDialog.update();
 
 					oDialog.open();
@@ -314,7 +314,7 @@ sap.ui.define([
 					oDialog.update();
 				}.bind(this));
 
-				oDialog.setTokens(this._oMultiInput.getTokens());
+				oDialog.setTokens(this._oMultiInput3.getTokens());
 
 				// set flag that the dialog is initialized
 				this._bDialogInitialized = true;
@@ -358,8 +358,8 @@ sap.ui.define([
 
 		onValueHelpOkPress: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			// this._oMultiInput.setTokens(aTokens);
-			this._oMultiInput.setValue(aTokens[0].mProperties.key);
+			// this._oMultiInput3.setTokens(aTokens);
+			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
