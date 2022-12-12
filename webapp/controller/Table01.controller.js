@@ -589,12 +589,11 @@ sap.ui.define([
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			console.log(rowdata);
 			rowdata.Sales.forEach(row => {
-				console.log(row.Storage);
 				if(row.Id == sh4row){
 					row.Storage = aTokens[0].mProperties.key;
 				}
 			});
-			// window.temp.getView().getModel("sOrder1").setData(rowdata);
+			window.temp.getView().getModel("sOrder1").setData(rowdata);
 			this._oVHD4.close();
 		},
 
