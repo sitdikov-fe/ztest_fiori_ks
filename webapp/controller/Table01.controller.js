@@ -27,8 +27,8 @@ sap.ui.define([
 	"use strict";
 	var oModel;
 	var counter = 1;
-	var oMultiInput3;
-	var oMultiInput4;
+	// var oMultiInput3;
+	// var oMultiInput4;
 
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
