@@ -225,7 +225,7 @@ sap.ui.define([
 
 		// SH для позиции
 
-		onValueHelpRequested3: function (oEvent) {
+		onValueHelpRequested3: function (data) {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 
@@ -237,7 +237,7 @@ sap.ui.define([
 				});
 
 			}
-			console.log(oEvent.getParent());
+			console.log(data);
 			this.pDialog3.then(function (oDialog3) {
 				var oFilterBar3 = oDialog3.getFilterBar();
 				this._oVHD3 = oDialog3
