@@ -100,7 +100,6 @@ sap.ui.define([
 				"neweditable": true
 			};
 
-			console.log(this);
 			oMultiInput3 = this.byId("multiInput3");
 			this._oMultiInput3 = oMultiInput3;
 			oMultiInput4 = this.byId("multiInput4");
@@ -400,6 +399,7 @@ sap.ui.define([
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
 			this._oMultiInput3.setValue(str);
+			console.log( oEvent.getSource().getModel("sOrder1").getData());
 			// this._onChangeId(str);
 			this._oVHD3.close();
 		},
