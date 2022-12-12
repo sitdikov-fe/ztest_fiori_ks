@@ -61,7 +61,7 @@ sap.ui.define([
 
 		onLiveChange: function (oEvent) {
 			this.enteredValue = oEvent.getParameter("value");
-			console.log(this.getParent());
+			console.log(oEvent);
 			var _oInput = oEvent.getSource();
 			var val = _oInput.getValue();
 			val = val.replace(/[^\d]/g, '');
