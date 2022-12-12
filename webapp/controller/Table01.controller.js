@@ -567,8 +567,8 @@ sap.ui.define([
 						}),
 						new Filter({
 							path: "NameType",
-							operator: FilterOperator.EQ,
-							value1: "143819"
+							operator: FilterOperator.Contains,
+							value1: sQuery2
 						}),
 						new Filter({
 							path: "Quanstorage",
