@@ -405,7 +405,7 @@ sap.ui.define([
 			str = str.replace(/\s/g, '');
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
-				if (row.Id == sh3row) {
+				if(row.Id == sh3row){
 					row.Name = str;
 				}
 			});
@@ -433,134 +433,126 @@ sap.ui.define([
 
 			sh4row = oEvent.getSource().getBindingContext('sOrder1').getObject().Id;
 
-			if (oEvent.getSource().getBindingContext('sOrder1').getObject().Name.length = 6) {
+			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
+			this._oBasicSearchField4 = new SearchField();
+			if (!this.pDialog4) {
+				this.pDialog4 = Fragment.load({
+					id: this.getView().getId(),
+					name: "ztest_fiori_ks.view.VHStorage",
+					controller: this
+				});
 
-				oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
-				this._oBasicSearchField4 = new SearchField();
-				if (!this.pDialog4) {
-					this.pDialog4 = Fragment.load({
-						id: this.getView().getId(),
-						name: "ztest_fiori_ks.view.VHStorage",
-						controller: this
-					});
-
-				}
-				this.pDialog4.then(function (oDialog4) {
-					var oFilterBar4 = oDialog4.getFilterBar();
-					this._oVHD4 = oDialog4;
-					// Initialise the dialog with model only the first time. Then only open it
-					if (this._bDialogInitialized4) {
-						// Re-set the tokens from the input and update the table
-						oDialog4.setTokens([]);
-						oDialog4.setTokens(this._oMultiInput4.getTokens());
-						oDialog4.update();
-
-						oDialog4.open();
-						return;
-					}
-					this.getView().addDependent(oDialog4);
-
-					// Set key fields for filtering in the Define Conditions Tab
-					oDialog4.setRangeKeyFields([{
-						label: "Storege",
-						key: "Storege",
-						type: "string",
-						typeInstance: new TypeString({}, {
-							maxLength: 30
-						})
-					}]);
-
-					// Set Basic Search for FilterBar
-					oFilterBar4.setFilterBarExpanded(false);
-					oFilterBar4.setBasicSearch(this._oBasicSearchField4);
-
-					// Trigger filter bar search when the basic search is fired
-					this._oBasicSearchField4.attachSearch(function () {
-						oFilterBar4.search();
-					});
-
-					oDialog4.getTableAsync().then(function (oTable4) {
-
-						oTable4.setModel(this.oProductsModel4);
-
-						// For Desktop and tabled the default table is sap.ui.table.Table
-						if (oTable4.bindRows) {
-							// Bind rows to the ODataModel and add columns
-							oTable4.bindAggregation("rows", {
-								path: "/ZtestshstorSet",
-								events: {
-									dataReceived: function () {
-										oDialog4.update();
-									}
-								}
-							});
-							oTable4.addColumn(new UIColumn({
-								label: "Storege",
-								template: "Storege"
-							}));
-							oTable4.addColumn(new UIColumn({
-								label: "NameType",
-								template: "NameType"
-							}));
-							oTable4.addColumn(new UIColumn({
-								label: "Quanstorage",
-								template: "Quanstorage"
-							}));
-						}
-
-						// For Mobile the default table is sap.m.Table
-						if (oTable4.bindItems) {
-							// Bind items to the ODataModel and add columns
-							oTable4.bindAggregation("items", {
-								path: "/ZtestshstorSet",
-								template: new ColumnListItem({
-									cells: [new Label({
-										text: "{Storege}"
-									}), new Label({
-										text: "{NameType}"
-									}), new Label({
-										text: "{Quanstorage}"
-									})]
-								}),
-								events: {
-									dataReceived: function () {
-										oDialog4.update();
-									}
-								}
-							});
-							oTable4.addColumn(new MColumn({
-								header: new Label({
-									text: "Storege"
-								})
-							}));
-							oTable4.addColumn(new MColumn({
-								header: new Label({
-									text: "NameType"
-								})
-							}));
-							oTable4.addColumn(new MColumn({
-								header: new Label({
-									text: "Quanstorage"
-								})
-							}));
-						}
-						oDialog4.update();
-					}.bind(this));
-
+			}
+			this.pDialog4.then(function (oDialog4) {
+				var oFilterBar4 = oDialog4.getFilterBar();
+				this._oVHD4 = oDialog4;
+				// Initialise the dialog with model only the first time. Then only open it
+				if (this._bDialogInitialized4) {
+					// Re-set the tokens from the input and update the table
+					oDialog4.setTokens([]);
 					oDialog4.setTokens(this._oMultiInput4.getTokens());
+					oDialog4.update();
 
-					// set flag that the dialog is initialized
-					this._bDialogInitialized4 = true;
 					oDialog4.open();
+					return;
+				}
+				this.getView().addDependent(oDialog4);
+
+				// Set key fields for filtering in the Define Conditions Tab
+				oDialog4.setRangeKeyFields([{
+					label: "Storege",
+					key: "Storege",
+					type: "string",
+					typeInstance: new TypeString({}, {
+						maxLength: 30
+					})
+				}]);
+
+				// Set Basic Search for FilterBar
+				oFilterBar4.setFilterBarExpanded(false);
+				oFilterBar4.setBasicSearch(this._oBasicSearchField4);
+
+				// Trigger filter bar search when the basic search is fired
+				this._oBasicSearchField4.attachSearch(function () {
+					oFilterBar4.search();
+				});
+
+				oDialog4.getTableAsync().then(function (oTable4) {
+
+					oTable4.setModel(this.oProductsModel4);
+
+					// For Desktop and tabled the default table is sap.ui.table.Table
+					if (oTable4.bindRows) {
+						// Bind rows to the ODataModel and add columns
+						oTable4.bindAggregation("rows", {
+							path: "/ZtestshstorSet",
+							events: {
+								dataReceived: function () {
+									oDialog4.update();
+								}
+							}
+						});
+						oTable4.addColumn(new UIColumn({
+							label: "Storege",
+							template: "Storege"
+						}));
+						oTable4.addColumn(new UIColumn({
+							label: "NameType",
+							template: "NameType"
+						}));
+						oTable4.addColumn(new UIColumn({
+							label: "Quanstorage",
+							template: "Quanstorage"
+						}));
+					}
+
+					// For Mobile the default table is sap.m.Table
+					if (oTable4.bindItems) {
+						// Bind items to the ODataModel and add columns
+						oTable4.bindAggregation("items", {
+							path: "/ZtestshstorSet",
+							template: new ColumnListItem({
+								cells: [new Label({
+									text: "{Storege}"
+								}), new Label({
+									text: "{NameType}"
+								}), new Label({
+									text: "{Quanstorage}"
+								})]
+							}),
+							events: {
+								dataReceived: function () {
+									oDialog4.update();
+								}
+							}
+						});
+						oTable4.addColumn(new MColumn({
+							header: new Label({
+								text: "Storege"
+							})
+						}));
+						oTable4.addColumn(new MColumn({
+							header: new Label({
+								text: "NameType"
+							})
+						}));
+						oTable4.addColumn(new MColumn({
+							header: new Label({
+								text: "Quanstorage"
+							})
+						}));
+					}
+					oDialog4.update();
 				}.bind(this));
 
-			} else {
-				MessageToast.show("Заполните поле 'Обозначение' правильно");
-			};
+				oDialog4.setTokens(this._oMultiInput4.getTokens());
+
+				// set flag that the dialog is initialized
+				this._bDialogInitialized4 = true;
+				oDialog4.open();
+			}.bind(this));
 		},
 		onFilterBarSearch4: function (oEvent) {
-
-			if (oEvent.getSource().getBindingContext('sOrder1').getObject().Name.length = 6) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -593,9 +585,6 @@ sap.ui.define([
 			var oTable = this._oVHD4.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
-		} else {
-			MessageToast.show("Заполните поле 'Обозначение' правильно");
-		};
 		},
 
 		onValueHelpOkPress4: function (oEvent) {
@@ -604,7 +593,7 @@ sap.ui.define([
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
-				if (row.Id == sh4row) {
+				if(row.Id == sh4row){
 					row.Storage = aTokens[0].mProperties.key;
 				}
 			});
