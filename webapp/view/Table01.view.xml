@@ -226,7 +226,7 @@
 						<Input value="{sOrder1>Quanstorage}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 					</HBox>
 					<HBox visible="false">
-
+						<Input value="{sOrder1>Storege}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 					</HBox>
 				</cells>
 			</ColumnListItem>
