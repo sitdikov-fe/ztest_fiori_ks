@@ -222,6 +222,9 @@ sap.ui.define([
 
 		onValueHelpRequested3: function (oEvent) {
 
+			console.log(oEvent.getSource().getBindingContext('sOrder1').getObject());
+			console.log(oEvent.getSource().getBindingContext('sOrder1'));
+
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 
