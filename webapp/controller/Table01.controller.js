@@ -63,7 +63,7 @@ sap.ui.define([
 			this.enteredValue = oEvent.getParameter("value");
 			console.log(this);
 			var _oInput = oEvent.getSource();
-			console.log(_oInput.getParent());
+			console.log(_oInput.getParent().getParent());
 			var val = _oInput.getValue();
 			val = val.replace(/[^\d]/g, '');
 			_oInput.setValue(val);
