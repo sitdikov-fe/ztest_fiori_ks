@@ -298,7 +298,7 @@ sap.ui.define([
 							}),
 							events: {
 								dataReceived: function () {
-									oDialog.update();
+									oDialog3.update();
 								}
 							}
 						});
