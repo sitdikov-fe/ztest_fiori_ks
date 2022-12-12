@@ -277,12 +277,12 @@ sap.ui.define([
 							}
 						});
 						oTable3.addColumn(new UIColumn({
-							label: "NameType",
-							template: "NameType"
-						}));
-						oTable3.addColumn(new UIColumn({
 							label: "Name",
 							template: "Name"
+						}));
+						oTable3.addColumn(new UIColumn({
+							label: "NameType",
+							template: "NameType"
 						}));
 						oTable3.addColumn(new UIColumn({
 							label: "Price",
