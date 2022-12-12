@@ -19,7 +19,7 @@ sap.ui.define([
 	'sap/ui/table/Column',
 	'sap/m/Column',
 	'sap/m/Text'
-], function(Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast,
+], function (Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast,
 	MessageBox, JSONModel, compLibrary, TypeString, ColumnListItem,
 	Label, SearchField, UIColumn, MColumn, Text) {
 	"use strict";
@@ -29,12 +29,12 @@ sap.ui.define([
 	var oMultiInput4;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
-		onInit: function(oEvent) {
+		onInit: function (oEvent) {
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.oProductsModel3 = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.getView().setModel(this.oProductsModel3);
-						this.oProductsModel4 = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
+			this.oProductsModel4 = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.getView().setModel(this.oProductsModel4);
 
 			oMultiInput3 = this.byId("multiInput3");
@@ -63,7 +63,7 @@ sap.ui.define([
 			window.temp = this;
 		},
 
-		onLiveChange: function(oEvent) {
+		onLiveChange: function (oEvent) {
 			this.enteredValue = oEvent.getParameter("value");
 			var _oInput = oEvent.getSource();
 			var val = _oInput.getValue();
@@ -81,7 +81,7 @@ sap.ui.define([
 			that.getView().getModel("sOrder1").setData(rowdata);
 
 		},
-		onAdd: function(oEvent) {
+		onAdd: function (oEvent) {
 			this.mode = "Add";
 			var that = this;
 
@@ -99,13 +99,19 @@ sap.ui.define([
 				"editable": true,
 				"neweditable": true
 			};
+
+			oMultiInput3 = newRecord.byId("multiInput3");
+			newRecord._oMultiInput3 = oMultiInput3;
+			oMultiInput4 = newRecord.byId("multiInput4");
+			newRecord._oMultiInput4 = oMultiInput4;
+
 			counter += 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData(); //get table data
 			oTableData.Sales.push(newRecord); //push this new record in model
 			that.getView().getModel("sOrder1").setData(oTableData); //set data to the view
 		},
 
-		onChange: function(oEvent) {
+		onChange: function (oEvent) {
 			var that = this;
 			var enteredText = oEvent.getParameters("value").value;
 			this.recordexists = undefined;
@@ -113,7 +119,7 @@ sap.ui.define([
 			var sData = this.getView().getModel("sOrder1").getData().Sales; //get the model data
 			var spath = parseInt(oEvent.getSource().getBindingContext("sOrder1").getPath().split("/")[2]); //get the index of enter data row
 
-			var index = sData.findIndex(function(item, sindex) { //findIndex is a method used to validate if same value found it returns index position othervise it returns -1
+			var index = sData.findIndex(function (item, sindex) { //findIndex is a method used to validate if same value found it returns index position othervise it returns -1
 				return item.Id === enteredText && sindex !== spath;
 			});
 			if (index > -1) {
@@ -127,7 +133,7 @@ sap.ui.define([
 
 		},
 
-		onDelete: function(oEvent) {
+		onDelete: function (oEvent) {
 			var move = 0;
 			this.mode = "delete";
 			var that = this;
@@ -142,7 +148,7 @@ sap.ui.define([
 				for (var i = selectedRowData.length - 1; i >= 0; i--) {
 					var oThisObj = selectedRowData[i].getObject();
 					counter -= 1;
-					var index = $.map(sData.Sales, function(obj, index) {
+					var index = $.map(sData.Sales, function (obj, index) {
 						if (obj === oThisObj) {
 							return index;
 						}
@@ -165,7 +171,7 @@ sap.ui.define([
 
 		},
 
-		onCreateTable: function(order) {
+		onCreateTable: function (order) {
 
 			var rawdata = window.temp.getView().getModel("sOrder1").getData().Sales;
 			var data = {};
@@ -204,8 +210,8 @@ sap.ui.define([
 					data.Quanstorage = row.Quanstorage;
 
 					oModel.create(oCreateUrl, data, null,
-						function(response) {},
-						function(error) {
+						function (response) { },
+						function (error) {
 							boolreact = false;
 						}
 					);
@@ -216,7 +222,7 @@ sap.ui.define([
 
 		// SH для позиции
 
-		onValueHelpRequested3: function() {
+		onValueHelpRequested3: function () {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 			if (!this.pDialog3) {
@@ -227,10 +233,10 @@ sap.ui.define([
 				});
 
 			}
-			this.pDialog3.then(function(oDialog3) {
+			this.pDialog3.then(function (oDialog3) {
 				var oFilterBar3 = oDialog3.getFilterBar();
 				this._oVHD3 = oDialog3
-					// Initialise the dialog with model only the first time. Then only open it
+				// Initialise the dialog with model only the first time. Then only open it
 				if (this._bDialogInitialized3) {
 					// Re-set the tokens from the input and update the table
 					oDialog3.setTokens([]);
@@ -257,11 +263,11 @@ sap.ui.define([
 				oFilterBar3.setBasicSearch(this._oBasicSearchField3);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField3.attachSearch(function() {
+				this._oBasicSearchField3.attachSearch(function () {
 					oFilterBar3.search();
 				});
 
-				oDialog3.getTableAsync().then(function(oTable3) {
+				oDialog3.getTableAsync().then(function (oTable3) {
 
 					oTable3.setModel(this.oProductsModel3);
 
@@ -271,7 +277,7 @@ sap.ui.define([
 						oTable3.bindAggregation("rows", {
 							path: "/ZtestshposSet",
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog3.update();
 								}
 							}
@@ -305,7 +311,7 @@ sap.ui.define([
 								})]
 							}),
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog3.update();
 								}
 							}
@@ -336,7 +342,7 @@ sap.ui.define([
 				oDialog3.open();
 			}.bind(this));
 		},
-		onFilterBarSearch3: function(oEvent) {
+		onFilterBarSearch3: function (oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -372,23 +378,23 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		_onChangeId: function(number) {
+		_onChangeId: function (number) {
 			// oIdClient = number;
 			var readurl = "/ZtestposSet('" + number + "')";
 			oModel.read(readurl, {
-				success: function(oData, oResponse) {
+				success: function (oData, oResponse) {
 					// this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					// this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
 					isErrorResponse = 0;
 				}.bind(this),
-				error: function(err) {
+				error: function (err) {
 					isErrorResponse = 1;
 				}
 			});
 
 		},
 
-		onValueHelpOkPress3: function(oEvent) {
+		onValueHelpOkPress3: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
@@ -400,23 +406,23 @@ sap.ui.define([
 			this._oVHD3.close();
 		},
 
-		onValueHelpCancelPress3: function() {
+		onValueHelpCancelPress3: function () {
 			this._oVHD3.close();
 		},
 
-		onOpenDialog: function() {
+		onOpenDialog: function () {
 			// load BusyDialog fragment asynchronously
 			var oDialog = this.byId("BusyDialog");
 			oDialog.open();
 
-			setTimeout(function() {
+			setTimeout(function () {
 				oDialog.close();
 			}, 1000);
 		},
 
 		// SH для склада
 
-		onValueHelpRequested4: function() {
+		onValueHelpRequested4: function () {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
@@ -427,7 +433,7 @@ sap.ui.define([
 				});
 
 			}
-			this.pDialog4.then(function(oDialog4) {
+			this.pDialog4.then(function (oDialog4) {
 				var oFilterBar4 = oDialog4.getFilterBar();
 				this._oVHD4 = oDialog4;
 				// Initialise the dialog with model only the first time. Then only open it
@@ -457,11 +463,11 @@ sap.ui.define([
 				oFilterBar4.setBasicSearch(this._oBasicSearchField4);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField4.attachSearch(function() {
+				this._oBasicSearchField4.attachSearch(function () {
 					oFilterBar4.search();
 				});
 
-				oDialog4.getTableAsync().then(function(oTable4) {
+				oDialog4.getTableAsync().then(function (oTable4) {
 
 					oTable4.setModel(this.oProductsModel4);
 
@@ -471,7 +477,7 @@ sap.ui.define([
 						oTable4.bindAggregation("rows", {
 							path: "/ZtestshstorSet",
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog4.update();
 								}
 							}
@@ -505,7 +511,7 @@ sap.ui.define([
 								})]
 							}),
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog4.update();
 								}
 							}
@@ -536,7 +542,7 @@ sap.ui.define([
 				oDialog4.open();
 			}.bind(this));
 		},
-		onFilterBarSearch4: function(oEvent) {
+		onFilterBarSearch4: function (oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -571,7 +577,7 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onValueHelpOkPress4: function(oEvent) {
+		onValueHelpOkPress4: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			console.log(this._oMultiInput4);
@@ -579,7 +585,7 @@ sap.ui.define([
 			this._oVHD4.close();
 		},
 
-		onValueHelpCancelPress4: function() {
+		onValueHelpCancelPress4: function () {
 			this._oVHD4.close();
 		}
 
