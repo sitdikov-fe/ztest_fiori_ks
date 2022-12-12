@@ -406,7 +406,7 @@ sap.ui.define([
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh3row){
-					row.Name = aTokens[0].mProperties.key;
+					row.Name = str;
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
