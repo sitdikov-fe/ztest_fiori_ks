@@ -399,12 +399,6 @@ sap.ui.define([
 					window.temp.getView().getModel("sOrder1").setData(rowdata);
 				}.bind(this)
 			});
-			sap.ui.getCore().byId("oTable").autoResizeColumn(0);
-			sap.ui.getCore().byId("oTable").autoResizeColumn(1);
-			sap.ui.getCore().byId("oTable").autoResizeColumn(2);
-			sap.ui.getCore().byId("oTable").autoResizeColumn(3);
-			sap.ui.getCore().byId("oTable").autoResizeColumn(4);
-			sap.ui.getCore().byId("oTable").autoResizeColumn(5);
 		},
 
 		onValueHelpOkPress3: function (oEvent) {
