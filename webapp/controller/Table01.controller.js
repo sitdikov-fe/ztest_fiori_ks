@@ -559,6 +559,8 @@ sap.ui.define([
 			};
 		},
 		onFilterBarSearch4: function (oEvent) {
+
+			if (oEvent.getSource().getBindingContext('sOrder1').getObject().Name.length = 6) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -591,6 +593,9 @@ sap.ui.define([
 			var oTable = this._oVHD4.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
+		} else {
+			MessageToast.show("Заполните поле 'Обозначение' правильно");
+		};
 		},
 
 		onValueHelpOkPress4: function (oEvent) {
