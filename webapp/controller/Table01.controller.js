@@ -617,7 +617,9 @@ sap.ui.define([
 
 		_onChangeStor: function (storage, nametype) {
 
-			var readurl = "/ZtestshstorSet('" + storage + nametype + "')";
+			var mem = concat(storage, nametype);
+
+			var readurl = "/ZtestshstorSet('" + mem + "')";
 			
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			oModel.read(readurl, {
