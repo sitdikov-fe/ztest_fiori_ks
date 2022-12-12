@@ -102,8 +102,6 @@ sap.ui.define([
 			counter += 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData(); //get table data
 			oTableData.Sales.push(newRecord); //push this new record in model
-			console.log(newRecord);
-			console.log(that.getView().getModel("sOrder1").setData(oTableData));
 			that.getView().getModel("sOrder1").setData(oTableData); //set data to the view
 		},
 
@@ -379,7 +377,6 @@ sap.ui.define([
 			var readurl = "/ZtestposSet('" + number + "')";
 			oModel.read(readurl, {
 				success: function(oData, oResponse) {
-					console.log(oData);
 					// this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
 					// this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
 					isErrorResponse = 0;
@@ -393,10 +390,10 @@ sap.ui.define([
 
 		onValueHelpOkPress3: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			console.log(aTokens[0].mProperties.key);
-			console.log(aTokens);
-			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
-			this._onChangeId(aTokens[0].mProperties.key);
+			var str = aTokens[0].mProperties.key;
+			str = str.replace(/\s/g, '');
+			this._oMultiInput3.setValue(str);
+			this._onChangeId(str);
 			this._oVHD3.close();
 		},
 
