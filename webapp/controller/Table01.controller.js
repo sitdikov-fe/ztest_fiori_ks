@@ -237,7 +237,7 @@ sap.ui.define([
 				});
 
 			}
-			console.log(data);
+			
 			this.pDialog3.then(function (oDialog3) {
 				var oFilterBar3 = oDialog3.getFilterBar();
 				this._oVHD3 = oDialog3
@@ -405,6 +405,7 @@ sap.ui.define([
 			str = str.replace(/\s/g, '');
 			// this._oMultiInput3.setValue(str);
 			// this._onChangeId(str);
+			console.log(this._oMultiInput3.sId);
 			this._oVHD3.close();
 		},
 
