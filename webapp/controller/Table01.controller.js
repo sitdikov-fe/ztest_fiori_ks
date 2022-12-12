@@ -312,12 +312,12 @@ sap.ui.define([
 						});
 						oTable3.addColumn(new MColumn({
 							header: new Label({
-								text: "NameType"
+								text: "Name"
 							})
 						}));
 						oTable3.addColumn(new MColumn({
 							header: new Label({
-								text: "Name"
+								text: "NameType"
 							})
 						}));
 						oTable3.addColumn(new MColumn({
