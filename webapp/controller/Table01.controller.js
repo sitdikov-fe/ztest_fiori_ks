@@ -220,8 +220,11 @@ sap.ui.define([
 
 		// SH для позиции
 
-		onValueHelpRequested3: function () {
-			console.log(this._oMultiInput3.popa());
+		onValueHelpRequested3: function (oEvent) {
+			var sBindingContext = oEvent.getSource().getBindingContext();
+
+			var sPath = sBindingContext.sPath; 
+			console.log(sPath);
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 
