@@ -220,7 +220,8 @@ sap.ui.define([
 
 		// SH для позиции
 
-		onValueHelpRequested3: function (data) {
+		onValueHelpRequested3: function () {
+			console.log(this._oMultiInput3.popa);
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 
@@ -400,7 +401,6 @@ sap.ui.define([
 			str = str.replace(/\s/g, '');
 			// this._oMultiInput3.setValue(str);
 			// this._onChangeId(str);_oMultiInput3
-			console.log(this._oMultiInput3.popa);
 			this._oVHD3.close();
 		},
 
