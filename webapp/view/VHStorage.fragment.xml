@@ -10,7 +10,7 @@
 							<m:Input name="Storege"/>
 						</fb:control>
 					</fb:FilterGroupItem>
-                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="Name" visibleInFilterBar="true">
+                    <fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
 						<fb:control>
 							<m:Input name="NameType"/>
 						</fb:control>
