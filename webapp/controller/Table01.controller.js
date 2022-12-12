@@ -622,6 +622,8 @@ sap.ui.define([
 			var mem = storage + nametype;
 
 			var readurl = "/ZtestshstorSet('" + mem + "')";
+
+			console.log(readurl);
 			
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			oModel.read(readurl, {
