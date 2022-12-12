@@ -596,7 +596,6 @@ sap.ui.define([
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			var str = aTokens[0].mProperties.key;
-			console.log(aTokens);
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh4row){
 					if(row.NameType == ''){
@@ -604,7 +603,7 @@ sap.ui.define([
 					} else
 					{
 						row.Storage = str;
-						this._onChangeStor(str);
+						this._onChangeStor(str, row.NameType);
 					}
 				}
 			});
@@ -616,22 +615,23 @@ sap.ui.define([
 			this._oVHD4.close();
 		},
 
-		_onChangeStor: function (number) {
+		_onChangeStor: function (storage, nametype) {
 
-			// var readurl = "/ZtestshposSet('" + number + "')";
+			var readurl = "/ZtestshstorSet('" + storage + nametype + "')";
 			
-			// var rowdata = window.temp.getView().getModel("sOrder1").getData();
-			// oModel.read(readurl, {
-			// 	success: function (oData, oResponse) {
-			// 		rowdata.Sales.forEach(row => {
-			// 			if(row.Name == number){
-			// 				row.NameType = oData.NameType;
-			// 				row.Price = oData.Price;
-			// 			}
-			// 		});
-			// 		window.temp.getView().getModel("sOrder1").setData(rowdata);
-			// 	}.bind(this)
-			// });
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			oModel.read(readurl, {
+				success: function (oData, oResponse) {
+					console.log(oData);
+					// rowdata.Sales.forEach(row => {
+					// 	if(row.Name == number){
+					// 		row.NameType = oData.NameType;
+					// 		row.Price = oData.Price;
+					// 	}
+					// });
+					// window.temp.getView().getModel("sOrder1").setData(rowdata);
+				}.bind(this)
+			});
 		}
 
 	});
