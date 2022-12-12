@@ -28,7 +28,7 @@ sap.ui.define([
 	var oModel;
 	var counter = 1;
 	var oMultiInput3;
-	// var oMultiInput4;
+	var oMultiInput4;
 
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
@@ -42,8 +42,8 @@ sap.ui.define([
 
 			oMultiInput3 = this.byId("multiInput3");
 			this._oMultiInput3 = oMultiInput3;
-			// oMultiInput4 = this.byId("multiInput4");
-			// this._oMultiInput4 = oMultiInput4;
+			oMultiInput4 = this.byId("multiInput4");
+			this._oMultiInput4 = oMultiInput4;
 
 			this.mode = "Edit";
 			var dataModel = this.getOwnerComponent().getModel("tableData");
@@ -421,9 +421,7 @@ sap.ui.define([
 		// SH для склада
 
 		onValueHelpRequested4: function (oEvent) {
-			var oMultiInput4;
-			oMultiInput4 = new sap.m.MultiInput(oEvent.getSource().getId());
-			this._oMultiInput4 = oMultiInput4;
+
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
@@ -580,7 +578,7 @@ sap.ui.define([
 
 		onValueHelpOkPress4: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
+			// this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			// this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD4.close();
 		},
