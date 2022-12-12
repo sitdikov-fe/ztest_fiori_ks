@@ -61,7 +61,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Price}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
+								<Input value="{sOrder1>FullPrice}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
