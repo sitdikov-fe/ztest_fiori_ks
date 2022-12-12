@@ -373,6 +373,16 @@ sap.ui.define([
 		onValueHelpCancelPress: function () {
 			this._oVHD3.close();
 		},
+		
+		onOpenDialog: function() {
+			// load BusyDialog fragment asynchronously
+			var oDialog = this.byId("BusyDialog");
+			oDialog.open();
+
+			setTimeout(function() {
+				oDialog.close();
+			}, 1000);
+		},
 
 
 		// SH для склада
