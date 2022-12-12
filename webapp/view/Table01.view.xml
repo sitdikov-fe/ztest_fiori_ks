@@ -200,7 +200,7 @@
 					</HBox>
 					<HBox visible="true">
 						<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-						<MultiInput id="multiInput4" visible="false" valueHelpRequest=".onValueHelpRequested4" suggestionRows="{ path: '/zteststorSet'}">
+						<MultiInput id="multiInput4" valueHelpRequest=".onValueHelpRequested4" suggestionRows="{ path: '/zteststorSet'}">
 							<suggestionColumns>
 								<Column>
 									<Label text="Storege" />
@@ -224,6 +224,9 @@
 					<HBox visible="true">
 						<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 						<Input value="{sOrder1>Quanstorage}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
+					</HBox>
+					<HBox visible="false">
+
 					</HBox>
 				</cells>
 			</ColumnListItem>
