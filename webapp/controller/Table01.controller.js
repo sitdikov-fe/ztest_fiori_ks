@@ -207,10 +207,10 @@ sap.ui.define([
 			return boolreact;
 		},
 
-		
-		// SH для названия позиции
 
-		onValueHelpRequested: function() {
+		// SH для позиции
+
+		onValueHelpRequested: function () {
 			this._oBasicSearchField = new SearchField();
 			if (!this.pDialog) {
 				this.pDialog = Fragment.load({
@@ -221,7 +221,7 @@ sap.ui.define([
 				console.log('this.pDialog');
 				console.log(this.pDialog);
 			}
-			this.pDialog.then(function(oDialog) {
+			this.pDialog.then(function (oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
 				this._oVHD = oDialog;
 				// Initialise the dialog with model only the first time. Then only open it
@@ -254,11 +254,11 @@ sap.ui.define([
 				oFilterBar.setBasicSearch(this._oBasicSearchField);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField.attachSearch(function() {
+				this._oBasicSearchField.attachSearch(function () {
 					oFilterBar.search();
 				});
 
-				oDialog.getTableAsync().then(function(oTable) {
+				oDialog.getTableAsync().then(function (oTable) {
 
 					oTable.setModel(this.oProductsModel);
 
@@ -268,7 +268,7 @@ sap.ui.define([
 						oTable.bindAggregation("rows", {
 							path: "/ZtestposSet",
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog.update();
 								}
 							}
@@ -305,7 +305,7 @@ sap.ui.define([
 								})]
 							}),
 							events: {
-								dataReceived: function() {
+								dataReceived: function () {
 									oDialog.update();
 								}
 							}
@@ -339,7 +339,7 @@ sap.ui.define([
 				oDialog.open();
 			}.bind(this));
 		},
-		onFilterBarSearch: function(oEvent) {
+		onFilterBarSearch: function (oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -380,25 +380,198 @@ sap.ui.define([
 			console.log(oBinding);
 		},
 
-		onValueHelpOkPress: function(oEvent) {
+		onValueHelpOkPress: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
-		onValueHelpCancelPress: function() {
+		onValueHelpCancelPress: function () {
 			this._oVHD.close();
 		},
 
-		onOpenDialog: function() {
+		onOpenDialog: function () {
 			// load BusyDialog fragment asynchronously
 			var oDialog = this.byId("BusyDialog");
 			oDialog.open();
 
-			setTimeout(function() {
+			setTimeout(function () {
 				oDialog.close();
 			}, 1000);
 		},
+
+		// SH для склада
+
+		onValueHelpRequested2: function () {
+			this._oBasicSearchField2 = new SearchField();
+			if (!this.pDialog2) {
+				this.pDialog2 = Fragment.load({
+					id: this.getView().getId(),
+					name: "ztest_fiori_ks.view.VHStorage",
+					controller: this
+				});
+				console.log('this.pDialog');
+				console.log(this.pDialog);
+			}
+			this.pDialog2.then(function (oDialog2) {
+				var oFilterBar2 = oDialog2.getFilterBar();
+				this._oVHD2 = oDialog2;
+				// Initialise the dialog with model only the first time. Then only open it
+				if (this._bDialogInitialized2) {
+					// Re-set the tokens from the input and update the table
+					oDialog2.setTokens([]);
+					oDialog2.setTokens(this._oMultiInput2.getTokens());
+					oDialog2.update();
+
+					oDialog2.open();
+					return;
+				}
+				this.getView().addDependent(oDialog2);
+
+				// Set key fields for filtering in the Define Conditions Tab
+				oDialog2.setRangeKeyFields([{
+					label: "Storege",
+					key: "Storege",
+					type: "string",
+					typeInstance: new TypeString({}, {
+						maxLength: 30
+					})
+				}]);
+
+				console.log('this.oDialog');
+				console.log(this.oDialog);
+
+				// Set Basic Search for FilterBar
+				oFilterBar2.setFilterBarExpanded(false);
+				oFilterBar2.setBasicSearch(this._oBasicSearchField2);
+
+				// Trigger filter bar search when the basic search is fired
+				this._oBasicSearchField2.attachSearch(function () {
+					oFilterBar2.search();
+				});
+
+				oDialog2.getTableAsync().then(function (oTable2) {
+
+					oTable2.setModel(this.oProductsModel2);
+
+					// For Desktop and tabled the default table is sap.ui.table.Table
+					if (oTable2.bindRows) {
+						// Bind rows to the ODataModel and add columns
+						oTable2.bindAggregation("rows", {
+							path: "/ZteststorSet",
+							events: {
+								dataReceived: function () {
+									oDialog2.update();
+								}
+							}
+						});
+						oTable2.addColumn(new UIColumn({
+							label: "Storege",
+							template: "Storege"
+						}));
+						oTable2.addColumn(new UIColumn({
+							label: "NameType",
+							template: "NameType"
+						}));
+						oTable2.addColumn(new UIColumn({
+							label: "Quanstorage",
+							template: "Quanstorage"
+						}));
+					}
+
+					// For Mobile the default table is sap.m.Table
+					if (oTable2.bindItems) {
+						// Bind items to the ODataModel and add columns
+						oTable2.bindAggregation("items", {
+							path: "/ZteststorSet",
+							template: new ColumnListItem({
+								cells: [new Label({
+									text: "{Storege}"
+								}), new Label({
+									text: "{NameType}"
+								}), new Label({
+									text: "{Quanstorage}"
+								})]
+							}),
+							events: {
+								dataReceived: function () {
+									oDialog2.update();
+								}
+							}
+						});
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "Storege"
+							})
+						}));
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "NameType"
+							})
+						}));
+						oTable2.addColumn(new MColumn({
+							header: new Label({
+								text: "Quanstorage"
+							})
+						}));
+					}
+					oDialog2.update();
+				}.bind(this));
+
+				oDialog2.setTokens(this._oMultiInput2.getTokens());
+
+				// set flag that the dialog is initialized
+				this._bDialogInitialized2 = true;
+				oDialog2.open();
+			}.bind(this));
+		},
+		onFilterBarSearch2: function (oEvent) {
+			var aFilters = [];
+			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
+			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
+			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
+			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
+				var filter = new Filter({
+					filters: [
+						new Filter({
+							path: "Storege",
+							operator: FilterOperator.Contains,
+							value1: sQuery1
+						}),
+						new Filter({
+							path: "NameType",
+							operator: FilterOperator.Contains,
+							value1: sQuery2
+						}),
+						new Filter({
+							path: "Quanstorage",
+							operator: FilterOperator.Contains,
+							value1: sQuery3
+						})
+					],
+					and: true
+				});
+				aFilters.push(filter);
+			}
+
+			// update list binding
+			var oTable = this._oVHD2.getTable();
+			var oBinding = oTable.getBinding("rows");
+			oBinding.filter(aFilters, "Application");
+		},
+
+		onValueHelpOkPress2: function (oEvent) {
+			var aTokens = oEvent.getParameter("tokens");
+			this._oMultiInput2.setValue(aTokens[0].mProperties.key);
+			this._onChangeId(aTokens[0].mProperties.key);
+			this._oVHD2.close();
+		},
+
+		onValueHelpCancelPress2: function () {
+			this._oVHD2.close();
+		}
+
+
 
 
 
