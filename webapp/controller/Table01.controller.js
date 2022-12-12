@@ -617,6 +617,8 @@ sap.ui.define([
 
 		_onChangeStor: function (storage, nametype) {
 
+			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
+
 			var mem = storage + nametype;
 
 			var readurl = "/ZtestshstorSet('" + mem + "')";
