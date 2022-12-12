@@ -617,7 +617,7 @@ sap.ui.define([
 
 		_onChangeStor: function (storage, nametype) {
 
-			var mem = concat(storage, nametype);
+			var mem = storage + nametype;
 
 			var readurl = "/ZtestshstorSet('" + mem + "')";
 			
