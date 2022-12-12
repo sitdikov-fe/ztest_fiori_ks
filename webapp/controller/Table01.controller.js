@@ -244,8 +244,8 @@ sap.ui.define([
 
 				// Set key fields for filtering in the Define Conditions Tab
 				oDialog3.setRangeKeyFields([{
-					label: "NameType",
-					key: "NameType",
+					label: "Name",
+					key: "Name",
 					type: "string",
 					typeInstance: new TypeString({}, {
 						maxLength: 30
