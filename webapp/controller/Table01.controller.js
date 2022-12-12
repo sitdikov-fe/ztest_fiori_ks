@@ -422,8 +422,8 @@ sap.ui.define([
 
 		onValueHelpRequested4: function (oEvent) {
 			console.log(oEvent.getSource().getId());
-			console.log(this._oMultiInput4);
 			this._oMultiInput4.sID = oEvent.getSource().getId();
+			console.log(this._oMultiInput4);
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
