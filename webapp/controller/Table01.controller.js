@@ -385,10 +385,11 @@ sap.ui.define([
 
 		_onChangeName: function (number) {
 			// oIdClient = number;
-			var readurl = "/ZtestshposSet('" + number + "')";
+			var readurl = "/ZtestshposSet('" + number + "')";\
+			var rows;
 			oModel.read(readurl, {
 				success: function (oData, oResponse) {
-					console.log(oData);
+					rows = oData;
 					isErrorResponse = 0;
 				}.bind(this),
 				error: function (err) {
@@ -396,6 +397,14 @@ sap.ui.define([
 				}
 			});
 
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			rowdata.Sales.forEach(row => {
+				if(row.NameType == number){
+					row.Name = rows.Name;
+					row.Price = rows.Price;
+				}
+			});
+			window.temp.getView().getModel("sOrder1").setData(rowdata);
 		},
 
 		onValueHelpOkPress3: function (oEvent) {
