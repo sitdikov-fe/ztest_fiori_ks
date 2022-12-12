@@ -547,6 +547,8 @@ sap.ui.define([
 
 				oDialog4.setTokens(this._oMultiInput4.getTokens());
 
+				console.log(oDialog4);
+
 				// set flag that the dialog is initialized
 				this._bDialogInitialized4 = true;
 				oDialog4.open();
