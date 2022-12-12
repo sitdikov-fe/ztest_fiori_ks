@@ -405,7 +405,7 @@ sap.ui.define([
 			str = str.replace(/\s/g, '');
 			// this._oMultiInput3.setValue(str);
 			// this._onChangeId(str);
-			console.log(this._oMultiInput3.sId);
+			console.log(this._oMultiInput3.selectedRow);
 			this._oVHD3.close();
 		},
 
