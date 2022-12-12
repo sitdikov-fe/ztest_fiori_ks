@@ -556,7 +556,7 @@ sap.ui.define([
 
 			} else {
 				MessageToast.show("Заполните поле 'Обозначение' правильно");
-			}
+			};
 		},
 		onFilterBarSearch4: function (oEvent) {
 			var aFilters = [];
