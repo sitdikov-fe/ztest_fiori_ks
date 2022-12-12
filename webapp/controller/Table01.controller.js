@@ -404,7 +404,6 @@ sap.ui.define([
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
 			this._oMultiInput3.setValue(str);
-			console.log(oEvent);
 			// this._onChangeId(str);
 			this._oVHD3.close();
 		},
