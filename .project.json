@@ -53,7 +53,7 @@
   },
   "mockpreview": {
     "mockUri": "/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV",
-    "metadataFilePath": "",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
