@@ -209,6 +209,7 @@ sap.ui.define([
 		// SH для позиции
 
 		onValueHelpRequested3: function () {
+			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
 			if (!this.pDialog3) {
 				this.pDialog3 = Fragment.load({
@@ -388,6 +389,7 @@ sap.ui.define([
 		// SH для склада
 
 		onValueHelpRequested4: function () {
+			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
 				this.pDialog4 = Fragment.load({
