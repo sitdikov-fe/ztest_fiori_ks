@@ -387,7 +387,7 @@ sap.ui.define([
 			// oIdClient = number;
 			var readurl = "/ZtestshposSet('" + number + "')";
 			var rows;
-			rows = new sap.ui.model.odata;
+			rows = sap.ui.model.odata;
 			oModel.read(readurl, {
 				success: function (oData, oResponse) {
 					rows = oData;
