@@ -422,7 +422,7 @@ sap.ui.define([
 
 		onValueHelpRequested4: function (oEvent) {
 
-			MultiInput4 = new sap.m.MultiInput(oEvent.getSource().getId());
+			oMultiInput4 = new sap.m.MultiInput(oEvent.getSource().getId());
 			this._oMultiInput4 = oMultiInput4;
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
