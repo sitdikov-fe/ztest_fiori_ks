@@ -391,10 +391,7 @@ sap.ui.define([
 				success: function (oData, oResponse) {
 					rows = oData;
 					isErrorResponse = 0;
-				}.bind(this),
-				error: function (err) {
-					isErrorResponse = 1;
-				}
+				}.bind(this)
 			});
 
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
