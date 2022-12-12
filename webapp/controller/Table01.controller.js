@@ -277,12 +277,12 @@ sap.ui.define([
 							}
 						});
 						oTable3.addColumn(new UIColumn({
-							label: "NameType",
-							template: "NameType"
-						}));
-						oTable3.addColumn(new UIColumn({
 							label: "Name",
 							template: "Name"
+						}));
+						oTable3.addColumn(new UIColumn({
+							label: "NameType",
+							template: "NameType"
 						}));
 						oTable3.addColumn(new UIColumn({
 							label: "Price",
@@ -297,9 +297,9 @@ sap.ui.define([
 							path: "/ZtestshposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
-									text: "{NameType}"
-								}),new Label({
 									text: "{Name}"
+								}),new Label({
+									text: "{NameType}"
 								}), new Label({
 									text: "{Price}"
 								})]
