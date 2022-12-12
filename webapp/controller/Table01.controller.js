@@ -346,14 +346,14 @@ sap.ui.define([
 				var filter = new Filter({
 					filters: [
 						new Filter({
-							path: "NameType",
-							operator: FilterOperator.Contains,
-							value1: sQuery2
-						}),
-						new Filter({
 							path: "Name",
 							operator: FilterOperator.Contains,
 							value1: sQuery1
+						}),
+						new Filter({
+							path: "NameType",
+							operator: FilterOperator.Contains,
+							value1: sQuery2
 						}),
 						new Filter({
 							path: "Price",
