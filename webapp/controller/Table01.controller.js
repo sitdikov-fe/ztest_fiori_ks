@@ -567,7 +567,7 @@ sap.ui.define([
 						}),
 						new Filter({
 							path: "NameType",
-							operator: FilterOperator.Contains,
+							operator: FilterOperator.EQ,
 							value1: "143819"
 						}),
 						new Filter({
