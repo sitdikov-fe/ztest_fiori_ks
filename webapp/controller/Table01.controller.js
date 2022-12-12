@@ -392,7 +392,7 @@ sap.ui.define([
 				success: function (oData, oResponse) {
 					rowdata.Sales.forEach(row => {
 						if(row.Name == number){
-							row.NameType = oData.Name;
+							row.NameType = oData.NameType;
 							row.Price = oData.Price;
 						}
 					});
