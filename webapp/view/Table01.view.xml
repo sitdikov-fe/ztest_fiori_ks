@@ -45,11 +45,31 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input>
+								<!-- <Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input> -->
+								<MultiInput id="multiInput3" valueHelpRequest=".onValueHelpRequested3" suggestionRows="{ path: '/ZtestposSet', templateShareable: false}">
+									<suggestionColumns>
+										<Column>
+											<Label text="Name"/>
+										</Column>
+										<Column>
+											<Label text="NameType"/>
+										</Column>
+										<Column>
+											<Label text="Price"/>
+										</Column>
+									</suggestionColumns>
+									<suggestionRows>
+										<ColumnListItem>
+											<Label text="{Name}"/>
+											<Label text="{NameType}"/>
+											<Label text="{Price}"/>
+										</ColumnListItem>
+									</suggestionRows>
+								</MultiInput>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>
+								<Input value="{sOrder1>NameType}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? false:true}" />
@@ -57,7 +77,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>
+								<Input value="{sOrder1>Price}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />
@@ -65,11 +85,30 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>
+									<MultiInput id="multiInput4" valueHelpRequest=".onValueHelpRequested4" suggestionRows="{ path: '/zteststorSet', templateShareable: false}">
+										<suggestionColumns>
+											<Column>
+												<Label text="Storege"/>
+											</Column>
+											<Column>
+												<Label text="NameType"/>
+											</Column>
+											<Column>
+												<Label text="Quanstorage"/>
+											</Column>
+										</suggestionColumns>
+										<suggestionRows>
+											<ColumnListItem>
+												<Label text="{Storege}"/>
+												<Label text="{NameType}"/>
+												<Label text="{Quanstorage}"/>
+											</ColumnListItem>
+										</suggestionRows>
+									</MultiInput>
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-								<Input value="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>
+								<Input value="{sOrder1>Quanstorage}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 							</HBox>
 						</cells>
 					</ColumnListItem>
