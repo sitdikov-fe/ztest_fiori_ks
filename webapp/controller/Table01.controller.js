@@ -626,7 +626,7 @@ sap.ui.define([
 			console.log(readurl);
 			
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
-			oModel.read(readurl, {
+			oModel.read(readurl, null, null, true, {
 				success: function (oData, oResponse) {
 					console.log(oData);
 					// rowdata.Sales.forEach(row => {
