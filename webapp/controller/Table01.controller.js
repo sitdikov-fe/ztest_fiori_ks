@@ -103,11 +103,6 @@ sap.ui.define([
 				"neweditable": true
 			};
 
-			oMultiInput3 = this.byId("multiInput3");
-			this._oMultiInput3 = oMultiInput3;
-			oMultiInput4 = this.byId("multiInput4");
-			this._oMultiInput4 = oMultiInput4;
-
 			counter += 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData(); //get table data
 			oTableData.Sales.push(newRecord); //push this new record in model
@@ -404,8 +399,8 @@ sap.ui.define([
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
 			// this._oMultiInput3.setValue(str);
-			// this._onChangeId(str);
-			console.log(this._oMultiInput3.getValue());
+			// this._onChangeId(str);_oMultiInput3
+			// console.log(this._oMultiInput3.getValue());
 			this._oVHD3.close();
 		},
 
