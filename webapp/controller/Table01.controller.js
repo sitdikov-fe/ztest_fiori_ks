@@ -272,7 +272,7 @@ sap.ui.define([
 					if (oTable3.bindRows) {
 						// Bind rows to the ODataModel and add columns
 						oTable3.bindAggregation("rows", {
-							path: "/ZtestposSet",
+							path: "/ztestposSet",
 							events: {
 								dataReceived: function () {
 									oDialog.update();
@@ -297,7 +297,7 @@ sap.ui.define([
 					if (oTable3.bindItems) {
 						// Bind items to the ODataModel and add columns
 						oTable3.bindAggregation("items", {
-							path: "/ZtestposSet",
+							path: "/ztestposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
 									text: "{Name}"

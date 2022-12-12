@@ -31,7 +31,7 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/ZTEST_FIORI_KOSI_SRV/metadata.xml"
+					"localUri": "localService/metadata.xml"
 				}
 			}
 		}
