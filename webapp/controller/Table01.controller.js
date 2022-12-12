@@ -595,9 +595,17 @@ sap.ui.define([
 			// this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			var str = aTokens[0].mProperties.key;
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh4row){
-					row.Storage = aTokens[0].mProperties.key;
+					if(row.NameType = ''){
+						MessageToast.show("Впишите корректное значение в поле 'Название'");
+					} else
+					{
+						row.Storage = str;
+						this._onChangeStor(str);
+					}
+					
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
@@ -606,6 +614,24 @@ sap.ui.define([
 
 		onValueHelpCancelPress4: function () {
 			this._oVHD4.close();
+		},
+
+		_onChangeStor: function (number) {
+
+			// var readurl = "/ZtestshposSet('" + number + "')";
+			
+			// var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			// oModel.read(readurl, {
+			// 	success: function (oData, oResponse) {
+			// 		rowdata.Sales.forEach(row => {
+			// 			if(row.Name == number){
+			// 				row.NameType = oData.NameType;
+			// 				row.Price = oData.Price;
+			// 			}
+			// 		});
+			// 		window.temp.getView().getModel("sOrder1").setData(rowdata);
+			// 	}.bind(this)
+			// });
 		}
 
 	});
