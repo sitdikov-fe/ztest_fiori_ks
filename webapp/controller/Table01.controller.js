@@ -592,7 +592,7 @@ sap.ui.define([
 					row.Storege = aTokens[0].mProperties.key;
 				}
 			});
-			that.getView().getModel("sOrder1").setData(rowdata);
+			window.temp.getView().getModel("sOrder1").setData(rowdata);
 			this._oVHD4.close();
 		},
 
