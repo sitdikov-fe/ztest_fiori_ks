@@ -395,6 +395,8 @@ sap.ui.define([
 			});
 
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+
+			console.log(rowdata);
 			rowdata.Sales.forEach(row => {
 				if(row.Name == number){
 					row.NameType = rows.Name;
