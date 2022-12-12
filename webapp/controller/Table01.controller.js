@@ -394,6 +394,8 @@ sap.ui.define([
 			str = str.replace(/\s/g, '');
 			this._oMultiInput3.setValue(str);
 
+			console.log(this._oMultiInput3);
+
 			// this._onChangeId(str);
 			this._oVHD3.close();
 		},
@@ -572,6 +574,7 @@ sap.ui.define([
 		onValueHelpOkPress4: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
+			console.log(this._oMultiInput4);
 			// this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD4.close();
 		},
