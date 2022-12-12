@@ -289,11 +289,11 @@ sap.ui.define([
 						});
 						oTable3.addColumn(new UIColumn({
 							label: "Name",
-							template: "NameType"
+							template: "Name"
 						}));
 						oTable3.addColumn(new UIColumn({
 							label: "NameType",
-							template: "Name"
+							template: "NameType"
 						}));
 						oTable3.addColumn(new UIColumn({
 							label: "Price",
