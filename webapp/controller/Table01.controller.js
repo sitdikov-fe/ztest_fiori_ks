@@ -66,6 +66,17 @@ sap.ui.define([
 			val = val.replace(/[^\d]/g, '');
 			_oInput.setValue(val);
 
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+
+			rowdata.Sales.forEach(row => {
+				if  (row.Price > 0 && row.Quantity > 0 ){
+				row.FullPrice = row.Price * row.Quantity;
+				};
+			});
+
+			that.getView().getModel("sOrder1").setData(rowdata);
+
+
 		},
 		onAdd: function (oEvent) {
 			this.mode = "Add";
