@@ -386,7 +386,7 @@ sap.ui.define([
 		_onChangeName: function (number) {
 			// oIdClient = number;
 			var readurl = "/ZtestshposSet('" + number + "')";
-			
+			console.log(readurl);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			oModel.read(readurl, {
 				success: function (oData, oResponse) {
