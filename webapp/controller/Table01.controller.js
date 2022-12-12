@@ -375,7 +375,8 @@ sap.ui.define([
 		onValueHelpOkPress3: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
-			this._onChangeId(aTokens[0].mProperties.key);
+			console.log(aTokens[0]).
+			this._onChangeName(aTokens[0].mProperties.key);
 			this._oVHD3.close();
 		},
 
@@ -553,7 +554,8 @@ sap.ui.define([
 		onValueHelpOkPress4: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
-			this._onChangeId(aTokens[0].mProperties.key);
+			console.log(aTokens[0]).
+			this._onChangeStor(aTokens[0].mProperties.key);
 			this._oVHD4.close();
 		},
 
