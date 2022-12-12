@@ -22,11 +22,14 @@ sap.ui.define([
 ], function (Controller, History, ODataModel, Sorter, Filter, CountMode, FilterOperator, Fragment, syncStyleClass, MessageToast,
 	MessageBox, JSONModel, compLibrary, TypeString, ColumnListItem,
 	Label, SearchField, UIColumn, MColumn, Text) {
+
+	_oDialog: null;
 	"use strict";
 	var oModel;
 	var counter = 1;
 	var oMultiInput3;
 	var oMultiInput4;
+
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
@@ -225,6 +228,7 @@ sap.ui.define([
 		onValueHelpRequested3: function () {
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
+
 			if (!this.pDialog3) {
 				this.pDialog3 = Fragment.load({
 					id: this.getView().getId(),
@@ -233,6 +237,7 @@ sap.ui.define([
 				});
 
 			}
+			console.log(this.pDialog3);
 			this.pDialog3.then(function (oDialog3) {
 				var oFilterBar3 = oDialog3.getFilterBar();
 				this._oVHD3 = oDialog3
@@ -399,7 +404,7 @@ sap.ui.define([
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
 			this._oMultiInput3.setValue(str);
-			console.log( oEvent.oDialog());
+			console.log(oEvent);
 			// this._onChangeId(str);
 			this._oVHD3.close();
 		},
