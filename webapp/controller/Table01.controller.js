@@ -100,10 +100,10 @@ sap.ui.define([
 				"neweditable": true
 			};
 
-			oMultiInput3 = newRecord.byId("multiInput3");
-			newRecord._oMultiInput3 = oMultiInput3;
-			oMultiInput4 = newRecord.byId("multiInput4");
-			newRecord._oMultiInput4 = oMultiInput4;
+			oMultiInput3 = this.byId("multiInput3");
+			this._oMultiInput3 = oMultiInput3;
+			oMultiInput4 = this.byId("multiInput4");
+			this._oMultiInput4 = oMultiInput4;
 
 			counter += 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData(); //get table data
