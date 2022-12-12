@@ -83,7 +83,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-									<MultiInput id="multiInput4" valueHelpRequest=".onValueHelpRequested4" suggestionRows="{ path: '/zteststorSet', templateShareable: false}">
+									<MultiInput id="multiInput4" valueHelpRequest=".onValueHelpRequested4" suggestionRows="{ path: '/zteststorSet'">
 										<suggestionColumns>
 											<Column>
 												<Label text="Storege"/>
@@ -112,3 +112,83 @@
 				</items>
 			</Table>
 </mvc:View>
+
+
+<!--<mvc:View controllerName="ztest_fiori_ks.controller.Table01" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"-->
+<!--	displayBlock="true" xmlns="sap.m" xmlns:m="sap.m" xmlns:core="sap.ui.core">-->
+<!--			<Table id="idSalesTable" growing="true" items="{ path: 'sOrder1>/Sales' }" mode="MultiSelect" selectionChange="onselectionChange">-->
+<!--				<headerToolbar>-->
+<!--					<OverflowToolbar id="otbSubheader">-->
+<!--						<Title text="{i18n>nameTable}" level="H2" />-->
+<!--						<ToolbarSpacer />-->
+<!--						<Button id="addButton" icon="sap-icon://add" text="Add" type="Transparent" press="onAdd" visible="{newModel>/add}" />-->
+<!--						<Button id="deleteButton" icon="sap-icon://delete" text="Delete" type="Transparent" press="onDelete" visible="{newModel>/delete}" />-->
+<!--						<Button id="_IDGenButton1" icon="sap-icon://action-settings" press="onPersoButtonPressed" />-->
+<!--					</OverflowToolbar>-->
+<!--				</headerToolbar>-->
+<!--				<columns> -->
+<!--					<Column minScreenWidth="Tablet">-->
+<!--						<Text text="{i18n>id1}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id2}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id3}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id4}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id5}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id6}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id7}" />-->
+<!--					</Column>-->
+<!--					<Column minScreenWidth="Tablet" demandPopin="true">-->
+<!--						<Text text="{i18n>id8}" />-->
+<!--					</Column>-->
+<!--				</columns>-->
+<!--				<items>-->
+<!--					<ColumnListItem vAlign="Middle" press="tableSelected">-->
+<!--						<cells>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Id}" visible="{= ${newModel>/editable} === true ? ${sOrder1>neweditable} === true ? false:true :true}" />-->
+<!--								<Input value="{sOrder1>Id}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? true:false}" ></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>NameType}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>Quantity}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>FullPrice}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>Storage}" visible="{= ${sOrder1>editable} === true ? true:false}"></Input>-->
+<!--							</HBox>-->
+<!--							<HBox visible="true">-->
+<!--								<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />-->
+<!--								<Input value="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? true:false}" liveChange="onLiveChange"></Input>-->
+<!--							</HBox>-->
+<!--						</cells>-->
+<!--					</ColumnListItem>-->
+<!--				</items>-->
+<!--			</Table>-->
+<!--</mvc:View>-->

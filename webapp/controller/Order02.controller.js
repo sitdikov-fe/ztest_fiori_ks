@@ -89,10 +89,10 @@ sap.ui.define([
 					this.getView().byId("oAgreeStart").setEnabled(true);
 				}
 				if (oAgree1 === 'X') {
-					this.getView().byId("agree1").setType("Success");
+					this.getView().byId("agree1").setType("Accept");
 				}
 				if (oAgree2 === 'X') {
-					this.getView().byId("agree2").setType("Success");
+					this.getView().byId("agree2").setType("Accept");
 				}
 			}
 
@@ -181,7 +181,7 @@ sap.ui.define([
 			sap.ui.getCore().setModel(oStatusOrder, "oStatus");
 			this._setStatusDoc();
 			this._setParametrDoc();
-			this.getView().byId("agree1").setType("Success");
+			this.getView().byId("agree1").setType("Accept");
 			MessageToast.show("Пользователь " + oUserName + " успешно согласовал");
 		},
 		onAgree2Button: function() {
@@ -194,7 +194,7 @@ sap.ui.define([
 			sap.ui.getCore().setModel(oStatusOrder, "oStatus");
 			this._setStatusDoc();
 			this._setParametrDoc();
-			this.getView().byId("agree2").setType("Success");
+			this.getView().byId("agree2").setType("Accept");
 			MessageToast.show("Пользователь " + oUser2 + " успешно согласовал");
 		},
 

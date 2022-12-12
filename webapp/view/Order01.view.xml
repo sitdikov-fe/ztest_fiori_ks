@@ -3,7 +3,7 @@
 	<Shell>
 		<App>
 			<pages>
-				<Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack">
+				<Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack" class="sapUiSmallMargin">
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<content>
 							<layout:VerticalLayout>

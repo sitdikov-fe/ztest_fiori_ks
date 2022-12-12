@@ -17,7 +17,7 @@
     {
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
-      "dateTimeStamp": "Tue, 06 Dec 2022 15:13:26 GMT"
+      "dateTimeStamp": "Mon, 12 Dec 2022 08:13:22 GMT"
     }
   ],
   "translation": {
@@ -40,12 +40,12 @@
     "blockPushLevel": "Error"
   },
   "build": {
-    "buildRequired": false,
+    "buildRequired": true,
     "sourceFolder": "webapp",
     "targetFolder": "dist",
     "excludedFolders": [],
     "excludedFiles": [],
-    "lastBuildDateTime": "Fri, 09 Dec 2022 13:47:34 GMT"
+    "lastBuildDateTime": "Fri, 09 Dec 2022 14:24:00 GMT"
   },
   "deploy": {
     "destination": "S4D",

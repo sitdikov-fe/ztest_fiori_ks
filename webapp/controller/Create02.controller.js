@@ -232,7 +232,9 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VH",
 					controller: this
 				});
-
+				// this.pDialog = this.loadFragment({
+				// 	name: "ztest_fiori_ks.view.VH"
+				// });
 			}
 			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -258,7 +260,6 @@ sap.ui.define([
 						maxLength: 3
 					})
 				}]);
-
 
 				// Set Basic Search for FilterBar
 				oFilterBar.setFilterBarExpanded(false);
@@ -294,7 +295,6 @@ sap.ui.define([
 						}));
 					}
 
-
 					// For Mobile the default table is sap.m.Table
 					if (oTable.bindItems) {
 						// Bind items to the ODataModel and add columns
@@ -326,8 +326,6 @@ sap.ui.define([
 					}
 					oDialog.update();
 				}.bind(this));
-
-
 
 				oDialog.setTokens(this._oMultiInput.getTokens());
 
@@ -363,11 +361,11 @@ sap.ui.define([
 			var oTable = this._oVHD.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
-
 		},
 
 		onValueHelpOkPress: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
+			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput.setValue(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
@@ -396,7 +394,9 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHClientType",
 					controller: this
 				});
-
+				// this.pDialog = this.loadFragment({
+				// 	name: "ztest_fiori_ks.view.VH"
+				// });
 			}
 			this.pDialog2.then(function(oDialog2) {
 				var oFilterBar2 = oDialog2.getFilterBar();
@@ -422,7 +422,7 @@ sap.ui.define([
 						maxLength: 4
 					})
 				}]);
-				
+
 				// Set Basic Search for FilterBar
 				oFilterBar2.setFilterBarExpanded(false);
 				oFilterBar2.setBasicSearch(this._oBasicSearchField2);
@@ -544,6 +544,7 @@ sap.ui.define([
 
 		onValueHelpOkPress2: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
+			// this._oMultiInput.setTokens(aTokens);
 			this._oMultiInput2.setValue(aTokens[0].mProperties.key);
 			this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD2.close();

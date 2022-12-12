@@ -1,10 +1,11 @@
 <mvc:View controllerName="ztest_fiori_ks.controller.Order02" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
-	xmlns:grid="sap.ui.layout.cssgrid" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:m="sap.m" class="GridDataSample">
+	xmlns:grid="sap.ui.layout.cssgrid" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:m="sap.m"
+	class="GridDataSample">
 	<Shell>
 		<App>
 			<pages>
-				<m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack">
+				<m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack" class="sapUiSmallMargin">
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<content>
 							<l:VerticalLayout width="90%" class="gridWrapper">
@@ -53,11 +54,11 @@
 					<Panel>
 						<content>
 							<Text text="Степень согласования"/>
-							<f:SimpleForm>
-							<Label text="Сторона 1 :" class="sapUiSmallMargin"/>
-							<Button id="agree1" text="{/user}" enabled="false" width="40%" type="Critical" press=".onAgree1Button" />
-							<Label text="Сторона 2 :" class="sapUiSmallMargin"/>
-							<Button id="agree2" text="{/agree}" enabled="false" width="40%" type="Critical" press=".onAgree2Button"/>
+							<f:SimpleForm title="" class="sapUiSmallMargin">
+								<Label text="Сторона 1 :" class="sapUiSmallMargin"/>
+								<Button id="agree1" text="{/user}" width="40%" type="Reject"/>
+								<Label text="Сторона 2 :" class="sapUiSmallMargin"/>
+								<Button id="agree2" text="{/agree}" width="40%" type="Reject"/>
 							</f:SimpleForm>
 						</content>
 					</Panel>
