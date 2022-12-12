@@ -29,6 +29,8 @@ sap.ui.define([
 	var counter = 1;
 	var oMultiInput3;
 	var oMultiInput4;
+	var sh3row;
+	var sh4row;
 
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
@@ -222,7 +224,7 @@ sap.ui.define([
 
 		onValueHelpRequested3: function (oEvent) {
 
-			console.log(oEvent.getSource().getBindingContext('sOrder1').getObject().Id);
+			sh3row = oEvent.getSource().getBindingContext('sOrder1').getObject().Id;
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
@@ -424,6 +426,8 @@ sap.ui.define([
 
 		onValueHelpRequested4: function (oEvent) {
 
+			sh4row = oEvent.getSource().getBindingContext('sOrder1').getObject().Id;
+
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
@@ -582,6 +586,13 @@ sap.ui.define([
 			var aTokens = oEvent.getParameter("tokens");
 			// this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			// this._onChangeId(aTokens[0].mProperties.key);
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			rowdata.Sales.forEach(row => {
+				if(row.Id = sh4row){
+					row.Storege = aTokens[0].mProperties.key;
+				}
+			});
+			that.getView().getModel("sOrder1").setData(rowdata);
 			this._oVHD4.close();
 		},
 
