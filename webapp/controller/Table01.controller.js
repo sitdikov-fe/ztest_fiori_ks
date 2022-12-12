@@ -433,7 +433,7 @@ sap.ui.define([
 
 			sh4row = oEvent.getSource().getBindingContext('sOrder1').getObject().Id;
 
-			console.log(oEvent.getSource().getBindingContext('sOrder1').getObject().Name);
+			if(oEvent.getSource().getBindingContext('sOrder1').getObject().Name.length = 6){
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
@@ -553,6 +553,10 @@ sap.ui.define([
 				this._bDialogInitialized4 = true;
 				oDialog4.open();
 			}.bind(this));
+
+		} else {
+			MessageToast.show("Заполните поле 'Обозначение' правильно");
+		}
 		},
 		onFilterBarSearch4: function (oEvent) {
 			var aFilters = [];
