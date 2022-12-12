@@ -433,6 +433,8 @@ sap.ui.define([
 
 			sh4row = oEvent.getSource().getBindingContext('sOrder1').getObject().Id;
 
+			console.log(oEvent.getSource().getBindingContext('sOrder1').getObject().Name);
+
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
