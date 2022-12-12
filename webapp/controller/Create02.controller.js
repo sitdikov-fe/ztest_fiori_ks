@@ -232,8 +232,7 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VH",
 					controller: this
 				});
-				console.log('this.pDialog');
-				console.log(this.pDialog);
+
 			}
 			this.pDialog.then(function(oDialog) {
 				var oFilterBar = oDialog.getFilterBar();
@@ -259,8 +258,7 @@ sap.ui.define([
 						maxLength: 3
 					})
 				}]);
-				console.log('this.oDialog');
-				console.log(this.oDialog);
+
 
 				// Set Basic Search for FilterBar
 				oFilterBar.setFilterBarExpanded(false);
@@ -296,8 +294,6 @@ sap.ui.define([
 						}));
 					}
 
-					console.log('this.oTable');
-					console.log(this.oTable);
 
 					// For Mobile the default table is sap.m.Table
 					if (oTable.bindItems) {
@@ -331,8 +327,6 @@ sap.ui.define([
 					oDialog.update();
 				}.bind(this));
 
-				console.log('this.oDialog2');
-				console.log(this.oDialog);
 
 
 				oDialog.setTokens(this._oMultiInput.getTokens());
@@ -369,8 +363,7 @@ sap.ui.define([
 			var oTable = this._oVHD.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
-			console.log('oBinding');
-			console.log(oBinding);
+
 		},
 
 		onValueHelpOkPress: function(oEvent) {

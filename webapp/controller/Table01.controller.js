@@ -161,8 +161,6 @@ sap.ui.define([
 			var boolreact = true;
 			var isEmpty = false;
 
-			console.log();
-
 			rawdata.forEach(row => {
 				isEmpty = isEmpty || Object.values(row).some(x => x === '');
 			});
@@ -334,8 +332,7 @@ sap.ui.define([
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
 			var sQuery3 = oEvent.getParameter("selectionSet")[2].getProperty("value");
-			console.log('oEvent.getParameter("selectionSet")');
-			console.log(oEvent.getParameter("selectionSet"));
+
 			if ((sQuery1 && sQuery1.length > 0) || (sQuery2 && sQuery2.length > 0) || (sQuery3 && sQuery3.length > 0)) {
 				var filter = new Filter({
 					filters: [
@@ -388,8 +385,7 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHStorage",
 					controller: this
 				});
-				console.log('this.pDialog');
-				console.log(this.pDialog);
+
 			}
 			this.pDialog4.then(function (oDialog4) {
 				var oFilterBar4 = oDialog4.getFilterBar();
@@ -416,8 +412,7 @@ sap.ui.define([
 					})
 				}]);
 
-				console.log('this.oDialog');
-				console.log(this.oDialog);
+
 
 				// Set Basic Search for FilterBar
 				oFilterBar4.setFilterBarExpanded(false);
