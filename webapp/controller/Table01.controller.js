@@ -588,7 +588,7 @@ sap.ui.define([
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
-				if(row.Id = sh4row){
+				if(row.Id == sh4row){
 					row.Storege = aTokens[0].mProperties.key;
 				}
 			});
