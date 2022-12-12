@@ -423,6 +423,7 @@ sap.ui.define([
 		onValueHelpRequested4: function (oEvent) {
 			console.log(oEvent.getSource().getId());
 			console.log(this._oMultiInput4);
+			this._oMultiInput4.sID = oEvent.getSource().getId();
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
@@ -579,7 +580,7 @@ sap.ui.define([
 
 		onValueHelpOkPress4: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			// this._oMultiInput4.setValue(aTokens[0].mProperties.key);
+			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			// this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD4.close();
 		},
