@@ -100,6 +100,7 @@ sap.ui.define([
 				"neweditable": true
 			};
 
+			console.log(this);
 			oMultiInput3 = this.byId("multiInput3");
 			this._oMultiInput3 = oMultiInput3;
 			oMultiInput4 = this.byId("multiInput4");
