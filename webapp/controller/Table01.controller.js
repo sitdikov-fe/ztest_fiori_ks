@@ -36,12 +36,6 @@ sap.ui.define([
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
 
-			var oButton = new sap.ui.commons.Button({text: "AutoResize", press: function(){
-				sap.ui.getCore().byId("oTable").autoResizeColumn(0);
-				sap.ui.getCore().byId("oTable").autoResizeColumn(1);
-			  }});
-			  oButton.placeAt("content");
-
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.oProductsModel3 = new ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this.getView().setModel(this.oProductsModel3);
@@ -405,9 +399,12 @@ sap.ui.define([
 					window.temp.getView().getModel("sOrder1").setData(rowdata);
 				}.bind(this)
 			});
-
-
-
+			sap.ui.getCore().byId("oTable").autoResizeColumn(0);
+			sap.ui.getCore().byId("oTable").autoResizeColumn(1);
+			sap.ui.getCore().byId("oTable").autoResizeColumn(2);
+			sap.ui.getCore().byId("oTable").autoResizeColumn(3);
+			sap.ui.getCore().byId("oTable").autoResizeColumn(4);
+			sap.ui.getCore().byId("oTable").autoResizeColumn(5);
 		},
 
 		onValueHelpOkPress3: function (oEvent) {
