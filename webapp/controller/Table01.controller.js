@@ -27,8 +27,8 @@ sap.ui.define([
 	"use strict";
 	var oModel;
 	var counter = 1;
-	// var oMultiInput3;
-	// var oMultiInput4;
+	var oMultiInput3;
+	var oMultiInput4;
 
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
@@ -422,7 +422,7 @@ sap.ui.define([
 
 		onValueHelpRequested4: function (oEvent) {
 
-			new sap.m.MultiInput4(oEvent.getSource().getId());
+			MultiInput4 = new sap.m.MultiInput(oEvent.getSource().getId());
 			this._oMultiInput4 = oMultiInput4;
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
