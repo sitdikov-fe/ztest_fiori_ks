@@ -250,7 +250,7 @@ sap.ui.define([
 					key: "Name",
 					type: "string",
 					typeInstance: new TypeString({}, {
-						maxLength: 30
+						maxLength: 8
 					})
 				}]);
 
