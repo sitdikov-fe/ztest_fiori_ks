@@ -587,13 +587,13 @@ sap.ui.define([
 			// this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
-			rowdata.Sales.forEach(row => {
-				if(row.Id == sh4row){
-					console.log(row.Name);
-					row.Storage = aTokens[0].mProperties.key;
-				}
-			});
-			window.temp.getView().getModel("sOrder1").setData(rowdata);
+			console.log(rowdata);
+			// rowdata.Sales.forEach(row => {
+			// 	if(row.Id == sh4row){
+			// 		row.Storage = aTokens[0].mProperties.key;
+			// 	}
+			// });
+			// window.temp.getView().getModel("sOrder1").setData(rowdata);
 			this._oVHD4.close();
 		},
 
