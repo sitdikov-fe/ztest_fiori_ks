@@ -244,8 +244,8 @@ sap.ui.define([
 
 				// Set key fields for filtering in the Define Conditions Tab
 				oDialog3.setRangeKeyFields([{
-					label: "Name",
-					key: "Name",
+					label: "NameType",
+					key: "NameType",
 					type: "string",
 					typeInstance: new TypeString({}, {
 						maxLength: 30
@@ -277,12 +277,12 @@ sap.ui.define([
 							}
 						});
 						oTable3.addColumn(new UIColumn({
-							label: "Name",
-							template: "Name"
-						}));
-						oTable3.addColumn(new UIColumn({
 							label: "NameType",
 							template: "NameType"
+						}));
+						oTable3.addColumn(new UIColumn({
+							label: "Name",
+							template: "Name"
 						}));
 						oTable3.addColumn(new UIColumn({
 							label: "Price",
@@ -297,9 +297,9 @@ sap.ui.define([
 							path: "/ZtestshposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
-									text: "{Name}"
-								}),new Label({
 									text: "{NameType}"
+								}),new Label({
+									text: "{Name}"
 								}), new Label({
 									text: "{Price}"
 								})]
@@ -312,12 +312,12 @@ sap.ui.define([
 						});
 						oTable3.addColumn(new MColumn({
 							header: new Label({
-								text: "Name"
+								text: "NameType"
 							})
 						}));
 						oTable3.addColumn(new MColumn({
 							header: new Label({
-								text: "NameType"
+								text: "Name"
 							})
 						}));
 						oTable3.addColumn(new MColumn({
@@ -346,14 +346,14 @@ sap.ui.define([
 				var filter = new Filter({
 					filters: [
 						new Filter({
-							path: "Name",
-							operator: FilterOperator.Contains,
-							value1: sQuery1
-						}),
-						new Filter({
 							path: "NameType",
 							operator: FilterOperator.Contains,
 							value1: sQuery2
+						}),
+						new Filter({
+							path: "Name",
+							operator: FilterOperator.Contains,
+							value1: sQuery1
 						}),
 						new Filter({
 							path: "Price",
