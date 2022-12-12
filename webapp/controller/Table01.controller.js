@@ -367,11 +367,11 @@ sap.ui.define([
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
 			this._onChangeId(aTokens[0].mProperties.key);
-			this._oVHD.close();
+			this._oVHD3.close();
 		},
 
 		onValueHelpCancelPress: function () {
-			this._oVHD.close();
+			this._oVHD3.close();
 		},
 
 
