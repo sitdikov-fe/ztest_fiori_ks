@@ -403,8 +403,13 @@ sap.ui.define([
 			var aTokens = oEvent.getParameter("tokens");
 			var str = aTokens[0].mProperties.key;
 			str = str.replace(/\s/g, '');
-			// this._oMultiInput3.setValue(str);
-			// this._onChangeId(str);_oMultiInput3
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
+			rowdata.Sales.forEach(row => {
+				if(row.Id == sh3row){
+					row.Name = aTokens[0].mProperties.key;
+				}
+			});
+			window.temp.getView().getModel("sOrder1").setData(rowdata);
 			this._oVHD3.close();
 		},
 
