@@ -221,9 +221,7 @@ sap.ui.define([
 		// SH для позиции
 
 		onValueHelpRequested3: function (oEvent) {
-			var sId = oEvent.getSource().getId();
-			var index = sId.substr(sId.length - 1);
-			alert("Row index in : " + index);
+			console.log(oEvent.getSource().getId());
 
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField3 = new SearchField();
