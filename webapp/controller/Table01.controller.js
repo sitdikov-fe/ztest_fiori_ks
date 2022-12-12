@@ -621,7 +621,7 @@ sap.ui.define([
 
 			var mem = storage + nametype;
 
-			var readurl = "/ZtestshstorSet('" + mem + "')";
+			var readurl = "/ZtestshstorSet(1)";
 
 			console.log(readurl);
 			
@@ -636,10 +636,7 @@ sap.ui.define([
 					// 	}
 					// });
 					// window.temp.getView().getModel("sOrder1").setData(rowdata);
-				}.bind(this),
-				error: function(err) {
-					isErrorResponse = 1;
-				}
+				}.bind(this)
 			});
 		}
 
