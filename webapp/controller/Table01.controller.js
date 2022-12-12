@@ -272,7 +272,7 @@ sap.ui.define([
 					if (oTable3.bindRows) {
 						// Bind rows to the ODataModel and add columns
 						oTable3.bindAggregation("rows", {
-							path: "/ZtestposSet",
+							path: "/ZtestshposSet",
 							events: {
 								dataReceived: function () {
 									oDialog.update();
@@ -297,7 +297,7 @@ sap.ui.define([
 					if (oTable3.bindItems) {
 						// Bind items to the ODataModel and add columns
 						oTable3.bindAggregation("items", {
-							path: "/ZtestposSet",
+							path: "/ZtestshposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
 									text: "{Name}"
@@ -454,7 +454,7 @@ sap.ui.define([
 					if (oTable4.bindRows) {
 						// Bind rows to the ODataModel and add columns
 						oTable4.bindAggregation("rows", {
-							path: "/zteststorSet",
+							path: "/ZtestshstorSet",
 							events: {
 								dataReceived: function () {
 									oDialog4.update();
@@ -479,7 +479,7 @@ sap.ui.define([
 					if (oTable4.bindItems) {
 						// Bind items to the ODataModel and add columns
 						oTable4.bindAggregation("items", {
-							path: "/zteststorSet",
+							path: "/ZtestshstorSet",
 							template: new ColumnListItem({
 								cells: [new Label({
 									text: "{Storege}"
