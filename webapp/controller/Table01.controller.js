@@ -621,12 +621,10 @@ sap.ui.define([
 
 			var mem = storage + nametype;
 
-			var readurl = "/ZtestshstorSet(1)";
-
-			console.log(readurl);
+			var readurl = "/ZtestshstorSet('" + mem + "')";
 			
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
-			oModel.read(readurl, null, null, true, {
+			oModel.read(readurl, {
 				success: function (oData, oResponse) {
 					console.log(oData);
 					// rowdata.Sales.forEach(row => {
