@@ -45,7 +45,7 @@
 							</HBox>
 							<HBox visible="true">
 								<Text text="{sOrder1>Name}" visible="{= ${sOrder1>editable} === true ? false:true}" />
-									<MultiInput id="multiInput3" valueHelpRequest=".onValueHelpRequested3" suggestionRows="{ path: '/ZtestposSet', templateShareable: false}">
+									<MultiInput id="multiInput3" valueHelpRequest=".onValueHelpRequested3" suggestionRows="{ path: '/ZtestposSet'}">
 										<suggestionColumns>
 											<Column>
 												<Label text="Name"/>
