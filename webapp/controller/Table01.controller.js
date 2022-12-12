@@ -589,7 +589,7 @@ sap.ui.define([
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh4row){
-					row.Quanstorage = aTokens[0].mProperties.key;
+					row.Storage = aTokens[0].mProperties.key;
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
