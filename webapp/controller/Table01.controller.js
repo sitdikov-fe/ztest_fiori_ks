@@ -42,8 +42,8 @@ sap.ui.define([
 
 			oMultiInput3 = this.byId("multiInput3");
 			this._oMultiInput3 = oMultiInput3;
-			oMultiInput4 = this.byId("multiInput4");
-			this._oMultiInput4 = oMultiInput4;
+			// oMultiInput4 = this.byId("multiInput4");
+			// this._oMultiInput4 = oMultiInput4;
 
 			this.mode = "Edit";
 			var dataModel = this.getOwnerComponent().getModel("tableData");
@@ -421,9 +421,9 @@ sap.ui.define([
 		// SH для склада
 
 		onValueHelpRequested4: function (oEvent) {
-			console.log(oEvent.getSource().getId());
-			this._oMultiInput4.sID = oEvent.getSource().getId();
-			console.log(this._oMultiInput4);
+
+			new sap.m.MultiInput4(oEvent.getSource().getId());
+			this._oMultiInput4 = oMultiInput4;
 			oModel = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/");
 			this._oBasicSearchField4 = new SearchField();
 			if (!this.pDialog4) {
