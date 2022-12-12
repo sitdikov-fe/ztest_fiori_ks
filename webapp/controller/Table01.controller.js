@@ -598,7 +598,7 @@ sap.ui.define([
 			var str = aTokens[0].mProperties.key;
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh4row){
-					if(row.NameType = ''){
+					if(row.NameType == ''){
 						MessageToast.show("Впишите корректное значение в поле 'Название'");
 					} else
 					{
