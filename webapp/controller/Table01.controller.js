@@ -415,6 +415,8 @@ sap.ui.define([
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
+			var oTable = this.byId("idSalesTable");
+			oTable.autoResizeColumn(2);
 			this._onChangeName(str);
 			this._oVHD3.close();
 		},
