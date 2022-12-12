@@ -69,8 +69,8 @@ sap.ui.define([
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 
 			rowdata.Sales.forEach(row => {
-				if  (row.Price > 0 && row.Quanstity > 0 ){
-				row.FullPrice = row.Price * row.Quanstity;
+				if  (row.Price > 0 && row.Quantity > 0 ){
+				row.FullPrice = row.Price * row.Quantity;
 				};
 			});
 
