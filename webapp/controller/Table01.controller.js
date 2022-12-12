@@ -383,13 +383,12 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
-		_onChangeId: function (number) {
+		_onChangeName: function (number) {
 			// oIdClient = number;
-			var readurl = "/ZtestposSet('" + number + "')";
+			var readurl = "/ZtestshposSet('" + number + "')";
 			oModel.read(readurl, {
 				success: function (oData, oResponse) {
-					// this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
-					// this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
+					console.log(oData);
 					isErrorResponse = 0;
 				}.bind(this),
 				error: function (err) {
@@ -410,6 +409,7 @@ sap.ui.define([
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
+			this._onChangeName(str);
 			this._oVHD3.close();
 		},
 
