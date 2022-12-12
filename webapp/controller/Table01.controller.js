@@ -386,24 +386,22 @@ sap.ui.define([
 		_onChangeName: function (number) {
 			// oIdClient = number;
 			var readurl = "/ZtestshposSet('" + number + "')";
-			var rows = [];
+			
+			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			oModel.read(readurl, {
 				success: function (oData, oResponse) {
-					rows = oData;
-					isErrorResponse = 0;
+					rowdata.Sales.forEach(row => {
+						if(row.Name == number){
+							row.NameType = oData.Name;
+							row.Price = oData.Price;
+						}
+					});
+					window.temp.getView().getModel("sOrder1").setData(rowdata);
 				}.bind(this)
 			});
 
-			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 
-			console.log(rows);
-			rowdata.Sales.forEach(row => {
-				if(row.Name == number){
-					row.NameType = rows.Name;
-					row.Price = rows.Price;
-				}
-			});
-			window.temp.getView().getModel("sOrder1").setData(rowdata);
+
 		},
 
 		onValueHelpOkPress3: function (oEvent) {
