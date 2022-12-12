@@ -403,8 +403,7 @@ sap.ui.define([
 					name: "ztest_fiori_ks.view.VHClientType",
 					controller: this
 				});
-				console.log('this.pDialog');
-				console.log(this.pDialog);
+
 			}
 			this.pDialog2.then(function(oDialog2) {
 				var oFilterBar2 = oDialog2.getFilterBar();
@@ -430,10 +429,7 @@ sap.ui.define([
 						maxLength: 4
 					})
 				}]);
-
-				console.log('this.oDialog');
-				console.log(this.oDialog);
-
+				
 				// Set Basic Search for FilterBar
 				oFilterBar2.setFilterBarExpanded(false);
 				oFilterBar2.setBasicSearch(this._oBasicSearchField2);

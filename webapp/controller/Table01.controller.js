@@ -25,16 +25,16 @@ sap.ui.define([
 	"use strict";
 	var oModel;
 	var counter = 1;
-	var oMultiInput;
-	var oMultiInput2;
+	var oMultiInput3;
+	var oMultiInput4;
 
 	return Controller.extend("ztest_fiori_ks.controller.Table01", {
 		onInit: function (oEvent) {
 
-			oMultiInput = this.byId("multiInput");
-			this._oMultiInput = oMultiInput;
-			oMultiInput2 = this.byId("multiInput2");
-			this._oMultiInput2 = oMultiInput2;
+			oMultiInput3 = this.byId("multiInput3");
+			this._oMultiInput3 = oMultiInput3;
+			oMultiInput4 = this.byId("multiInput4");
+			this._oMultiInput4 = oMultiInput4;
 
 
 			this.mode = "Edit";
@@ -210,34 +210,33 @@ sap.ui.define([
 
 		// SH для позиции
 
-		onValueHelpRequested: function () {
-			this._oBasicSearchField = new SearchField();
-			if (!this.pDialog) {
-				this.pDialog = Fragment.load({
+		onValueHelpRequested3: function () {
+			this._oBasicSearchField3 = new SearchField();
+			if (!this.pDialog3) {
+				this.pDialog3 = Fragment.load({
 					id: this.getView().getId(),
 					name: "ztest_fiori_ks.view.VHName",
 					controller: this
 				});
-				console.log('this.pDialog');
-				console.log(this.pDialog);
-			}
-			this.pDialog.then(function (oDialog) {
-				var oFilterBar = oDialog.getFilterBar();
-				this._oVHD = oDialog;
-				// Initialise the dialog with model only the first time. Then only open it
-				if (this._bDialogInitialized) {
-					// Re-set the tokens from the input and update the table
-					oDialog.setTokens([]);
-					oDialog.setTokens(this._oMultiInput.getTokens());
-					oDialog.update();
 
-					oDialog.open();
+			}
+			this.pDialog3.then(function (oDialog3) {
+				var oFilterBar3 = oDialog3.getFilterBar();
+				this._oVHD3 = oDialog3
+				// Initialise the dialog with model only the first time. Then only open it
+				if (this._bDialogInitialized3) {
+					// Re-set the tokens from the input and update the table
+					oDialog3.setTokens([]);
+					oDialog3.setTokens(this._oMultiInput3.getTokens());
+					oDialog3.update();
+
+					oDialog3.open();
 					return;
 				}
-				this.getView().addDependent(oDialog);
+				this.getView().addDependent(oDialog3);
 
 				// Set key fields for filtering in the Define Conditions Tab
-				oDialog.setRangeKeyFields([{
+				oDialog3.setRangeKeyFields([{
 					label: "Name",
 					key: "Name",
 					type: "string",
@@ -246,26 +245,23 @@ sap.ui.define([
 					})
 				}]);
 
-				console.log('this.oDialog');
-				console.log(this.oDialog);
-
 				// Set Basic Search for FilterBar
-				oFilterBar.setFilterBarExpanded(false);
-				oFilterBar.setBasicSearch(this._oBasicSearchField);
+				oFilterBar3.setFilterBarExpanded(false);
+				oFilterBar3.setBasicSearch(this._oBasicSearchField3);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField.attachSearch(function () {
-					oFilterBar.search();
+				this._oBasicSearchField3.attachSearch(function () {
+					oFilterBar3.search();
 				});
 
-				oDialog.getTableAsync().then(function (oTable) {
+				oDialog3.getTableAsync().then(function (oTable3) {
 
-					oTable.setModel(this.oProductsModel);
+					oTable3.setModel(this.oProductsModel3);
 
 					// For Desktop and tabled the default table is sap.ui.table.Table
-					if (oTable.bindRows) {
+					if (oTable3.bindRows) {
 						// Bind rows to the ODataModel and add columns
-						oTable.bindAggregation("rows", {
+						oTable3.bindAggregation("rows", {
 							path: "/ztestposSet",
 							events: {
 								dataReceived: function () {
@@ -273,27 +269,24 @@ sap.ui.define([
 								}
 							}
 						});
-						oTable.addColumn(new UIColumn({
+						oTable3.addColumn(new UIColumn({
 							label: "Name",
 							template: "Name"
 						}));
-						oTable.addColumn(new UIColumn({
+						oTable3.addColumn(new UIColumn({
 							label: "NameType",
 							template: "NameType"
 						}));
-						oTable.addColumn(new UIColumn({
+						oTable3.addColumn(new UIColumn({
 							label: "Price",
 							template: "Price"
 						}));
 					}
 
-					console.log('this.oTable');
-					console.log(this.oTable);
-
 					// For Mobile the default table is sap.m.Table
-					if (oTable.bindItems) {
+					if (oTable3.bindItems) {
 						// Bind items to the ODataModel and add columns
-						oTable.bindAggregation("items", {
+						oTable3.bindAggregation("items", {
 							path: "/ztestposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
@@ -310,36 +303,33 @@ sap.ui.define([
 								}
 							}
 						});
-						oTable.addColumn(new MColumn({
+						oTable3.addColumn(new MColumn({
 							header: new Label({
 								text: "Name"
 							})
 						}));
-						oTable.addColumn(new MColumn({
+						oTable3.addColumn(new MColumn({
 							header: new Label({
 								text: "NameType"
 							})
 						}));
-						oTable.addColumn(new MColumn({
+						oTable3.addColumn(new MColumn({
 							header: new Label({
 								text: "Price"
 							})
 						}));
 					}
-					oDialog.update();
+					oDialog3.update();
 				}.bind(this));
 
-				console.log('this.oDialog2');
-				console.log(this.oDialog);
-
-				oDialog.setTokens(this._oMultiInput.getTokens());
+				oDialog3.setTokens(this._oMultiInput3.getTokens());
 
 				// set flag that the dialog is initialized
-				this._bDialogInitialized = true;
-				oDialog.open();
+				this._bDialogInitialized3 = true;
+				oDialog3.open();
 			}.bind(this));
 		},
-		onFilterBarSearch: function (oEvent) {
+		onFilterBarSearch3: function (oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -368,21 +358,18 @@ sap.ui.define([
 					and: true
 				});
 				aFilters.push(filter);
-				console.log('filter');
-				console.log(filter);
 			}
 
 			// update list binding
 			var oTable = this._oVHD.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
-			console.log('oBinding');
-			console.log(oBinding);
 		},
 
-		onValueHelpOkPress: function (oEvent) {
+		onValueHelpOkPress3: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			this._oMultiInput.setValue(aTokens[0].mProperties.key);
+			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
+			this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD.close();
 		},
 
@@ -390,22 +377,13 @@ sap.ui.define([
 			this._oVHD.close();
 		},
 
-		onOpenDialog: function () {
-			// load BusyDialog fragment asynchronously
-			var oDialog = this.byId("BusyDialog");
-			oDialog.open();
-
-			setTimeout(function () {
-				oDialog.close();
-			}, 1000);
-		},
 
 		// SH для склада
 
-		onValueHelpRequested2: function () {
-			this._oBasicSearchField2 = new SearchField();
-			if (!this.pDialog2) {
-				this.pDialog2 = Fragment.load({
+		onValueHelpRequested4: function () {
+			this._oBasicSearchField4 = new SearchField();
+			if (!this.pDialog4) {
+				this.pDialog4 = Fragment.load({
 					id: this.getView().getId(),
 					name: "ztest_fiori_ks.view.VHStorage",
 					controller: this
@@ -413,23 +391,23 @@ sap.ui.define([
 				console.log('this.pDialog');
 				console.log(this.pDialog);
 			}
-			this.pDialog2.then(function (oDialog2) {
-				var oFilterBar2 = oDialog2.getFilterBar();
-				this._oVHD2 = oDialog2;
+			this.pDialog4.then(function (oDialog4) {
+				var oFilterBar4 = oDialog4.getFilterBar();
+				this._oVHD4 = oDialog4;
 				// Initialise the dialog with model only the first time. Then only open it
-				if (this._bDialogInitialized2) {
+				if (this._bDialogInitialized4) {
 					// Re-set the tokens from the input and update the table
-					oDialog2.setTokens([]);
-					oDialog2.setTokens(this._oMultiInput2.getTokens());
-					oDialog2.update();
+					oDialog4.setTokens([]);
+					oDialog4.setTokens(this._oMultiInput4.getTokens());
+					oDialog4.update();
 
-					oDialog2.open();
+					oDialog4.open();
 					return;
 				}
-				this.getView().addDependent(oDialog2);
+				this.getView().addDependent(oDialog4);
 
 				// Set key fields for filtering in the Define Conditions Tab
-				oDialog2.setRangeKeyFields([{
+				oDialog4.setRangeKeyFields([{
 					label: "Storege",
 					key: "Storege",
 					type: "string",
@@ -442,47 +420,47 @@ sap.ui.define([
 				console.log(this.oDialog);
 
 				// Set Basic Search for FilterBar
-				oFilterBar2.setFilterBarExpanded(false);
-				oFilterBar2.setBasicSearch(this._oBasicSearchField2);
+				oFilterBar4.setFilterBarExpanded(false);
+				oFilterBar4.setBasicSearch(this._oBasicSearchField4);
 
 				// Trigger filter bar search when the basic search is fired
-				this._oBasicSearchField2.attachSearch(function () {
-					oFilterBar2.search();
+				this._oBasicSearchField4.attachSearch(function () {
+					oFilterBar4.search();
 				});
 
-				oDialog2.getTableAsync().then(function (oTable2) {
+				oDialog4.getTableAsync().then(function (oTable4) {
 
-					oTable2.setModel(this.oProductsModel2);
+					oTable4.setModel(this.oProductsModel4);
 
 					// For Desktop and tabled the default table is sap.ui.table.Table
-					if (oTable2.bindRows) {
+					if (oTable4.bindRows) {
 						// Bind rows to the ODataModel and add columns
-						oTable2.bindAggregation("rows", {
+						oTable4.bindAggregation("rows", {
 							path: "/zteststorSet",
 							events: {
 								dataReceived: function () {
-									oDialog2.update();
+									oDialog4.update();
 								}
 							}
 						});
-						oTable2.addColumn(new UIColumn({
+						oTable4.addColumn(new UIColumn({
 							label: "Storege",
 							template: "Storege"
 						}));
-						oTable2.addColumn(new UIColumn({
+						oTable4.addColumn(new UIColumn({
 							label: "NameType",
 							template: "NameType"
 						}));
-						oTable2.addColumn(new UIColumn({
+						oTable4.addColumn(new UIColumn({
 							label: "Quanstorage",
 							template: "Quanstorage"
 						}));
 					}
 
 					// For Mobile the default table is sap.m.Table
-					if (oTable2.bindItems) {
+					if (oTable4.bindItems) {
 						// Bind items to the ODataModel and add columns
-						oTable2.bindAggregation("items", {
+						oTable4.bindAggregation("items", {
 							path: "/zteststorSet",
 							template: new ColumnListItem({
 								cells: [new Label({
@@ -495,37 +473,37 @@ sap.ui.define([
 							}),
 							events: {
 								dataReceived: function () {
-									oDialog2.update();
+									oDialog4.update();
 								}
 							}
 						});
-						oTable2.addColumn(new MColumn({
+						oTable4.addColumn(new MColumn({
 							header: new Label({
 								text: "Storege"
 							})
 						}));
-						oTable2.addColumn(new MColumn({
+						oTable4.addColumn(new MColumn({
 							header: new Label({
 								text: "NameType"
 							})
 						}));
-						oTable2.addColumn(new MColumn({
+						oTable4.addColumn(new MColumn({
 							header: new Label({
 								text: "Quanstorage"
 							})
 						}));
 					}
-					oDialog2.update();
+					oDialog4.update();
 				}.bind(this));
 
-				oDialog2.setTokens(this._oMultiInput2.getTokens());
+				oDialog4.setTokens(this._oMultiInput4.getTokens());
 
 				// set flag that the dialog is initialized
-				this._bDialogInitialized2 = true;
-				oDialog2.open();
+				this._bDialogInitialized4 = true;
+				oDialog4.open();
 			}.bind(this));
 		},
-		onFilterBarSearch2: function (oEvent) {
+		onFilterBarSearch4: function (oEvent) {
 			var aFilters = [];
 			var sQuery1 = oEvent.getParameter("selectionSet")[0].getProperty("value");
 			var sQuery2 = oEvent.getParameter("selectionSet")[1].getProperty("value");
@@ -555,20 +533,20 @@ sap.ui.define([
 			}
 
 			// update list binding
-			var oTable = this._oVHD2.getTable();
+			var oTable = this._oVHD4.getTable();
 			var oBinding = oTable.getBinding("rows");
 			oBinding.filter(aFilters, "Application");
 		},
 
-		onValueHelpOkPress2: function (oEvent) {
+		onValueHelpOkPress4: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
-			this._oMultiInput2.setValue(aTokens[0].mProperties.key);
+			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
 			this._onChangeId(aTokens[0].mProperties.key);
-			this._oVHD2.close();
+			this._oVHD4.close();
 		},
 
-		onValueHelpCancelPress2: function () {
-			this._oVHD2.close();
+		onValueHelpCancelPress4: function () {
+			this._oVHD4.close();
 		}
 
 
