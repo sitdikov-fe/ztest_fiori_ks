@@ -194,7 +194,6 @@
 						<Text text="{sOrder1>Price}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 						<Input value="{sOrder1>Price}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
 					</HBox>
-					</HBox>
 					<HBox visible="true">
 						<Text text="{sOrder1>FullPrice}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 						<Input value="{sOrder1>FullPrice}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
@@ -225,7 +224,6 @@
 					<HBox visible="true">
 						<Text text="{sOrder1>Quanstorage}" visible="{= ${sOrder1>editable} === true ? false:true}" />
 						<Input value="{sOrder1>Quanstorage}" editable="false" visible="true" valueState="{newModel>/valueState}"></Input>
-					</HBox>
 					</HBox>
 				</cells>
 			</ColumnListItem>
