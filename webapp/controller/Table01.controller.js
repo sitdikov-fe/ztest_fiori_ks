@@ -596,6 +596,7 @@ sap.ui.define([
 			// this._onChangeId(aTokens[0].mProperties.key);
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			var str = aTokens[0].mProperties.key;
+			console.log(aTokens);
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh4row){
 					if(row.NameType == ''){
@@ -605,7 +606,6 @@ sap.ui.define([
 						row.Storage = str;
 						this._onChangeStor(str);
 					}
-					
 				}
 			});
 			window.temp.getView().getModel("sOrder1").setData(rowdata);
