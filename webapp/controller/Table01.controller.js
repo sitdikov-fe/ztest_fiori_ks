@@ -102,6 +102,8 @@ sap.ui.define([
 			counter += 1;
 			var oTableData = oEvent.getSource().getModel("sOrder1").getData(); //get table data
 			oTableData.Sales.push(newRecord); //push this new record in model
+			console.log(newRecord);
+			console.log(that.getView().getModel("sOrder1").setData(oTableData));
 			that.getView().getModel("sOrder1").setData(oTableData); //set data to the view
 		},
 
