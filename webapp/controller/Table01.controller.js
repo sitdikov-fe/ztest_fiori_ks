@@ -372,10 +372,29 @@ sap.ui.define([
 			oBinding.filter(aFilters, "Application");
 		},
 
+		_onChangeId: function(number) {
+			// oIdClient = number;
+			var readurl = "/ZtestposSet('" + number + "')";
+			oModel.read(readurl, {
+				success: function(oData, oResponse) {
+					console.log(oData);
+					// this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
+					// this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
+					isErrorResponse = 0;
+				}.bind(this),
+				error: function(err) {
+					isErrorResponse = 1;
+				}
+			});
+
+		},
+
 		onValueHelpOkPress3: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
+			console.log(aTokens[0].mProperties.key);
+			console.log(aTokens);
 			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
-			// this._onChangeId(aTokens[0].mProperties.key);
+			this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD3.close();
 		},
 

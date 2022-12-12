@@ -5,14 +5,14 @@
 			<fb:FilterBar advancedMode="true" search=".onFilterBarSearch3">
 			<!--isRunningInValueHelpDialog="true">-->
 				<fb:filterGroupItems>
-					<fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
-						<fb:control>
-							<m:Input name="NameType"/>
-						</fb:control>
-					</fb:FilterGroupItem>
 					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Name" label="Name" visibleInFilterBar="true">
 						<fb:control>
 							<m:Input name="Name"/>
+						</fb:control>
+					</fb:FilterGroupItem>
+					<fb:FilterGroupItem groupName="__$INTERNAL$" name="NameType" label="NameType" visibleInFilterBar="true">
+						<fb:control>
+							<m:Input name="NameType"/>
 						</fb:control>
 					</fb:FilterGroupItem>
 					<fb:FilterGroupItem groupName="__$INTERNAL$" name="Price" label="Price" visibleInFilterBar="true">

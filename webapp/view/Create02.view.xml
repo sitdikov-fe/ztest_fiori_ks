@@ -5,31 +5,32 @@
 	<Shell>
 		<App>
 			<pages>
-				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack" class="sapUiSmallMargin">
-					<Panel class="sapUiResponsiveMargin" width="auto">
+				<m:Page title="{i18n>titlePageCreate01}" showNavButton="true" navButtonPress="onBack"> 
+				<!--class="sapUiSmallMargin"> class="sapUiResponsiveMargin" -->
+					<Panel width="auto">
 						<content>
-							<l:VerticalLayout width="90%" class="gridWrapper">
-								<l:dependents>
-									<core:Fragment fragmentName="ztest_fiori_ks.view.BusyDialog" type="XML"/>
-								</l:dependents>
-								<grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="1fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
-									<VBox class="demoBox">
+							<l:VerticalLayout width="100%" class="gridWrapper">
+							<!--	<l:dependents>-->
+							<!--		<core:Fragment fragmentName="ztest_fiori_ks.view.BusyDialog" type="XML"/>-->
+								<!--</l:dependents> gridAutoFlow="Column" -->
+								<grid:CSSGrid id="grid1" gridTemplateColumns="10fr" gridTemplateRows="5rem" gridAutoRows="5rem" gridGap="2rem" >
+									<VBox class="demoBox" >
 										<layoutData>
-											<grid:GridItemLayoutData gridRow="1 / 8"/>
+											<grid:GridItemLayoutData gridRow="1 / 6"/>
 										</layoutData>
-										<f:SimpleForm id="panel" title="{i18n>titleCreateOrder}">
+										<f:SimpleForm id="panel" title="{i18n>titleCreateOrder}"   >
 											<f:content>
-												<Label text="Дата :" class="sapUiSmallMargin"/>
-												<Input id="oDataUser" value="{/date}" enabled="false"/>
-												<Label text="Пользователь :" class="sapUiSmallMargin"/>
-												<Input id="oUserName" value="{/user}" enabled="false"/>
-												<Label text="Номер документа :" class="sapUiSmallMargin"/>
-												<Input id="oOrderId" value="{/number}" enabled="false"/>
-												<Label text="Описание документа :" class="sapUiSmallMargin"/>
-												<Input id="oDescDoc" valueLiveUpdate="true"/>
-												<Label text="{i18n>typeDoc}" labelFor="multiInput" class="sapUiSmallMargin"/>
+												<Label text="Дата" labelFor="oDataUser"/>
+												<Input id="oDataUser" value="{/date}" enabled="false" />
+												<Label text="Пользователь" />
+												<Input id="oUserName" value="{/user}" enabled="false" />
+												<Label text="Номер документа"/>
+												<Input id="oOrderId" value="{/number}" enabled="false" />
+												<Label text="Описание документа"/>
+												<Input id="oDescDoc" valueLiveUpdate="true" />
+												<Label text="{i18n>typeDoc}" labelFor="multiInput" />
 												<!--<form:SimpleForm editable="true" >-->
-												<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShTypedocKosiSet'}">
+												<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShTypedocKosiSet'}" >
 													<suggestionColumns>
 														<Column>
 															<Label text="Type"/>
@@ -51,7 +52,7 @@
 												<!--	suggestionItems="{path: '/ZtestShTypedocKosiSet', sorted: {path: 'Ztype'}}">-->
 												<!--	<SuggestionItem text="{Ztype}" description="{Zdesc}" key="{Ztype}"/>-->
 												<!--</SearchField>-->
-												<Label id="idClient" text="Номер клиента :" class="sapUiSmallMargin"/>
+												<Label id="idClient" text="Номер клиента" />
 												<MultiInput id="multiInput2" valueHelpRequest=".onValueHelpRequested2" suggestionRows="{ path: '/ZtestShClientKosiSet'}">
 													<suggestionColumns>
 														<Column>
@@ -76,10 +77,10 @@
 												<!--	suggestionItems="{path: '/ZtestShClientKosiSet', sorted: {path: 'Id'}}">-->
 												<!--	<SuggestionItem text="{Id}" description="{NameOrg}" key="{Id}"/>-->
 												<!--</SearchField>-->
-												<Label text="Нзавание организации :" class="sapUiSmallMargin"/>
-												<Input id="oNameOrg" enabled="false" valueLiveUpdate="true"/>
-												<Label text="Адрес клиента :" class="sapUiSmallMargin"/>
-												<Input id="oAdrClient" enabled="false" valueLiveUpdate="true"/>
+												<Label text="Нзавание организации" />
+												<Input id="oNameOrg" enabled="false" valueLiveUpdate="true" />
+												<Label text="Адрес клиента" />
+												<Input id="oAdrClient" enabled="false" valueLiveUpdate="true" />
 											</f:content>
 										</f:SimpleForm>
 									</VBox>

@@ -102,6 +102,23 @@
                 <Property Name="NameType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 знаков"/>
                 <Property Name="Quanstorage" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 знаков"/>
             </EntityType>
+            <EntityType Name="Ztestshstor" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Storege"/>
+                    <PropertyRef Name="NameType"/>
+                </Key>
+                <Property Name="Storege" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
+                <Property Name="NameType" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false"/>
+                <Property Name="Quanstorage" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/>
+            </EntityType>
+            <EntityType Name="Ztestshpos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false"/>
+                <Property Name="NameType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
+                <Property Name="Price" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false"/>
+            </EntityType>
             <EntityType Name="zdctypeDoc" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="ztype"/>
@@ -152,23 +169,6 @@
                 <Property Name="Zzorder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
                 <Property Name="Zzdesc" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:creatable="false" sap:updatable="false"/>
             </EntityType>
-            <EntityType Name="Ztestshstor" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Storege"/>
-                    <PropertyRef Name="Nametype"/>
-                </Key>
-                <Property Name="Storege" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-                <Property Name="Nametype" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-                <Property Name="Quanstorage" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-            </EntityType>
-            <EntityType Name="Ztestshpos" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Name"/>
-                </Key>
-                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-                <Property Name="Nametype" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-                <Property Name="Price" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false"/>
-            </EntityType>
             <EntityContainer Name="ZTEST_FIORI_KOSI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="SubscriptionCollection" EntityType="ZTEST_FIORI_KOSI_SRV.Subscription" sap:content-version="1"/>
                 <EntitySet Name="NotificationCollection" EntityType="ZTEST_FIORI_KOSI_SRV.Notification" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
@@ -179,6 +179,8 @@
                 <EntitySet Name="zParametrSaveSet" EntityType="ZTEST_FIORI_KOSI_SRV.zParametrSave" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="ztestposSet" EntityType="ZTEST_FIORI_KOSI_SRV.ztestpos" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="zteststorSet" EntityType="ZTEST_FIORI_KOSI_SRV.zteststor" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZtestshstorSet" EntityType="ZTEST_FIORI_KOSI_SRV.Ztestshstor" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="ZtestshposSet" EntityType="ZTEST_FIORI_KOSI_SRV.Ztestshpos" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="zdctypeDocSet" EntityType="ZTEST_FIORI_KOSI_SRV.zdctypeDoc" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="zUserDataSet" EntityType="ZTEST_FIORI_KOSI_SRV.zUserData" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="ZtestShTypedocKosiSet" EntityType="ZTEST_FIORI_KOSI_SRV.ZtestShTypedocKosi" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
@@ -186,8 +188,6 @@
                 <EntitySet Name="zSenderMailSet" EntityType="ZTEST_FIORI_KOSI_SRV.zSenderMail" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="zUserIncomingSet" EntityType="ZTEST_FIORI_KOSI_SRV.zUserIncoming" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
                 <EntitySet Name="ZtestShDocnumKosiSet" EntityType="ZTEST_FIORI_KOSI_SRV.ZtestShDocnumKosi" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
-                <EntitySet Name="ZtestshstorSet" EntityType="ZTEST_FIORI_KOSI_SRV.Ztestshstor" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
-                <EntitySet Name="ZtestshposSet" EntityType="ZTEST_FIORI_KOSI_SRV.Ztestshpos" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
             </EntityContainer>
             <atom:link
                 xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZTEST_FIORI_KOSI_SRV/$metadata"/>

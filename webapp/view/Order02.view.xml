@@ -5,32 +5,32 @@
 	<Shell>
 		<App>
 			<pages>
-				<m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack" class="sapUiSmallMargin">
+				<m:Page title="{i18n>titlePageOrder02}" showNavButton="true" navButtonPress="onBack">
 					<Panel class="sapUiResponsiveMargin" width="auto">
 						<content>
 							<l:VerticalLayout width="90%" class="gridWrapper">
-								<grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="1fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
+								<grid:CSSGrid id="grid1" gridAutoFlow="Column" gridTemplateColumns="4fr" gridTemplateRows="2rem" gridAutoRows="4.5rem" gridGap="1rem">
 									<VBox class="demoBox">
 										<layoutData>
 											<grid:GridItemLayoutData gridRow="1 / 8"/>
 										</layoutData>
 										<f:SimpleForm title="{i18n>titlePageTextHeader}">
 											<f:content>
-												<Label text="Дата :" class="sapUiSmallMargin"/>
+												<Label text="Дата" />
 												<Input value="{/date}" enabled="false"/>
-												<Label text="Пользователь :" class="sapUiSmallMargin"/>
+												<Label text="Пользователь" />
 												<Input value="{/user}" enabled="false"/>
-												<Label text="Номер документа :" class="sapUiSmallMargin"/>
+												<Label text="Номер документа " />
 												<Input value="{/number}" enabled="false"/>
-												<Label text="Описание документа :" class="sapUiSmallMargin"/>
+												<Label text="Описание документа " />
 												<Input value="{/desc}" enabled="false"/>
-												<Label text="Тип документа :" class="sapUiSmallMargin"/>
+												<Label text="Тип документа" />
 												<Input value="{/type}" enabled="false"/>
-												<Label text="Номер клиента :" class="sapUiSmallMargin"/>
+												<Label text="Номер клиента" />
 												<Input value="{/idOrg}" enabled="false"/>
-												<Label text="Нзавание организации :" class="sapUiSmallMargin"/>
+												<Label text="Нзавание организации" />
 												<Input value="{/nameOrg}" enabled="false"/>
-												<Label text="Адрес клиента :" class="sapUiSmallMargin"/>
+												<Label text="Адрес клиента " />
 												<Input value="{/adr}" enabled="false"/>
 											</f:content>
 										</f:SimpleForm>
@@ -55,9 +55,9 @@
 						<content>
 							<Text text="Степень согласования"/>
 							<f:SimpleForm title="" class="sapUiSmallMargin">
-								<Label text="Сторона 1 :" class="sapUiSmallMargin"/>
+								<Label text="Сторона 1" />
 								<Button id="agree1" text="{/user}" width="40%" type="Reject"/>
-								<Label text="Сторона 2 :" class="sapUiSmallMargin"/>
+								<Label text="Сторона 2"/>
 								<Button id="agree2" text="{/agree}" width="40%" type="Reject"/>
 							</f:SimpleForm>
 						</content>

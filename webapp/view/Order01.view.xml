@@ -3,16 +3,16 @@
 	<Shell>
 		<App>
 			<pages>
-				<Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack" class="sapUiSmallMargin">
-					<Panel class="sapUiResponsiveMargin" width="auto">
+				<Page title="{i18n>titlePageOrder01}" showNavButton="true" navButtonPress="onBack" >
+					<Panel>
 						<content>
 							<layout:VerticalLayout>
 								<Button text="{i18n>nameButtonExit}" press=".onExit" icon="sap-icon://undo"/>
 							</layout:VerticalLayout>
 							<f:SimpleForm title="{i18n>titlePageText}">
 								<f:content>
-									<Label text="{i18n>nameNumberDoc}" class="sapUiSmallMargin"/>
-									<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShDocnumKosiSet'}" width="60%">
+									<Label text="{i18n>nameNumberDoc}" />
+									<MultiInput id="multiInput" valueHelpRequest=".onValueHelpRequested" suggestionRows="{ path: '/ZtestShDocnumKosiSet'}" width="60%" >
 										<suggestionColumns>
 											<Column>
 												<Label text="Document"/>
