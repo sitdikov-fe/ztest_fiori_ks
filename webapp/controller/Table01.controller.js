@@ -562,7 +562,41 @@ sap.ui.define([
 
 		onValueHelpCancelPress4: function() {
 			this._oVHD4.close();
-		}
+		},
+
+		// _onChangeStor: function(number) {
+		// 	oIdClient = number;
+		// 	var readurl = "/zstclientSet('" + oIdClient + "')";
+		// 	oModel.read(readurl, {
+		// 		success: function(oData, oResponse) {
+		// 			this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
+		// 			this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
+		// 			isErrorResponse = 0;
+		// 		}.bind(this),
+		// 		error: function(err) {
+		// 			isErrorResponse = 1;
+		// 		}
+		// 	});
+
+		// },
+
+		// _onChangeId: function(number) {
+		// 	oIdClient = number;
+		// 	var readurl = "/zstclientSet('" + oIdClient + "')";
+		// 	oModel.read(readurl, {
+		// 		success: function(oData, oResponse) {
+		// 			this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
+		// 			this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
+		// 			isErrorResponse = 0;
+		// 		}.bind(this),
+		// 		error: function(err) {
+		// 			isErrorResponse = 1;
+		// 		}
+		// 	});
+
+		// }
+
+
 
 	});
 });
