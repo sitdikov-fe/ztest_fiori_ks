@@ -272,11 +272,10 @@ sap.ui.define([
 							path: "/ZtestshposSet",
 							events: {
 								dataReceived: function() {
-									oDialog.update();
+									oDialog3.update();
 								}
 							}
 						});
-
 						oTable3.addColumn(new UIColumn({
 							label: "Name",
 							template: "Name"
@@ -298,9 +297,9 @@ sap.ui.define([
 							path: "/ZtestshposSet",
 							template: new ColumnListItem({
 								cells: [new Label({
-									text: "{NameType}"
-								}),new Label({
 									text: "{Name}"
+								}), new Label({
+									text: "{NameType}"
 								}), new Label({
 									text: "{Price}"
 								})]
@@ -376,8 +375,7 @@ sap.ui.define([
 		onValueHelpOkPress3: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput3.setValue(aTokens[0].mProperties.key);
-			console.log(aTokens[0]).
-			this._onChangeName(aTokens[0].mProperties.key);
+			// this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD3.close();
 		},
 
@@ -555,48 +553,13 @@ sap.ui.define([
 		onValueHelpOkPress4: function(oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			this._oMultiInput4.setValue(aTokens[0].mProperties.key);
-			console.log(aTokens[0]);
-			this._onChangeStor(aTokens[0].mProperties.key);
+			this._onChangeId(aTokens[0].mProperties.key);
 			this._oVHD4.close();
 		},
 
 		onValueHelpCancelPress4: function() {
 			this._oVHD4.close();
-		},
-
-		// _onChangeStor: function(number) {
-		// 	oIdClient = number;
-		// 	var readurl = "/zstclientSet('" + oIdClient + "')";
-		// 	oModel.read(readurl, {
-		// 		success: function(oData, oResponse) {
-		// 			this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
-		// 			this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
-		// 			isErrorResponse = 0;
-		// 		}.bind(this),
-		// 		error: function(err) {
-		// 			isErrorResponse = 1;
-		// 		}
-		// 	});
-
-		// },
-
-		// _onChangeId: function(number) {
-		// 	oIdClient = number;
-		// 	var readurl = "/zstclientSet('" + oIdClient + "')";
-		// 	oModel.read(readurl, {
-		// 		success: function(oData, oResponse) {
-		// 			this.getView().byId("oNameOrg").setValue(oData.valueOf().NameOrg);
-		// 			this.getView().byId("oAdrClient").setValue(oData.valueOf().Address);
-		// 			isErrorResponse = 0;
-		// 		}.bind(this),
-		// 		error: function(err) {
-		// 			isErrorResponse = 1;
-		// 		}
-		// 	});
-
-		// }
-
-
+		}
 
 	});
 });
