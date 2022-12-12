@@ -399,8 +399,8 @@ sap.ui.define([
 
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
-				if(row.NameType == number){
-					row.Name = rows.Name;
+				if(row.Name == number){
+					row.NameType = rows.Name;
 					row.Price = rows.Price;
 				}
 			});
