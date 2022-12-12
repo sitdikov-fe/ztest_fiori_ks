@@ -52,7 +52,7 @@
     "name": "ZBSP_UITESTKOSI"
   },
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV",
+    "mockUri": "/sap/opu/odata/sap/ZTEST_FIORI_KOSI_SRV/",
     "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
