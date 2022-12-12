@@ -410,7 +410,7 @@ sap.ui.define([
 		onValueHelpOkPress3: function (oEvent) {
 			var aTokens = oEvent.getParameter("tokens");
 			var str = aTokens[0].mProperties.key;
-			str = str.replace(/\s/g, '');
+			// str = str.replace(/\s/g, '');
 			var rowdata = window.temp.getView().getModel("sOrder1").getData();
 			rowdata.Sales.forEach(row => {
 				if(row.Id == sh3row){
